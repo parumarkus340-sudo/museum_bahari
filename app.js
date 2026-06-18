@@ -1,6 +1,7 @@
 // ==========================================
 // KONFIGURASI FIREBASE
 // ==========================================
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCzzUqEgP_xSFO1Kht1PPPSuF7v2k0r8DI",
   authDomain: "museumbahari-10de3.firebaseapp.com",

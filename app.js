@@ -13,109 +13,29 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
-
+const chatRef = db.ref('chat_messages');
 
 // ============ DATA KOLEKSI ============
 const koleksiData = {
     bifalfia: [
-        {
-            id: 1,
-            nama: "Bifalfia Raksasa",
-            kategori: "Bifalfia",
-            asal: "Pantai Selatan Nggela",
-            periode: "Miosen (23-5 juta tahun lalu)",
-            deskripsi: "Fosil kerang bifalfia berukuran besar dengan ciri khas dua katup simetris. Ditemukan di formasi batuan kapur yang menyimpan kekayaan paleontologi luar biasa dari era Miosen.",
-            ciri: "Dua katup sejajar, permukaan bergaris radial dengan detail yang masih terlihat jelas",
-            nilaiEdukasi: "Bifalfia termasuk kelas Bivalvia. Siswa dapat mengamati simetri bilateral pada fosil ini dan mempelajari evolusi moluska laut dangkal.",
-            icon: "🐚"
-        },
-        {
-            id: 2,
-            nama: "Bifalfia Tridacna",
-            kategori: "Bifalfia",
-            asal: "Perairan Ende",
-            periode: "Pliosen (5-2.5 juta tahun lalu)",
-            deskripsi: "Kerang raksasa purba, nenek moyang kima raksasa yang masih hidup hingga kini. Spesimen ini menunjukkan bagaimana kehidupan laut dalam telah beradaptasi selama jutaan tahun.",
-            ciri: "Katup tebal dengan lekukan seperti huruf V yang khas",
-            nilaiEdukasi: "Bandingkan dengan kima modern! Fosil ini menunjukkan evolusi moluska laut dangkal dan adaptasi terhadap lingkungan tropis.",
-            icon: "🐚"
-        }
+        { id: 1, nama: "Bifalfia Raksasa", kategori: "Bifalfia", asal: "Pantai Selatan Nggela", periode: "Miosen (23-5 juta tahun lalu)", deskripsi: "Fosil kerang bifalfia berukuran besar dengan ciri khas dua katup simetris. Ditemukan di formasi batuan kapur yang menyimpan kekayaan paleontologi luar biasa dari era Miosen.", ciri: "Dua katup sejajar, permukaan bergaris radial dengan detail yang masih terlihat jelas", nilaiEdukasi: "Bifalfia termasuk kelas Bivalvia. Siswa dapat mengamati simetri bilateral pada fosil ini dan mempelajari evolusi moluska laut dangkal.", icon: "🐚" },
+        { id: 2, nama: "Bifalfia Tridacna", kategori: "Bifalfia", asal: "Perairan Ende", periode: "Pliosen (5-2.5 juta tahun lalu)", deskripsi: "Kerang raksasa purba, nenek moyang kima raksasa yang masih hidup hingga kini.", ciri: "Katup tebal dengan lekukan seperti huruf V yang khas", nilaiEdukasi: "Bandingkan dengan kima modern! Fosil ini menunjukkan evolusi moluska laut dangkal dan adaptasi terhadap lingkungan tropis.", icon: "🐚" }
     ],
     gastropoda: [
-        {
-            id: 3,
-            nama: "Gastropoda Turritella",
-            kategori: "Gastropoda",
-            asal: "Formasi Citalang, Barai",
-            periode: "Miosen Awal",
-            deskripsi: "Fosil siput dengan cangkang memanjang seperti menara. Sangat melimpah di batuan lempung dan menjadi indikator penting lingkungan laut purba.",
-            ciri: "Cangkang panjang berputar spiral, 10-12 lilitan dengan detail yang terjaga",
-            nilaiEdukasi: "Contoh sempurna untuk mempelajari adaptasi moluska terhadap arus laut dan perubahan lingkungan geologi.",
-            icon: "🐌"
-        },
-        {
-            id: 4,
-            nama: "Gastropoda Natica",
-            kategori: "Gastropoda",
-            asal: "Pulau Mbu'u",
-            periode: "Plistosen",
-            deskripsi: "Siput pemangsa kerang lain. Fosil ini menunjukkan lubang bor pada cangkang mangsanya, bukti langka perilaku predator di masa purba.",
-            ciri: "Cangkang bulat, umbilicus lebar dengan permukaan halus",
-            nilaiEdukasi: "Belajar tentang rantai makanan di laut purba melalui jejak predasi yang terawetkan sempurna.",
-            icon: "🐌"
-        }
+        { id: 3, nama: "Gastropoda Turritella", kategori: "Gastropoda", asal: "Formasi Citalang, Barai", periode: "Miosen Awal", deskripsi: "Fosil siput dengan cangkang memanjang seperti menara. Sangat melimpah di batuan lempung.", ciri: "Cangkang panjang berputar spiral, 10-12 lilitan", nilaiEdukasi: "Contoh sempurna untuk mempelajari adaptasi moluska terhadap arus laut.", icon: "🐌" },
+        { id: 4, nama: "Gastropoda Natica", kategori: "Gastropoda", asal: "Pulau Mbu'u", periode: "Plistosen", deskripsi: "Siput pemangsa kerang lain dengan lubang bor pada cangkang mangsanya.", ciri: "Cangkang bulat, umbilicus lebar", nilaiEdukasi: "Belajar tentang rantai makanan di laut purba melalui jejak predasi.", icon: "🐌" }
     ],
     sepalopoda: [
-        {
-            id: 5,
-            nama: "Sepalopoda Nautilus",
-            kategori: "Sepalopoda",
-            asal: "Perairan Sulawesi Utara",
-            periode: "Resen hingga Miosen",
-            deskripsi: "Nenek moyang cumi-cumi modern dengan cangkang luar yang indah. Nautilus adalah fosil hidup yang masih ada hingga hari ini.",
-            ciri: "Cangkang berbilik dengan ruang udara yang kompleks",
-            nilaiEdukasi: "Nautilus adalah 'fosil hidup'! Struktur biliknya menginspirasi desain kapal selam modern.",
-            icon: "🦑"
-        },
-        {
-            id: 6,
-            nama: "Ammonit Sepalopoda",
-            kategori: "Sepalopoda",
-            asal: "Papua",
-            periode: "Kapur Akhir (100-66 juta tahun lalu)",
-            deskripsi: "Fosil ammonit dengan garis sutra yang rumit. Pemandu fosil untuk menentukan umur batuan dan memahami kepunahan massal.",
-            ciri: "Cangkang melingkar penuh dengan garis sekat berkerut yang indah",
-            nilaiEdukasi: "Ammonit adalah indeks fosil global. Siswa bisa belajar tentang kepunahan massal dan perubahan iklim purba.",
-            icon: "🦑"
-        }
+        { id: 5, nama: "Sepalopoda Nautilus", kategori: "Sepalopoda", asal: "Perairan Sulawesi Utara", periode: "Resen hingga Miosen", deskripsi: "Nenek moyang cumi-cumi modern dengan cangkang luar yang indah.", ciri: "Cangkang berbilik dengan ruang udara", nilaiEdukasi: "Nautilus adalah 'fosil hidup'! Struktur biliknya menginspirasi kapal selam.", icon: "🦑" },
+        { id: 6, nama: "Ammonit Sepalopoda", kategori: "Sepalopoda", asal: "Papua", periode: "Kapur Akhir (100-66 juta tahun lalu)", deskripsi: "Fosil ammonit dengan garis sutra yang rumit.", ciri: "Cangkang melingkar dengan garis sekat berkerut", nilaiEdukasi: "Ammonit adalah indeks fosil global untuk menentukan umur batuan.", icon: "🦑" }
     ],
     astropoda: [
-        {
-            id: 7,
-            nama: "Astropoda Ophiura",
-            kategori: "Astropoda",
-            asal: "Bukit Kapur, Sulawesi Tenggara",
-            periode: "Miosen Tengah",
-            deskripsi: "Fosil bintang ular laut dengan lengan panjang dan ramping. Menunjukkan keragaman echinodermata di perairan Nusantara purba.",
-            ciri: "Lima lengan seperti cambuk, tubuh pusat kecil dengan struktur yang kompleks",
-            nilaiEdukasi: "Contoh echinodermata yang masih ada kerabatnya di laut Indonesia saat ini.",
-            icon: "⭐"
-        },
-        {
-            id: 8,
-            nama: "Astropoda Cidaris",
-            kategori: "Astropoda",
-            asal: "Nusa Tenggara Timur",
-            periode: "Plistosen Awal",
-            deskripsi: "Fosil bulu babi dengan duri besar dan tebal. Spesimen ini memberikan wawasan tentang ekosistem laut dangkal di masa lalu.",
-            ciri: "Tubuh bulat dengan duri panjang yang terawetkan dengan baik",
-            nilaiEdukasi: "Mempelajari simetri radial pada hewan laut purba dan evolusi echinodermata.",
-            icon: "⭐"
-        }
+        { id: 7, nama: "Astropoda Ophiura", kategori: "Astropoda", asal: "Bukit Kapur, Sulawesi Tenggara", periode: "Miosen Tengah", deskripsi: "Fosil bintang ular laut dengan lengan panjang dan ramping.", ciri: "Lima lengan seperti cambuk", nilaiEdukasi: "Contoh echinodermata yang masih ada kerabatnya di laut Indonesia.", icon: "⭐" },
+        { id: 8, nama: "Astropoda Cidaris", kategori: "Astropoda", asal: "Nusa Tenggara Timur", periode: "Plistosen Awal", deskripsi: "Fosil bulu babi dengan duri besar dan tebal.", ciri: "Tubuh bulat dengan duri panjang", nilaiEdukasi: "Mempelajari simetri radial pada hewan laut purba.", icon: "⭐" }
     ]
 };
 
-// ============ DATA PROFIL (dengan foto) ============
+// ============ DATA PROFIL (FOTO SUDAH DISESUAIKAN) ============
 const profilData = {
     paterGabriel: {
         nama: "Alm. Pater Gabriel Goran, SVD",
@@ -197,6 +117,50 @@ const profilData = {
     }
 };
 
+// ============ DATA GALERI ============
+const galeriData = {
+    semua: [
+        { id: 1, kategori: "ekspedisi", judul: "Ekspedisi Pantai Selatan Nggela", tanggal: "15 Maret 2026", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" },
+        { id: 2, kategori: "edukasi", judul: "Workshop Fosil untuk Siswa SMA", tanggal: "20 Maret 2026", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800" },
+        { id: 3, kategori: "penelitian", judul: "Penelitian Formasi Batuan Kapur", tanggal: "5 April 2026", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" },
+        { id: 4, kategori: "ekspedisi", judul: "Penemuan Fosil Bifalfia Baru", tanggal: "12 April 2026", img: "https://images.unsplash.com/photo-1518182170546-0766bc6dd02d?w=800" },
+        { id: 5, kategori: "edukasi", judul: "Kunjungan Sekolah SMP Ende", tanggal: "25 April 2026", img: "https://images.unsplash.com/photo-1427504740703-45b2d9f9009b?w=800" },
+        { id: 6, kategori: "pelestarian", judul: "Konservasi Fosil Kerang Purba", tanggal: "3 Mei 2026", img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800" },
+        { id: 7, kategori: "ekspedisi", judul: "Survei Lokasi Bukit Kapur", tanggal: "18 Mei 2026", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800" },
+        { id: 8, kategori: "edukasi", judul: "Seminar Paleontologi NTT", tanggal: "10 Juni 2026", img: "https://images.unsplash.com/photo-1544531585-9847b68c8c86?w=800" },
+        { id: 9, kategori: "penelitian", judul: "Analisis Laboratorium Fosil", tanggal: "15 Mei 2026", img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800" },
+        { id: 10, kategori: "pelestarian", judul: "Restorasi Artefak Bahari", tanggal: "22 Mei 2026", img: "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800" }
+    ],
+    ekspedisi: [
+        { id: 1, kategori: "ekspedisi", judul: "Ekspedisi Pantai Selatan Nggela", tanggal: "15 Maret 2026", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" },
+        { id: 4, kategori: "ekspedisi", judul: "Penemuan Fosil Bifalfia Baru", tanggal: "12 April 2026", img: "https://images.unsplash.com/photo-1518182170546-0766bc6dd02d?w=800" },
+        { id: 7, kategori: "ekspedisi", judul: "Survei Lokasi Bukit Kapur", tanggal: "18 Mei 2026", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800" }
+    ],
+    edukasi: [
+        { id: 2, kategori: "edukasi", judul: "Workshop Fosil untuk Siswa SMA", tanggal: "20 Maret 2026", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800" },
+        { id: 5, kategori: "edukasi", judul: "Kunjungan Sekolah SMP Ende", tanggal: "25 April 2026", img: "https://images.unsplash.com/photo-1427504740703-45b2d9f9009b?w=800" },
+        { id: 8, kategori: "edukasi", judul: "Seminar Paleontologi NTT", tanggal: "10 Juni 2026", img: "https://images.unsplash.com/photo-1544531585-9847b68c8c86?w=800" }
+    ],
+    penelitian: [
+        { id: 3, kategori: "penelitian", judul: "Penelitian Formasi Batuan Kapur", tanggal: "5 April 2026", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" },
+        { id: 9, kategori: "penelitian", judul: "Analisis Laboratorium Fosil", tanggal: "15 Mei 2026", img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800" }
+    ],
+    pelestarian: [
+        { id: 6, kategori: "pelestarian", judul: "Konservasi Fosil Kerang Purba", tanggal: "3 Mei 2026", img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800" },
+        { id: 10, kategori: "pelestarian", judul: "Restorasi Artefak Bahari", tanggal: "22 Mei 2026", img: "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800" }
+    ]
+};
+
+// ============ DATA VIDEO YOUTUBE ============
+const videoData = [
+    { id: 1, judul: "Profil Museum Bahari Ngera Shells", deskripsi: "Mengenal lebih dekat Museum Bahari Ende, sejarah berdirinya, dan koleksi fosil langka yang menjadi warisan Nusantara.", youtubeId: "dQw4w9WgXcQ", kategori: "Profil", tanggal: "15 Juni 2026", durasi: "10:45" },
+    { id: 2, judul: "Ekspedisi Pencarian Fosil di Ende", deskripsi: "Dokumentasi perjalanan tim Museum Bahari dalam mencari dan mengumpulkan fosil di berbagai lokasi di Kabupaten Ende.", youtubeId: "dQw4w9WgXcQ", kategori: "Ekspedisi", tanggal: "20 April 2026", durasi: "15:30" },
+    { id: 3, judul: "Workshop Edukasi Fosil untuk Siswa", deskripsi: "Kegiatan pembelajaran tentang fosil dan paleontologi untuk siswa-siswi SMA di Kabupaten Ende.", youtubeId: "dQw4w9WgXcQ", kategori: "Edukasi", tanggal: "5 Mei 2026", durasi: "12:20" },
+    { id: 4, judul: "Proses Konservasi Fosil Kerang Purba", deskripsi: "Cara merawat, membersihkan, dan melestarikan fosil kerang purba untuk generasi mendatang.", youtubeId: "dQw4w9WgXcQ", kategori: "Pelestarian", tanggal: "12 Mei 2026", durasi: "08:15" },
+    { id: 5, judul: "Sejarah Pater Gabriel Goran SVD", deskripsi: "Kisah inspiratif Alm. Pater Gabriel Goran, SVD sebagai pendiri Museum Bahari Ende pada tahun 1996.", youtubeId: "dQw4w9WgXcQ", kategori: "Sejarah", tanggal: "1 Juni 2026", durasi: "18:50" },
+    { id: 6, judul: "Mengenal Bifalfia - Kerang Purba", deskripsi: "Penjelasan lengkap tentang fosil Bifalfia, jenis kerang purba dengan dua katup simetris yang menjadi koleksi unggulan.", youtubeId: "dQw4w9WgXcQ", kategori: "Edukasi", tanggal: "8 Juni 2026", durasi: "09:30" }
+];
+
 // ============ NARASI KONTEN ============
 const narasi = {
     profil: {
@@ -207,18 +171,17 @@ const narasi = {
                 <span class="section-label">Profil Museum</span>
                 <h2 class="section-title">Mengenal Lebih Dekat <span class="accent">Ngera Shells</span></h2>
                 <p class="section-desc">
-                <strong>"Ngera Shells"</strong> diambil dari nama <strong>Ngera</strong>, seorang leluhur dalam tradisi masyarakat Lio yang dihormati dan diyakini memiliki kekuatan supranatural. Secara etimologis, <strong>Ngera</strong> berasal dari ungkapan <strong>Nge Leka Ra</strong>, yang berarti <strong>"berasal dari darah yang sama"</strong>, melambangkan persaudaraan, kebersamaan, dan ikatan kekerabatan dalam satu garis keturunan. Filosofi ini menjadi landasan <strong>Museum Bahari Ende</strong> sebagai ruang bersama untuk belajar, melestarikan, dan mewariskan pengetahuan tentang biota laut, sejarah maritim, serta budaya pesisir kepada generasi masa kini dan masa depan.
+                <strong>"Ngera Shells"</strong> diambil dari nama <strong>Ngera</strong>, seorang leluhur dalam tradisi masyarakat Lio yang dihormati dan diyakini memiliki kekuatan supranatural. Secara etimologis, <strong>Ngera</strong> berasal dari ungkapan <strong>Nge Leka Ra</strong>, yang berarti <strong>"berasal dari darah yang sama"</strong>, melambangkan persaudaraan, kebersamaan, dan ikatan kekerabatan dalam satu garis keturunan.
                 </p>
             </div>
 
-            <!-- Profil Pendiri -->
             <div class="profil-card reveal">
                 <div class="profil-card-inner">
                     <div class="profil-photo">
-                        <img src="${profilData.paterGabriel.foto}" alt="${profilData.paterGabriel.nama}" onerror="this.src='https://via.placeholder.com/300x300/006994/ffffff?text=Pater+Gabriel'">
-                        <div class="profil-badge">
-                            <i class="fas fa-crown"></i> Pendiri
+                        <div class="profil-photo-wrapper">
+                            <img src="${profilData.paterGabriel.foto}" alt="${profilData.paterGabriel.nama}" onerror="this.src='https://via.placeholder.com/300x300/006994/ffffff?text=Pater+Gabriel'">
                         </div>
+                        <div class="profil-badge"><i class="fas fa-crown"></i> Pendiri</div>
                     </div>
                     <div class="profil-info">
                         <h3>${profilData.paterGabriel.nama}</h3>
@@ -226,22 +189,20 @@ const narasi = {
                         <div class="profil-meta">
                             <span><i class="fas fa-birthday-cake"></i> ${profilData.paterGabriel.tanggalLahir}</span>
                             <span><i class="fas fa-map-marker-alt"></i> ${profilData.paterGabriel.lahir}</span>
+                            <span><i class="fas fa-cross"></i> Wafat ${profilData.paterGabriel.wafat}</span>
                         </div>
-                        <div class="profil-biodata">
-                            ${profilData.paterGabriel.biodata}
-                        </div>
+                        <div class="profil-biodata">${profilData.paterGabriel.biodata}</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Profil Pengelola -->
             <div class="profil-card reveal profil-card-reverse">
                 <div class="profil-card-inner">
                     <div class="profil-photo">
-                        <img src="${profilData.kalianus.foto}" alt="${profilData.kalianus.nama}" onerror="this.src='https://via.placeholder.com/300x300/006994/ffffff?text=Kalianus'">
-                        <div class="profil-badge">
-                            <i class="fas fa-user-tie"></i> Pengelola
+                        <div class="profil-photo-wrapper">
+                            <img src="${profilData.kalianus.foto}" alt="${profilData.kalianus.nama}" onerror="this.src='https://via.placeholder.com/300x300/006994/ffffff?text=Kalianus'">
                         </div>
+                        <div class="profil-badge"><i class="fas fa-user-tie"></i> Pengelola</div>
                     </div>
                     <div class="profil-info">
                         <h3>${profilData.kalianus.nama}</h3>
@@ -250,14 +211,11 @@ const narasi = {
                             <span><i class="fas fa-birthday-cake"></i> ${profilData.kalianus.tanggalLahir}</span>
                             <span><i class="fas fa-map-marker-alt"></i> ${profilData.kalianus.lahir}</span>
                         </div>
-                        <div class="profil-biodata">
-                            ${profilData.kalianus.biodata}
-                        </div>
+                        <div class="profil-biodata">${profilData.kalianus.biodata}</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Visi & Misi -->
             <div class="quote-section" style="margin-top: 4rem; border-radius: 20px;">
                 <div class="quote-content">
                     <p class="quote-text">"Museum Bahari Ende 'Ngera Shells' adalah museum virtual yang melestarikan warisan fosil dan kehidupan laut Nusantara untuk generasi mendatang."</p>
@@ -267,213 +225,72 @@ const narasi = {
         `
     },
     sejarah: {
-        judul: "Perjalanan Kami",
-        subjudul: "Dari koleksi pribadi menjadi rumah bersama",
         konten: `
             <div class="section-header reveal">
                 <span class="section-label">Sejarah</span>
                 <h2 class="section-title">Perjalanan <span class="accent">Ngera Shells</span></h2>
-                <p class="section-desc">Dari sebuah koleksi pribadi yang tumbuh menjadi museum virtual untuk seluruh Nusantara.</p>
+                <p class="section-desc">Dari museum fisik yang dibongkar hingga lahirnya museum virtual untuk seluruh Nusantara.</p>
             </div>
-            
             <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1996</div>
-                        <h4>Berdirinya Museum Bahari</h4>
-                        <p>Museum Bahari Ende dibangun dan diresmikan oleh Bupati Ende, Bapak Frans Gedowolo, pada tanggal 14 Agustus 1996. Museum terletak di kawasan Taman Renungan Bung Karno dan terbuka untuk umum.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2010</div>
-                        <h4>Penerus Estafet Perjuangan</h4>
-                        <p>Kalianus Nusa Nipa dipanggil kembali oleh Alm. Pater Gabriel Goran, SVD yang sedang menderita stroke, untuk melanjutkan usaha Museum Bahari yang telah dirintis sejak 1996.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2012</div>
-                        <h4>Surat Mandat Bersejarah</h4>
-                        <p>Pada tanggal 11 November 2012, Pater Gabriel Goran menyerahkan Surat Kuasa kepada Kalianus Nusa Nipa untuk melanjutkan segala usaha yang telah dirintisnya.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2013</div>
-                        <h4>Museum Dibongkar</h4>
-                        <p>Pada bulan Januari 2013, Museum Bahari Ende dibongkar oleh Yayasan Ende Flores dalam rangka revitalisasi Taman Renungan Bung Karno. Koleksi diselamatkan dan diamankan di asrama milik Biara St. Yoseph.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2016</div>
-                        <h4>Pengakuan Resmi</h4>
-                        <p>Kalianus Nusa Nipa mendapat SK Bupati Ende sebagai Pengelola Museum Bahari pada Dinas Pariwisata Kabupaten Ende.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2026</div>
-                        <h4>Lahirnya Museum Virtual</h4>
-                        <p>Pada tanggal 15 Juni 2026, dimulailah perancangan Museum Bahari secara daring "Ngera Shells" bersama Bapak Markus Paru, sebagai solusi atas keterbatasan lahan dan biaya untuk membangun museum fisik.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="quote-section" style="margin-top: 4rem; border-radius: 20px;">
-                <div class="quote-content">
-                    <p class="quote-text">"Ngera Shells berasal dari bahasa Mbojo (Bima) yang berarti 'tempat kita' atau 'rumah kita'. Nama ini melambangkan bahwa museum ini bukan milik perorangan, tetapi milik seluruh masyarakat Nusantara."</p>
-                    <p class="quote-author">— Tokoh Adat Bima</p>
-                </div>
+                <div class="timeline-item reveal"><div class="timeline-content"><div class="timeline-year">1996</div><h4>Berdirinya Museum Bahari</h4><p>Diresmikan oleh Bupati Ende, Bapak Frans Gedowolo, pada 14 Agustus 1996 di Taman Renungan Bung Karno.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-content"><div class="timeline-year">2010</div><h4>Penerus Estafet</h4><p>Kalianus Nusa Nipa dipanggil kembali oleh Pater Gabriel untuk melanjutkan usaha Museum Bahari.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-content"><div class="timeline-year">2012</div><h4>Surat Mandat Bersejarah</h4><p>11 November 2012, Pater Gabriel menyerahkan Surat Kuasa kepada Kalianus Nusa Nipa.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-content"><div class="timeline-year">2013</div><h4>Museum Dibongkar</h4><p>Januari 2013, Museum Bahari dibongkar oleh Yayasan Ende Flores. Koleksi diselamatkan di asrama Biara St. Yoseph.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-content"><div class="timeline-year">2016</div><h4>Pengakuan Resmi</h4><p>SK Bupati Ende sebagai Pengelola Museum Bahari pada Dinas Pariwisata.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-content"><div class="timeline-year">2026</div><h4>Lahirnya Museum Virtual</h4><p>15 Juni 2026, perancangan Museum Bahari daring "Ngera Shells" dimulai bersama Bapak Markus Paru.</p></div></div>
             </div>
         `
     },
     tujuan: {
-        judul: "Misi Kami",
-        subjudul: "Tiga pilar utama yang menjadi pedoman",
         konten: `
             <div class="section-header reveal">
                 <span class="section-label">Tujuan</span>
                 <h2 class="section-title">Tiga Pilar <span class="accent">Ngera Shells</span></h2>
-                <p class="section-desc">Museum ini didirikan dengan tiga pilar utama yang menjadi pedoman seluruh aktivitas kami.</p>
             </div>
-            
             <div class="goals-grid">
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Edukasi Siswa</h3>
-                    <p>Menyediakan materi pembelajaran biologi dan geologi yang aplikatif. Setiap koleksi dilengkapi dengan nilai edukasi yang dapat digunakan guru dalam kegiatan belajar mengajar di kelas.</p>
-                </div>
-                
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <h3>Promosi Koleksi</h3>
-                    <p>Mempromosikan pentingnya koleksi pribadi yang legal dan terdokumentasi sebagai aset ilmu pengetahuan. Kolektor swasta dapat belajar cara memamerkan koleksi secara bertanggung jawab.</p>
-                </div>
-                
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <i class="fas fa-globe-asia"></i>
-                    </div>
-                    <h3>Pelestarian Budaya</h3>
-                    <p>Melestarikan pengetahuan lokal tentang fosil dan geologi Nusantara. Museum ini menjadi jembatan antara ilmuwan, masyarakat lokal, dan generasi muda.</p>
-                </div>
-            </div>
-            
-            <div class="quote-section" style="margin-top: 4rem; border-radius: 20px;">
-                <div class="quote-content">
-                    <p class="quote-text">"Target capaian 2026: 10.000 siswa mengakses museum, 50 koleksi fosil terdokumentasi, dan 5 sekolah menjadikan museum sebagai mitra pembelajaran."</p>
-                    <p class="quote-author">— Visi Museum Ngera Shells</p>
-                </div>
+                <div class="goal-card reveal"><div class="goal-icon"><i class="fas fa-graduation-cap"></i></div><h3>Edukasi Siswa</h3><p>Menyediakan materi pembelajaran biologi dan geologi yang aplikatif untuk guru dan siswa.</p></div>
+                <div class="goal-card reveal"><div class="goal-icon"><i class="fas fa-landmark"></i></div><h3>Promosi Koleksi</h3><p>Mempromosikan pentingnya koleksi pribadi yang legal dan terdokumentasi.</p></div>
+                <div class="goal-card reveal"><div class="goal-icon"><i class="fas fa-globe-asia"></i></div><h3>Pelestarian Budaya</h3><p>Melestarikan pengetahuan lokal tentang fosil dan geologi Nusantara.</p></div>
             </div>
         `
     },
     donasi: {
-        judul: "Dukung Kami",
-        subjudul: "Bersama melestarikan warisan Nusantara",
         konten: `
             <div class="section-header reveal">
                 <span class="section-label">Donasi</span>
                 <h2 class="section-title">Dukung <span class="accent">Ngera Shells</span></h2>
-                <p class="section-desc">Museum ini dikelola secara mandiri oleh kolektor dan pegiat budaya. Dukungan Anda sangat berarti untuk keberlangsungan pelestarian warisan bumi Nusantara.</p>
+                <p class="section-desc">Dukungan Anda sangat berarti untuk mewujudkan Museum Fisik kembali di Kabupaten Ende.</p>
             </div>
-            
             <div class="donate-container">
                 <div class="donate-info reveal">
                     <h3>Mengapa Donasi Anda Penting?</h3>
-                    <p>Setiap kontribusi membantu kami melanjutkan misi pelestarian dan edukasi untuk generasi mendatang.</p>
-                    
                     <ul class="donate-list">
-                        <li>
-                            <i class="fas fa-camera"></i>
-                            <div>
-                                <strong>Digitalisasi Koleksi</strong>
-                                <p style="opacity:0.8; font-size:0.88rem; margin-top:0.3rem;">Memotret dan mendokumentasikan lebih banyak spesimen fosil</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-video"></i>
-                            <div>
-                                <strong>Video Edukasi 3D</strong>
-                                <p style="opacity:0.8; font-size:0.88rem; margin-top:0.3rem;">Produksi konten visual interaktif untuk pembelajaran</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-book"></i>
-                            <div>
-                                <strong>Modul Pembelajaran</strong>
-                                <p style="opacity:0.8; font-size:0.88rem; margin-top:0.3rem;">Pembuatan materi ajar untuk guru dan siswa</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-flask"></i>
-                            <div>
-                                <strong>Penelitian Fosil</strong>
-                                <p style="opacity:0.8; font-size:0.88rem; margin-top:0.3rem;">Identifikasi dan penelitian spesimen baru</p>
-                            </div>
-                        </li>
+                        <li><i class="fas fa-camera"></i><div><strong>Digitalisasi Koleksi</strong></div></li>
+                        <li><i class="fas fa-video"></i><div><strong>Video Edukasi 3D</strong></div></li>
+                        <li><i class="fas fa-book"></i><div><strong>Modul Pembelajaran</strong></div></li>
+                        <li><i class="fas fa-building"></i><div><strong>Pembangunan Museum Fisik</strong></div></li>
                     </ul>
-                    
-                    <p style="font-size:0.85rem; opacity:0.7; margin-top:2rem;">
-                        <i class="fas fa-shield-alt"></i> Setiap donasi akan dilaporkan transparan di website ini.
-                    </p>
                 </div>
-                
                 <div class="donate-form reveal">
                     <h3>Salurkan Donasi</h3>
-                    <p>Pilih metode pembayaran yang paling nyaman untuk Anda</p>
-                    
                     <div class="payment-method">
                         <div class="payment-header">
-                            <div class="payment-icon">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <div>
-                                <h4>Transfer Bank BNI</h4>
-                                <small>a.n. Kalianus Nusa Nipa</small>
-                            </div>
+                            <div class="payment-icon"><i class="fas fa-university"></i></div>
+                            <div><h4>Transfer Bank BNI</h4><small>a.n. Kalianus Nusa Nipa</small></div>
                         </div>
                         <div class="account-number">
                             <span>1234-5678-9012</span>
-                            <button class="copy-btn" onclick="copyToClipboard('123456789012', this)">
-                                <i class="fas fa-copy"></i> Salin
-                            </button>
+                            <button class="copy-btn" onclick="copyToClipboard('123456789012', this)"><i class="fas fa-copy"></i> Salin</button>
                         </div>
                     </div>
-                    
                     <div class="payment-method">
                         <div class="payment-header">
-                            <div class="payment-icon">
-                                <i class="fas fa-qrcode"></i>
-                            </div>
-                            <div>
-                                <h4>QRIS</h4>
-                                <small>Scan dengan aplikasi e-wallet</small>
-                            </div>
+                            <div class="payment-icon"><i class="fas fa-qrcode"></i></div>
+                            <div><h4>QRIS</h4><small>Scan dengan e-wallet</small></div>
                         </div>
                         <div class="qris-box">
-                            <div class="qris-placeholder">
-                                <i class="fas fa-qrcode"></i>
-                            </div>
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Scan QR Code di atas</p>
+                            <div class="qris-placeholder"><i class="fas fa-qrcode"></i></div>
                         </div>
-                    </div>
-                    
-                    <div style="background:var(--warm-white); padding:1.2rem; border-radius:12px; margin-top:1rem; text-align:center; border:1px solid var(--border);">
-                        <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">
-                            <i class="fas fa-heart" style="color:var(--accent-dark);"></i>
-                            Terima kasih atas dukungan Anda untuk pelestarian warisan bumi Nusantara!
-                        </p>
                     </div>
                 </div>
             </div>
@@ -484,6 +301,15 @@ const narasi = {
 // ============ STATE MANAGEMENT ============
 let currentPage = "home";
 let currentSubmenu = null;
+let currentGaleriKategori = "semua";
+let currentLightboxIndex = 0;
+let currentLightboxItems = [];
+
+// Chat state
+let chatListener = null;
+let chatUserName = localStorage.getItem('chatUserName') || '';
+let unreadMessages = 0;
+let isChatOpen = false;
 
 const mainContainer = document.getElementById("mainContainer");
 const modal = document.getElementById("modal");
@@ -493,6 +319,24 @@ const navbar = document.getElementById("navbar");
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
 const backToTop = document.getElementById("backToTop");
+const lightbox = document.getElementById("lightbox");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxCaption = document.getElementById("lightboxCaption");
+
+// Chat elements
+const chatFab = document.getElementById("chatFab");
+const chatWindow = document.getElementById("chatWindow");
+const chatMessages = document.getElementById("chatMessages");
+const chatInput = document.getElementById("chatInput");
+const chatName = document.getElementById("chatName");
+const chatSend = document.getElementById("chatSend");
+const chatCloseBtn = document.getElementById("chatCloseBtn");
+const chatBadge = document.getElementById("chatBadge");
+
+if (chatUserName) chatName.value = chatUserName;
 
 // ============ RENDER FUNCTIONS ============
 function render() {
@@ -503,18 +347,18 @@ function render() {
     else if (currentPage === "sejarah") renderSejarah();
     else if (currentPage === "tujuan") renderTujuan();
     else if (currentPage === "donasi") renderDonasi();
+    else if (currentPage === "galeri") renderGaleri();
+    else if (currentPage === "youtube") renderYoutube();
+    else if (currentPage === "chat") renderChat();
     else if (currentPage === "koleksi" && currentSubmenu) renderKoleksiSubmenu(currentSubmenu);
     
     updateActiveNav();
     initRevealAnimations();
-    
-    // Close mobile menu
     navMenu.classList.remove('active');
 }
 
 function renderHome() {
     mainContainer.innerHTML = `
-        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-badge">
@@ -523,13 +367,13 @@ function renderHome() {
                 </div>
                 <h1>Selamat Datang di <span class="accent">Ngera Shells</span></h1>
                 <p class="hero-subtitle">Museum Bahari Ende — "Rumah Kita"</p>
-                <p class="hero-desc">Melestarikan warisan fosil dan kehidupan laut Nusantara. Mengumpulkan, mendokumentasikan, dan menarasikan kekayaan paleontologi untuk tujuan edukasi, perlindungan, dan pelestarian alam kepada masyarakat luas, khususnya pelajar dan mahasiswa.</p>
+                <p class="hero-desc">Melestarikan warisan fosil dan kehidupan laut Nusantara. Mengumpulkan, mendokumentasikan, dan menarasikan kekayaan paleontologi untuk tujuan edukasi, perlindungan, dan pelestarian alam.</p>
                 <div class="hero-buttons">
                     <a href="#" class="btn btn-primary" data-submenu="bifalfia">
                         <i class="fas fa-compass"></i> Jelajahi Koleksi
                     </a>
-                    <a href="#" class="btn btn-outline" data-page="profil">
-                        <i class="fas fa-info-circle"></i> Tentang Kami
+                    <a href="#" class="btn btn-outline" data-page="galeri">
+                        <i class="fas fa-images"></i> Lihat Galeri
                     </a>
                 </div>
             </div>
@@ -539,89 +383,21 @@ function renderHome() {
             </div>
         </section>
 
-        <!-- Stats Section -->
         <section class="stats">
             <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="50">0</div>
-                    <div class="stat-label">Koleksi Fosil</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="4">0</div>
-                    <div class="stat-label">Kelas Utama</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="15">0</div>
-                    <div class="stat-label">Lokasi Temuan</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="10000">0</div>
-                    <div class="stat-label">Target Siswa</div>
-                </div>
+                <div class="stat-item"><div class="stat-number" data-target="50">0</div><div class="stat-label">Koleksi Fosil</div></div>
+                <div class="stat-item"><div class="stat-number" data-target="4">0</div><div class="stat-label">Kelas Utama</div></div>
+                <div class="stat-item"><div class="stat-number" data-target="15">0</div><div class="stat-label">Lokasi Temuan</div></div>
+                <div class="stat-item"><div class="stat-number" data-target="10000">0</div><div class="stat-label">Target Siswa</div></div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="section">
-            <div class="section-header reveal">
-                <span class="section-label">Tentang Museum</span>
-                <h2 class="section-title">Mengapa <span class="accent">Museum Bahari?</span></h2>
-                <p class="section-desc">Salah satu indikator peradaban maju adalah keberadaan museum. Museum tidak hanya menyimpan artefak kuno, tetapi juga menjadi sarana informasi dan objek wisata bahari.</p>
-            </div>
-            
-            <div class="goals-grid">
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Perlindungan</h3>
-                    <p>Menyelamatkan benda, artefak, dan biota laut dari kepunahan dan kerusakan secara alami. Museum Bahari yang pernah ada dibangun tahun 1996 menjadi indikator penting pembangunan kebudayaan daerah.</p>
-                </div>
-                
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <i class="fas fa-book-reader"></i>
-                    </div>
-                    <h3>Edukasi</h3>
-                    <p>Mengumpulkan, mendokumentasikan, dan menarasikan koleksi untuk tujuan edukasi tentang perlindungan dan pelestarian alam kepada masyarakat luas, khususnya pelajar dan mahasiswa.</p>
-                </div>
-                
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>Pelestarian</h3>
-                    <p>Melestarikan kembali warisan budaya yang hampir punah dalam berbagai bidang kehidupan, terkhususnya siput, kerang, dan biota laut lainnya dari wilayah Nusantara.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sejarah Singkat -->
-        <section class="section about" style="background: linear-gradient(135deg, #e3f2fd, #f5f6fa);">
-            <div class="about-grid">
-                <div class="about-image reveal">
-                    🏛️
-                </div>
-                <div class="about-content reveal">
-                    <span class="section-label">Sejarah Singkat</span>
-                    <h2>Dari Museum Fisik ke <span class="accent">Museum Virtual</span></h2>
-                    <p>Museum Bahari Ende dibangun tahun 1996 oleh Alm. Pater Gabriel Goran, SVD dan diresmikan oleh Bupati Ende. Namun pada Januari 2013, museum dibongkar oleh Yayasan Ende Flores saat revitalisasi Taman Renungan Bung Karno.</p>
-                    <p>Karena vakum dalam kurun waktu yang tidak menentu serta ketiadaan lahan dan biaya, muncul ide untuk merancang Museum secara Daring "Ngera Shells" agar dapat dipublikasikan kembali kepada masyarakat luas.</p>
-                    <a href="#" class="btn btn-primary" data-page="sejarah" style="margin-top:1.5rem;">
-                        Baca Sejarah Lengkap <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Collection -->
         <section class="section">
             <div class="section-header reveal">
                 <span class="section-label">Koleksi Unggulan</span>
                 <h2 class="section-title">Empat Kelas <span class="accent">Fosil Utama</span></h2>
-                <p class="section-desc">Jelajahi kekayaan paleontologi Nusantara melalui empat kelas fosil invertebrata yang terdokumentasi dengan baik.</p>
+                <p class="section-desc">Jelajahi kekayaan paleontologi Nusantara melalui empat kelas fosil invertebrata.</p>
             </div>
-            
             <div class="collection-grid">
                 ${Object.entries(koleksiData).map(([key, items]) => {
                     const infoMap = {
@@ -643,7 +419,7 @@ function renderHome() {
                                     <span><i class="fas fa-cube"></i> ${items.length} Spesimen</span>
                                     <span><i class="fas fa-map-marker-alt"></i> Nusantara</span>
                                 </div>
-                                <p class="collection-desc">${info.desc}. Temukan fosil-fosil langka dari berbagai formasi geologi Indonesia.</p>
+                                <p class="collection-desc">${info.desc}.</p>
                                 <a href="#" class="collection-link" data-submenu="${key}">
                                     Lihat Koleksi <i class="fas fa-arrow-right"></i>
                                 </a>
@@ -654,7 +430,24 @@ function renderHome() {
             </div>
         </section>
 
-        <!-- Quote Section -->
+        <section class="section" style="text-align:center;">
+            <div class="reveal">
+                <h2 class="section-title">Jelajahi <span class="accent">Media Kami</span></h2>
+                <p class="section-desc" style="max-width:700px; margin:1rem auto 2rem;">Saksikan dokumentasi kegiatan dan video edukasi melalui galeri foto dan channel YouTube resmi Museum Bahari Ngera Shells.</p>
+                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="#" class="btn btn-primary" data-page="galeri">
+                        <i class="fas fa-images"></i> Galeri Foto
+                    </a>
+                    <a href="#" class="btn btn-outline" data-page="youtube" style="color:var(--ocean-dark); border-color:var(--ocean-primary);">
+                        <i class="fab fa-youtube" style="color:#ff0000;"></i> Video Youtube
+                    </a>
+                    <a href="#" class="btn btn-outline" data-page="chat" style="color:var(--ocean-dark); border-color:var(--ocean-primary);">
+                        <i class="fas fa-comments"></i> Chat Publik
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section class="quote-section">
             <div class="quote-content">
                 <p class="quote-text">"Setiap fosil adalah saksi bisu perjalanan bumi Nusantara. Melestarikannya adalah tugas kita bersama untuk generasi mendatang."</p>
@@ -662,11 +455,10 @@ function renderHome() {
             </div>
         </section>
 
-        <!-- Call to Action -->
         <section class="section" style="text-align:center;">
             <div class="reveal">
                 <h2 class="section-title">Bantu Wujudkan <span class="accent">Museum Fisik</span> Kembali</h2>
-                <p class="section-desc" style="max-width:700px; margin:1rem auto 2rem;">Besar harapan dan niat baik kami membawa manfaat bagi masyarakat luas. Melalui aplikasi daring ini, kami mengumpulkan donasi dari dukungan masyarakat luas dalam mewujudkan pembangunan Museum secara fisik nyata di Kabupaten Ende - Nusa Tenggara Timur - Indonesia.</p>
+                <p class="section-desc" style="max-width:700px; margin:1rem auto 2rem;">Melalui aplikasi daring ini, kami mengumpulkan donasi dari dukungan masyarakat luas dalam mewujudkan pembangunan Museum secara fisik nyata di Kabupaten Ende - Nusa Tenggara Timur - Indonesia.</p>
                 <a href="#" class="btn btn-primary" data-page="donasi">
                     <i class="fas fa-hand-holding-heart"></i> Dukung Kami
                 </a>
@@ -710,32 +502,344 @@ function renderDonasi() {
     `;
 }
 
+// ============ RENDER GALERI ============
+function renderGaleri() {
+    mainContainer.innerHTML = `
+        <section class="section" style="padding-top: 8rem;">
+            <div class="section-header reveal">
+                <span class="section-label">Dokumentasi</span>
+                <h2 class="section-title">Galeri <span class="accent">Kegiatan Museum</span></h2>
+                <p class="section-desc">Momen-momen berharga dari berbagai kegiatan Museum Bahari Ngera Shells. Klik foto untuk melihat lebih detail.</p>
+            </div>
+            
+            <div class="galeri-tabs reveal">
+                <button class="galeri-tab ${currentGaleriKategori === 'semua' ? 'active' : ''}" data-kategori="semua">
+                    <i class="fas fa-th"></i> Semua Kegiatan
+                </button>
+                <button class="galeri-tab ${currentGaleriKategori === 'ekspedisi' ? 'active' : ''}" data-kategori="ekspedisi">
+                    <i class="fas fa-compass"></i> Ekspedisi
+                </button>
+                <button class="galeri-tab ${currentGaleriKategori === 'edukasi' ? 'active' : ''}" data-kategori="edukasi">
+                    <i class="fas fa-graduation-cap"></i> Edukasi
+                </button>
+                <button class="galeri-tab ${currentGaleriKategori === 'penelitian' ? 'active' : ''}" data-kategori="penelitian">
+                    <i class="fas fa-microscope"></i> Penelitian
+                </button>
+                <button class="galeri-tab ${currentGaleriKategori === 'pelestarian' ? 'active' : ''}" data-kategori="pelestarian">
+                    <i class="fas fa-leaf"></i> Pelestarian
+                </button>
+            </div>
+            
+            <div class="galeri-container">
+                <div class="galeri-grid reveal" id="galeriGrid">
+                    ${renderGaleriItems(currentGaleriKategori)}
+                </div>
+            </div>
+        </section>
+    `;
+    
+    attachGaleriEvents();
+    attachLightboxEvents();
+    initRevealAnimations();
+}
+
+function renderGaleriItems(kategori) {
+    const items = kategori === 'semua' ? galeriData.semua : galeriData[kategori] || [];
+    if (items.length === 0) {
+        return '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-light);"><i class="fas fa-images" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>Belum ada foto untuk kategori ini</div>';
+    }
+    return items.map(item => `
+        <div class="galeri-item" data-id="${item.id}" data-kategori="${item.kategori}">
+            <img src="${item.img}" alt="${item.judul}" loading="lazy">
+            <div class="galeri-icon">
+                <i class="fas fa-search-plus"></i>
+            </div>
+            <div class="galeri-overlay">
+                <div class="galeri-title">${item.judul}</div>
+                <div class="galeri-date"><i class="fas fa-calendar"></i> ${item.tanggal}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function attachGaleriEvents() {
+    document.querySelectorAll('.galeri-tab').forEach(tab => {
+        tab.onclick = () => {
+            document.querySelectorAll('.galeri-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentGaleriKategori = tab.dataset.kategori;
+            const grid = document.getElementById('galeriGrid');
+            grid.innerHTML = renderGaleriItems(currentGaleriKategori);
+            attachLightboxEvents();
+        };
+    });
+}
+
+// ============ RENDER YOUTUBE ============
+function renderYoutube() {
+    mainContainer.innerHTML = `
+        <section class="section" style="padding-top: 8rem;">
+            <div class="section-header reveal">
+                <span class="section-label">Video Edukasi</span>
+                <h2 class="section-title">Channel <span class="accent">Youtube Resmi</span></h2>
+                <p class="section-desc">Tonton video dokumentasi kegiatan, edukasi fosil, dan profil Museum Bahari Ngera Shells.</p>
+            </div>
+            
+            <div class="youtube-intro reveal">
+                <h3><i class="fab fa-youtube"></i> Subscribe Channel Kami</h3>
+                <p>Dapatkan update video terbaru seputar dunia fosil, paleontologi, dan kehidupan laut Nusantara.</p>
+                <a href="https://www.youtube.com/channel/UCxxx" target="_blank" class="btn btn-primary" style="margin-top:1rem; background: linear-gradient(135deg, #ff0000, #cc0000);">
+                    <i class="fab fa-youtube"></i> Subscribe Sekarang
+                </a>
+            </div>
+            
+            <div class="youtube-container">
+                <div class="video-grid">
+                    ${videoData.map(video => `
+                        <div class="video-item reveal">
+                            <div class="video-wrapper">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/${video.youtubeId}" 
+                                    title="${video.judul}"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-info">
+                                <h4><i class="fab fa-youtube"></i> ${video.judul}</h4>
+                                <p>${video.deskripsi}</p>
+                                <div class="video-meta">
+                                    <span><i class="fas fa-tag"></i> ${video.kategori}</span>
+                                    <span><i class="fas fa-calendar"></i> ${video.tanggal}</span>
+                                    <span><i class="fas fa-clock"></i> ${video.durasi}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </section>
+    `;
+    
+    initRevealAnimations();
+}
+
+// ============ RENDER CHAT PAGE ============
+function renderChat() {
+    mainContainer.innerHTML = `
+        <section class="section" style="padding-top: 8rem;">
+            <div class="chat-page-container reveal">
+                <div class="chat-page-header">
+                    <h2><i class="fas fa-comments"></i> Chat Publik Ngera Shells</h2>
+                    <p>Diskusi santai seputar fosil, museum, dan kehidupan laut Nusantara</p>
+                </div>
+                <div class="chat-page-messages" id="chatPageMessages">
+                    <div class="chat-empty">
+                        <i class="fas fa-comments"></i>
+                        <p>Memuat pesan...</p>
+                    </div>
+                </div>
+                <div class="chat-page-input-area">
+                    <form class="chat-page-form" id="chatPageForm">
+                        <input type="text" id="chatPageName" placeholder="Nama Anda" maxlength="30" value="${chatUserName}" required>
+                        <textarea id="chatPageInput" placeholder="Tulis pesan Anda di sini..." rows="1" maxlength="500" required></textarea>
+                        <button type="submit"><i class="fas fa-paper-plane"></i> Kirim</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    `;
+    
+    const chatPageForm = document.getElementById('chatPageForm');
+    const chatPageInput = document.getElementById('chatPageInput');
+    const chatPageName = document.getElementById('chatPageName');
+    const chatPageMessages = document.getElementById('chatPageMessages');
+    
+    chatPageForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nama = chatPageName.value.trim();
+        const pesan = chatPageInput.value.trim();
+        if (!nama || !pesan) return;
+        
+        sendMessage(nama, pesan);
+        chatPageInput.value = '';
+        chatUserName = nama;
+        localStorage.setItem('chatUserName', nama);
+    });
+    
+    loadChatMessages(chatPageMessages);
+}
+
+// ============ FIREBASE CHAT FUNCTIONS ============
+function sendMessage(nama, pesan) {
+    const kataKasar = ['anjing', 'bajingan', 'kontol', 'memek', 'bangsat', 'goblok', 'tolol', 'asu'];
+    const pesanLower = pesan.toLowerCase();
+    let filteredPesan = pesan;
+    kataKasar.forEach(kata => {
+        if (pesanLower.includes(kata)) {
+            filteredPesan = filteredPesan.replace(new RegExp(kata, 'gi'), '***');
+        }
+    });
+    
+    const newMessage = {
+        nama: nama,
+        pesan: filteredPesan,
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+    };
+    
+    chatRef.push(newMessage)
+        .then(() => console.log('Pesan terkirim'))
+        .catch((error) => {
+            console.error('Error mengirim pesan:', error);
+            alert('Gagal mengirim pesan. Silakan coba lagi.');
+        });
+}
+
+function loadChatMessages(container) {
+    if (chatListener) chatListener.off();
+    
+    chatListener = chatRef.orderByChild('timestamp').limitToLast(50);
+    
+    chatListener.on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (!data) {
+            container.innerHTML = `
+                <div class="chat-empty">
+                    <i class="fas fa-comments"></i>
+                    <p>Belum ada pesan.<br>Jadilah yang pertama memulai percakapan!</p>
+                </div>
+            `;
+            return;
+        }
+        
+        const messages = Object.values(data).sort((a, b) => a.timestamp - b.timestamp);
+        container.innerHTML = messages.map(msg => createMessageHTML(msg)).join('');
+        container.scrollTop = container.scrollHeight;
+    });
+}
+
+function createMessageHTML(msg) {
+    const isMine = msg.nama === chatUserName;
+    const time = new Date(msg.timestamp).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    const initial = msg.nama.charAt(0).toUpperCase();
+    const escapedPesan = escapeHTML(msg.pesan);
+    
+    return `
+        <div class="chat-message ${isMine ? 'mine' : ''}">
+            <div class="chat-avatar">${initial}</div>
+            <div class="chat-bubble">
+                <span class="chat-bubble-name">${escapeHTML(msg.nama)}</span>
+                <div class="chat-bubble-text">${escapedPesan}</div>
+                <span class="chat-bubble-time">${time}</span>
+            </div>
+        </div>
+    `;
+}
+
+function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+function initChatWidget() {
+    const widgetListener = chatRef.orderByChild('timestamp').limitToLast(20);
+    
+    widgetListener.on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (!data) {
+            chatMessages.innerHTML = `
+                <div class="chat-empty">
+                    <i class="fas fa-comments"></i>
+                    <p>Belum ada pesan.<br>Jadilah yang pertama memulai percakapan!</p>
+                </div>
+            `;
+            return;
+        }
+        
+        const messages = Object.values(data).sort((a, b) => a.timestamp - b.timestamp);
+        chatMessages.innerHTML = messages.map(msg => createMessageHTML(msg)).join('');
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        if (!isChatOpen) {
+            const lastMsg = messages[messages.length - 1];
+            if (lastMsg && lastMsg.nama !== chatUserName) {
+                unreadMessages++;
+                chatBadge.textContent = unreadMessages > 99 ? '99+' : unreadMessages;
+                chatBadge.classList.remove('hidden');
+            }
+        }
+    });
+}
+
+function toggleChat() {
+    isChatOpen = !isChatOpen;
+    chatWindow.classList.toggle('active', isChatOpen);
+    chatFab.classList.toggle('active', isChatOpen);
+    
+    if (isChatOpen) {
+        unreadMessages = 0;
+        chatBadge.classList.add('hidden');
+        chatInput.focus();
+        setTimeout(() => {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 300);
+    }
+}
+
+// ============ LIGHTBOX FUNCTIONS ============
+function attachLightboxEvents() {
+    currentLightboxItems = currentGaleriKategori === 'semua' ? galeriData.semua : galeriData[currentGaleriKategori] || [];
+    
+    document.querySelectorAll('.galeri-item').forEach((item, index) => {
+        item.onclick = () => {
+            currentLightboxIndex = index;
+            openLightbox();
+        };
+    });
+}
+
+function openLightbox() {
+    const data = currentLightboxItems[currentLightboxIndex];
+    lightboxImg.src = data.img;
+    lightboxCaption.innerHTML = `<strong>${data.judul}</strong><br><small><i class="fas fa-calendar"></i> ${data.tanggal}</small>`;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+lightboxClose.onclick = closeLightbox;
+lightbox.onclick = (e) => { if (e.target === lightbox) closeLightbox(); };
+
+lightboxPrev.onclick = () => {
+    currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxItems.length) % currentLightboxItems.length;
+    openLightbox();
+};
+
+lightboxNext.onclick = () => {
+    currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxItems.length;
+    openLightbox();
+};
+
+// ============ RENDER KOLEKSI ============
 function renderKoleksiSubmenu(submenu) {
     const items = koleksiData[submenu];
     if (!items) return;
     
-    const judulMap = {
-        bifalfia: "Bifalfia",
-        gastropoda: "Gastropoda",
-        sepalopoda: "Sepalopoda",
-        astropoda: "Astropoda"
-    };
-    
-    const descMap = {
-        bifalfia: "Kerang purba dengan dua katup simetris yang mengagumkan",
-        gastropoda: "Siput laut purba dengan cangkang spiral yang indah",
-        sepalopoda: "Nenek moyang cumi-cumi dan nautilus modern",
-        astropoda: "Bintang laut dan bulu babi dari era purba"
-    };
+    const judulMap = { bifalfia: "Bifalfia", gastropoda: "Gastropoda", sepalopoda: "Sepalopoda", astropoda: "Astropoda" };
+    const descMap = { bifalfia: "Kerang purba dengan dua katup simetris", gastropoda: "Siput laut purba dengan cangkang spiral", sepalopoda: "Nenek moyang cumi-cumi dan nautilus", astropoda: "Bintang laut dan bulu babi dari era purba" };
     
     mainContainer.innerHTML = `
         <section class="section" style="padding-top: 8rem;">
             <div class="section-header reveal">
                 <span class="section-label">Koleksi</span>
                 <h2 class="section-title">Koleksi <span class="accent">${judulMap[submenu]}</span></h2>
-                <p class="section-desc">${descMap[submenu]}. Temukan fosil-fosil langka dari berbagai formasi geologi Indonesia.</p>
+                <p class="section-desc">${descMap[submenu]}</p>
             </div>
-            
             <div class="category-tabs">
                 ${Object.keys(koleksiData).map(key => `
                     <button class="category-tab ${key === submenu ? 'active' : ''}" data-submenu="${key}">
@@ -743,7 +847,6 @@ function renderKoleksiSubmenu(submenu) {
                     </button>
                 `).join('')}
             </div>
-            
             <div class="collection-grid">
                 ${items.map(item => `
                     <div class="collection-card reveal" data-id="${item.id}" data-submenu="${submenu}">
@@ -758,19 +861,10 @@ function renderKoleksiSubmenu(submenu) {
                                 <span><i class="fas fa-clock"></i> ${item.periode}</span>
                             </div>
                             <p class="collection-desc">${item.deskripsi.substring(0, 120)}...</p>
-                            <a href="#" class="collection-link">
-                                Lihat Detail <i class="fas fa-arrow-right"></i>
-                            </a>
+                            <a href="#" class="collection-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 `).join('')}
-            </div>
-            
-            <div class="quote-section" style="margin-top: 4rem; border-radius: 20px;">
-                <div class="quote-content">
-                    <p class="quote-text">"Setiap fosil adalah saksi bisu perjalanan bumi Nusantara. Klik untuk belajar lebih dalam tentang setiap spesimen."</p>
-                    <p class="quote-author">— Museum Bahari Ende "Ngera Shells"</p>
-                </div>
             </div>
         </section>
     `;
@@ -784,46 +878,19 @@ function showDetail(submenu, id) {
     if (!item) return;
     
     modalBody.innerHTML = `
-        <div class="modal-hero">
-            ${item.icon}
-        </div>
+        <div class="modal-hero">${item.icon}</div>
         <div class="modal-body">
             <span class="modal-category">${item.kategori}</span>
             <h2>${item.nama}</h2>
-            
             <div class="modal-info-grid">
-                <div class="modal-info-item">
-                    <small>Lokasi Penemuan</small>
-                    <strong><i class="fas fa-map-marker-alt"></i> ${item.asal}</strong>
-                </div>
-                <div class="modal-info-item">
-                    <small>Periode Geologi</small>
-                    <strong><i class="fas fa-clock"></i> ${item.periode}</strong>
-                </div>
-                <div class="modal-info-item">
-                    <small>Ciri Khas</small>
-                    <strong><i class="fas fa-fingerprint"></i> ${item.ciri}</strong>
-                </div>
+                <div class="modal-info-item"><small>Lokasi</small><strong><i class="fas fa-map-marker-alt"></i> ${item.asal}</strong></div>
+                <div class="modal-info-item"><small>Periode</small><strong><i class="fas fa-clock"></i> ${item.periode}</strong></div>
+                <div class="modal-info-item"><small>Ciri Khas</small><strong><i class="fas fa-fingerprint"></i> ${item.ciri}</strong></div>
             </div>
-            
-            <div class="modal-section">
-                <h4><i class="fas fa-book-open"></i> Deskripsi Lengkap</h4>
-                <p>${item.deskripsi}</p>
-            </div>
-            
-            <div class="modal-section">
-                <div class="education-box">
-                    <h4><i class="fas fa-graduation-cap"></i> Nilai Edukasi</h4>
-                    <p>${item.nilaiEdukasi}</p>
-                </div>
-            </div>
-            
-            <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-muted); text-align:center; padding-top:1.5rem; border-top:1px solid var(--border);">
-                <i class="fas fa-shield-alt"></i> Koleksi ini adalah bagian dari upaya pelestarian warisan fosil Nusantara.
-            </p>
+            <div class="modal-section"><h4><i class="fas fa-book-open"></i> Deskripsi</h4><p>${item.deskripsi}</p></div>
+            <div class="modal-section"><div class="education-box"><h4><i class="fas fa-graduation-cap"></i> Nilai Edukasi</h4><p>${item.nilaiEdukasi}</p></div></div>
         </div>
     `;
-    
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -843,7 +910,6 @@ function attachHomeEvents() {
             render();
         };
     });
-    
     document.querySelectorAll('[data-submenu]').forEach(el => {
         el.onclick = (e) => {
             e.preventDefault();
@@ -861,34 +927,27 @@ function attachCollectionEvents(submenu) {
             render();
         };
     });
-    
     document.querySelectorAll('.collection-card').forEach(card => {
         card.onclick = () => {
             const id = parseInt(card.dataset.id);
             showDetail(submenu, id);
         };
     });
-    
-    document.querySelectorAll('[data-page]').forEach(el => {
-        el.onclick = (e) => {
-            e.preventDefault();
-            currentPage = el.dataset.page;
-            currentSubmenu = null;
-            render();
-        };
-    });
 }
 
 function updateActiveNav() {
-    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+    document.querySelectorAll('.nav-menu > li > a').forEach(link => link.classList.remove('active'));
     
     let selector = '';
-    if (currentPage === "home") selector = 'nav a[data-page="home"]';
-    else if (currentPage === "profil") selector = 'nav a[data-page="profil"]';
-    else if (currentPage === "sejarah") selector = 'nav a[data-page="sejarah"]';
-    else if (currentPage === "tujuan") selector = 'nav a[data-page="tujuan"]';
-    else if (currentPage === "donasi") selector = 'nav a[data-page="donasi"]';
-    else if (currentPage === "koleksi") selector = '.dropbtn';
+    if (currentPage === "home") selector = '.nav-menu a[data-page="home"]';
+    else if (currentPage === "profil") selector = '.nav-menu a[data-page="profil"]';
+    else if (currentPage === "sejarah") selector = '.nav-menu a[data-page="sejarah"]';
+    else if (currentPage === "tujuan") selector = '.nav-menu a[data-page="tujuan"]';
+    else if (currentPage === "donasi") selector = '.nav-menu a[data-page="donasi"]';
+    else if (currentPage === "galeri") selector = '.nav-menu a[data-page="galeri"]';
+    else if (currentPage === "youtube") selector = '.nav-menu a[data-page="youtube"]';
+    else if (currentPage === "chat") selector = '.nav-menu a[data-page="chat"]';
+    else if (currentPage === "koleksi") selector = '.nav-menu .dropbtn';
     
     if (selector) {
         const el = document.querySelector(selector);
@@ -896,7 +955,7 @@ function updateActiveNav() {
     }
 }
 
-// ============ NAVIGATION EVENTS ============
+// Navigation events
 document.querySelectorAll('nav a[data-page]').forEach(link => {
     link.onclick = (e) => {
         e.preventDefault();
@@ -933,7 +992,6 @@ document.querySelectorAll('footer a[data-submenu]').forEach(link => {
     };
 });
 
-// Mobile menu toggle
 navToggle.onclick = () => {
     navMenu.classList.toggle('active');
     const icon = navToggle.querySelector('i');
@@ -941,7 +999,6 @@ navToggle.onclick = () => {
     icon.classList.toggle('fa-times');
 };
 
-// Mobile dropdown
 document.querySelector('.dropbtn').onclick = (e) => {
     if (window.innerWidth <= 768) {
         e.preventDefault();
@@ -949,29 +1006,62 @@ document.querySelector('.dropbtn').onclick = (e) => {
     }
 };
 
-// Modal events
 modalClose.onclick = closeModal;
-modal.onclick = (e) => {
-    if (e.target === modal) closeModal();
+modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+
+// Chat events
+chatFab.onclick = toggleChat;
+chatCloseBtn.onclick = toggleChat;
+
+chatSend.onclick = () => {
+    const nama = chatName.value.trim();
+    const pesan = chatInput.value.trim();
+    if (!nama) {
+        chatName.focus();
+        chatName.style.borderColor = 'var(--coral)';
+        setTimeout(() => chatName.style.borderColor = '', 2000);
+        return;
+    }
+    if (!pesan) return;
+    sendMessage(nama, pesan);
+    chatInput.value = '';
+    chatUserName = nama;
+    localStorage.setItem('chatUserName', nama);
 };
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
+
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        chatSend.click();
     }
 });
 
-// ============ SCROLL EFFECTS ============
+chatName.addEventListener('input', () => {
+    chatUserName = chatName.value.trim();
+    localStorage.setItem('chatUserName', chatUserName);
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (modal.classList.contains('active')) closeModal();
+        if (lightbox.classList.contains('active')) closeLightbox();
+    }
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') lightboxPrev.onclick();
+        if (e.key === 'ArrowRight') lightboxNext.onclick();
+    }
+});
+
+// Scroll effects
 window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY > 50;
-    navbar.classList.toggle('scrolled', scrolled);
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
     backToTop.classList.toggle('visible', window.scrollY > 500);
 });
 
-backToTop.onclick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+backToTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-// ============ ANIMATIONS ============
+// Animations
 function initRevealAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -981,7 +1071,6 @@ function initRevealAnimations() {
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
@@ -1006,16 +1095,14 @@ function animateStats() {
             }
         });
     }, { threshold: 0.5 });
-    
     document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
 }
 
-// ============ UTILITY FUNCTIONS ============
 function copyToClipboard(text, btn) {
     navigator.clipboard.writeText(text).then(() => {
         const originalHTML = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i> Tersalin!';
-        btn.style.background = 'var(--primary)';
+        btn.style.background = 'var(--ocean-primary)';
         btn.style.color = 'white';
         setTimeout(() => {
             btn.innerHTML = originalHTML;
@@ -1025,12 +1112,13 @@ function copyToClipboard(text, btn) {
     });
 }
 
-// ============ PRELOADER ============
+// Preloader
 window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('preloader').classList.add('hidden');
     }, 800);
+    initChatWidget();
 });
 
-// ============ INITIAL RENDER ============
+// Initial render
 render();

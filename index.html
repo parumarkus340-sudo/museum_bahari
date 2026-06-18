@@ -1797,6 +1797,120 @@
         font-size: 1.5rem;
     }
 }
+        /* ========== HERO DESC LONG (TEKS PANJANG) ========== */
+.hero-desc-long {
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.95);
+    max-height: 500px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.hero-desc-long p {
+    margin-bottom: 1rem;
+    text-indent: 2em;
+}
+
+.hero-desc-long p:first-child {
+    text-indent: 0;
+}
+
+.hero-desc-long p:first-child::first-letter {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--ocean-surface);
+    float: left;
+    line-height: 1;
+    margin-right: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.hero-desc-long strong {
+    color: var(--ocean-surface);
+    font-weight: 700;
+}
+
+.hero-desc-long em {
+    color: var(--coral-light);
+    font-style: italic;
+}
+
+.hero-desc-long::-webkit-scrollbar {
+    width: 8px;
+}
+
+.hero-desc-long::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.hero-desc-long::-webkit-scrollbar-thumb {
+    background: rgba(126, 214, 223, 0.5);
+    border-radius: 10px;
+}
+
+.hero-desc-long::-webkit-scrollbar-thumb:hover {
+    background: rgba(126, 214, 223, 0.8);
+}
+
+/* Signature Box */
+.hero-signature {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid rgba(126, 214, 223, 0.3);
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.hero-signature p {
+    margin-bottom: 0.3rem !important;
+    text-indent: 0 !important;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-signature .signature-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--ocean-surface) !important;
+    margin-top: 0.5rem !important;
+    text-decoration: underline;
+    text-decoration-color: var(--coral-light);
+    text-underline-offset: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-desc-long {
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        max-height: 400px;
+    }
+    
+    .hero-desc-long p:first-child::first-letter {
+        font-size: 2rem;
+    }
+    
+    .hero-signature {
+        text-align: center;
+    }
+    
+    .hero-signature .signature-name {
+        font-size: 1.3rem !important;
+    }
+}
     </style>
 </head>
 <body>

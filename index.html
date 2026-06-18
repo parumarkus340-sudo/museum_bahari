@@ -1911,6 +1911,205 @@
         font-size: 1.3rem !important;
     }
 }
+        /* ========== WELCOME BOX - KATA PENGANTAR ========== */
+.hero-welcome-box {
+    max-width: 900px;
+    margin: 2rem auto 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-header {
+    background: linear-gradient(135deg, rgba(126, 214, 223, 0.3), rgba(0, 105, 148, 0.3));
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.welcome-header i {
+    color: var(--ocean-surface);
+    font-size: 1.3rem;
+}
+
+.welcome-content {
+    padding: 2rem 2.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: justify;
+    line-height: 1.9;
+    font-size: 0.95rem;
+}
+
+.welcome-content p {
+    margin-bottom: 1.2rem;
+    text-indent: 2em;
+}
+
+/* Drop Cap untuk paragraf pertama */
+.welcome-content .first-paragraph::first-letter {
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: var(--ocean-surface);
+    float: left;
+    line-height: 0.9;
+    margin-right: 0.5rem;
+    margin-top: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Paragraf yang di-highlight (masalah museum dibongkar) */
+.welcome-content .highlight-paragraph {
+    background: rgba(255, 107, 107, 0.15);
+    border-left: 4px solid var(--coral);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 10px 10px 0;
+    text-indent: 0 !important;
+    font-style: italic;
+}
+
+/* Strong text */
+.welcome-content strong {
+    color: var(--ocean-surface);
+    font-weight: 700;
+}
+
+/* Custom Scrollbar */
+.welcome-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.welcome-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.welcome-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--ocean-surface), var(--ocean-primary));
+    border-radius: 10px;
+}
+
+.welcome-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--coral-light), var(--coral));
+}
+
+/* ========== SIGNATURE BOX ========== */
+.welcome-signature {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: right;
+    font-size: 0.95rem;
+}
+
+.signature-line {
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--ocean-surface), transparent);
+    margin-left: auto;
+    margin-bottom: 1rem;
+}
+
+.signature-place {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.8rem !important;
+    text-indent: 0 !important;
+}
+
+.signature-position {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.3rem !important;
+    text-indent: 0 !important;
+    font-weight: 500;
+}
+
+.signature-museum {
+    color: var(--ocean-surface);
+    margin-bottom: 1rem !important;
+    text-indent: 0 !important;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.signature-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem !important;
+    font-weight: 700;
+    font-style: italic;
+    color: white !important;
+    text-indent: 0 !important;
+    text-decoration: underline;
+    text-decoration-color: var(--coral-light);
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
+    margin-top: 0.5rem !important;
+    letter-spacing: 1px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .hero-welcome-box {
+        margin: 1.5rem 1rem;
+    }
+    
+    .welcome-header {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .welcome-content {
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        max-height: 400px;
+        line-height: 1.8;
+    }
+    
+    .welcome-content .first-paragraph::first-letter {
+        font-size: 2.8rem;
+    }
+    
+    .welcome-content .highlight-paragraph {
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .welcome-signature {
+        text-align: center;
+    }
+    
+    .signature-line {
+        margin: 0 auto 1rem;
+    }
+    
+    .signature-name {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-content {
+        padding: 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .welcome-content .first-paragraph::first-letter {
+        font-size: 2.3rem;
+    }
+}
     </style>
 </head>
 <body>

@@ -1433,6 +1433,370 @@
             .chat-fab { right: 1rem; bottom: 1rem; }
             .back-to-top { bottom: 5rem; right: 1rem; }
         }
+        /* ========== WHATSAPP BUTTONS ========== */
+.wa-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.05), rgba(18, 140, 126, 0.05));
+    border-radius: 15px;
+    margin-bottom: 0.5rem;
+    border: 1px dashed rgba(37, 211, 102, 0.3);
+}
+
+.wa-container-title {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.wa-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.wa-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+.wa-btn i {
+    font-size: 1.3rem;
+    background: rgba(255,255,255,0.2);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wa-btn-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.wa-btn-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.wa-btn-role {
+    font-size: 0.7rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.wa-btn-arrow {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Floating WhatsApp Button */
+.wa-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    z-index: 998;
+    transition: var(--transition);
+    text-decoration: none;
+    animation: waFloat 3s ease-in-out infinite;
+}
+
+@keyframes waFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+    animation: none;
+    color: white;
+}
+
+.wa-float-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #25D366;
+    animation: waPulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes waPulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* WhatsApp Page */
+.wa-page-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.wa-hero-card {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 3rem;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.wa-hero-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 50%);
+}
+
+.wa-hero-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.wa-hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: waFloat 3s ease-in-out infinite;
+}
+
+.wa-hero-card h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.wa-hero-card p {
+    opacity: 0.95;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.wa-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.wa-contact-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(37, 211, 102, 0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.wa-contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #25D366, #128C7E);
+}
+
+.wa-contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.wa-contact-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px dashed rgba(37, 211, 102, 0.2);
+}
+
+.wa-contact-avatar {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.wa-contact-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: var(--ocean-dark);
+    margin-bottom: 0.3rem;
+}
+
+.wa-contact-role {
+    color: var(--ocean-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.wa-contact-number {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.wa-contact-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.wa-contact-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.wa-contact-features i {
+    color: #25D366;
+    font-size: 0.9rem;
+}
+
+.wa-contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.wa-contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+.wa-topic-section {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+}
+
+.wa-topic-section h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--ocean-dark);
+}
+
+.wa-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.wa-topic-btn {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    color: var(--ocean-dark);
+    padding: 1rem;
+    border-radius: 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition-fast);
+    border: 2px solid transparent;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.wa-topic-btn:hover {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.wa-topic-btn i {
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .wa-float {
+        left: 1rem;
+        bottom: 1rem;
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+    }
+    .wa-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .wa-hero-card {
+        padding: 2rem 1.5rem;
+    }
+    .wa-hero-card h2 {
+        font-size: 1.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -1583,13 +1947,39 @@
         </div>
     </div>
     <div class="chat-input-area">
-        <input type="text" class="chat-name-input" id="chatName" placeholder="Nama Anda..." maxlength="30">
-        <div class="chat-input-row">
-            <textarea class="chat-input" id="chatInput" placeholder="Tulis pesan..." rows="1" maxlength="500"></textarea>
-            <button class="chat-send" id="chatSend" aria-label="Kirim">
-                <i class="fas fa-paper-plane"></i>
-            </button>
+    <!-- WHATSAPP QUICK CONTACT -->
+    <div class="wa-container">
+        <div class="wa-container-title">
+            <i class="fab fa-whatsapp"></i> Butuh Respon Cepat? Hubungi Kami
         </div>
+        <a href="https://wa.me/6281353810065?text=Halo%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya..." 
+           target="_blank" 
+           class="wa-btn">
+            <i class="fab fa-whatsapp"></i>
+            <div class="wa-btn-info">
+                <span class="wa-btn-name">+62 813-5381-0065</span>
+                <span class="wa-btn-role">Admin Utama</span>
+            </div>
+            <i class="fas fa-arrow-right wa-btn-arrow"></i>
+        </a>
+        <a href="https://wa.me/6281338607300?text=Halo%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya..." 
+           target="_blank" 
+           class="wa-btn">
+            <i class="fab fa-whatsapp"></i>
+            <div class="wa-btn-info">
+                <span class="wa-btn-name">+62 813-3860-7300</span>
+                <span class="wa-btn-role">Pengelola Museum</span>
+            </div>
+            <i class="fas fa-arrow-right wa-btn-arrow"></i>
+        </a>
+    </div>
+    
+    <input type="text" class="chat-name-input" id="chatName" placeholder="Nama Anda..." maxlength="30">
+    <div class="chat-input-row">
+        <textarea class="chat-input" id="chatInput" placeholder="Atau tulis pesan di chat publik..." rows="1" maxlength="500"></textarea>
+        <button class="chat-send" id="chatSend" aria-label="Kirim">
+            <i class="fas fa-paper-plane"></i>
+        </button>
     </div>
 </div>
 
@@ -1629,5 +2019,14 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script src="app.js"></script>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6281353810065?text=Halo%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya..." 
+   target="_blank" 
+   class="wa-float" 
+   aria-label="Chat via WhatsApp"
+   title="Chat via WhatsApp">
+    <span class="wa-float-pulse"></span>
+    <i class="fab fa-whatsapp"></i>
+</a>
 </body>
 </html>

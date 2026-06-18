@@ -369,7 +369,7 @@ function renderHome() {
                 </div>
                 <h1>Selamat Datang di <span class="accent">Ngera Shells</span></h1>
                 <p class="hero-subtitle">Museum Bahari Ende — "Rumah Kita"</p>
-                <p class="hero-desc">Melestarikan warisan fosil dan kehidupan laut Nusantara. Mengumpulkan, mendokumentasikan, dan menarasikan kekayaan paleontologi untuk tujuan edukasi, perlindungan, dan pelestarian alam.</p>
+                <p class="hero-desc">Menjaga dan melestarikan warisan alam serta kehidupan laut Nusantara. Menghadirkan pengetahuan, dokumentasi, dan kisah-kisah bahari Indonesia sebagai sarana edukasi, penelitian, dan pelestarian lingkungan demi membangun generasi yang mencintai laut dan alam.</p>
                 <div class="hero-buttons">
                     <a href="#" class="btn btn-primary" data-submenu="bifalfia">
                         <i class="fas fa-compass"></i> Jelajahi Koleksi

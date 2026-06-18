@@ -1,7 +1,6 @@
 // ==========================================
 // KONFIGURASI FIREBASE
 // ==========================================
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCzzUqEgP_xSFO1Kht1PPPSuF7v2k0r8DI",
   authDomain: "museumbahari-10de3.firebaseapp.com",
@@ -36,7 +35,7 @@ const koleksiData = {
     ]
 };
 
-// ============ DATA PROFIL (FOTO SUDAH DISESUAIKAN) ============
+// ============ DATA PROFIL ============
 const profilData = {
     paterGabriel: {
         nama: "Alm. Pater Gabriel Goran, SVD",
@@ -47,7 +46,6 @@ const profilData = {
         wafat: "2012",
         biodata: `
             <p>Alm. Pater Gabriel Goran, SVD lahir di Tagawiti - Tobiwutung - Ile Ape, Lembata pada tanggal <strong>14 April 1941</strong>. Beliau merupakan anak kedua dari enam bersaudara dari pasangan Alm. Bapak Yohakim Lasan dan Alm. Mama Anna Bengang.</p>
-            
             <h5><i class="fas fa-graduation-cap"></i> Perjalanan Pendidikan</h5>
             <ul>
                 <li><strong>1949 - 1955:</strong> Sekolah Rakyat Katolik (SRK) Tobiwutung (Kelas I - III) dan SRK Lewotolo (Kelas IV - VI)</li>
@@ -57,7 +55,6 @@ const profilData = {
                 <li><strong>12 Desember 1970:</strong> Mengikrarkan kaul kekal di Seminari Tinggi St. Paulus Ledalero</li>
                 <li><strong>31 Juli 1971:</strong> Ditahbiskan menjadi Imam di kampung halamannya, Tobiwutung</li>
             </ul>
-            
             <h5><i class="fas fa-briefcase"></i> Perjalanan Pelayanan</h5>
             <ul>
                 <li><strong>1 November 1971:</strong> Penempatan pertama untuk Regio SVD Ende</li>
@@ -71,12 +68,10 @@ const profilData = {
                 <li><strong>1983:</strong> Pimpinan Umum Dua Mingguan DIAN dan Bulanan KUNANG-KUNANG</li>
                 <li><strong>Januari 1985:</strong> Wakil Ketua Komisi Keadilan dan Perdamaian Provinsi SVD Ende</li>
             </ul>
-            
             <h5><i class="fas fa-landmark"></i> Pendiri Museum Bahari</h5>
             <p>Selepas dari kegiatan membantu orang kecil, Pater Gabriel kembali memusatkan perhatian untuk membangun sebuah Museum. Gagasan ini mendapat respon positif dari Pemerintah Kabupaten Ende, dan akhirnya <strong>Museum Bahari berhasil dibangun dan diresmikan oleh Bupati Ende, Bapak Frans Gedowolo, pada tanggal 14 Agustus 1996</strong> dan terbuka untuk umum.</p>
-            
             <h5><i class="fas fa-heart"></i> Masa Akhir Hayat</h5>
-            <p>Pasca terserang penyakit stroke, ruang gerak Pater Gabriel terbatas di kamar dan tempat tidur hingga dipindahkan ke Biara Jompo Simeon Ledalero - Maumere. Pada tanggal <strong>11 November 2012</strong>, Pater Gabriel meminta bertemu dan menyerahkan Surat Kuasa kepada Kalianus Nusa Nipa untuk melanjutkan segala usaha yang telah dirintisnya.</p>
+            <p>Pasca terserang penyakit stroke, ruang gerak Pater Gabriel terbatas di kamar dan tempat tidur hingga dipindahkan ke Biara Jompo Simeon Ledalero - Maumere. Pada tanggal <strong>11 November 2012</strong>, Pater Gabriel meminta bertemu dan menyerahkan Surat Kuasa kepada saya untuk melanjutkan segala usaha yang telah dirintisnya.</p>
         `
     },
     kalianus: {
@@ -87,7 +82,6 @@ const profilData = {
         tanggalLahir: "2 Mei 1977",
         biodata: `
             <p>Kalianus Nusa Nipa lahir di <strong>Fendo, Kecamatan Lio Timur, Kabupaten Ende, Nusa Tenggara Timur</strong> pada tanggal <strong>2 Mei 1977</strong>, dari pasangan Alm. Bapak Yosep Woda dan Alm. Ibu Margareta Seno. Sejak kecil menjadi Anak Yatim dan diasuh oleh Alm. Bapak Karolus Keli, Mama Maria Deke, Mama Kristina Lero, dan Mama Theresia Eka.</p>
-            
             <h5><i class="fas fa-graduation-cap"></i> Riwayat Pendidikan</h5>
             <ul>
                 <li><strong>1983 - 1984:</strong> TK. ST Hellen Wolowaru - Ende</li>
@@ -98,7 +92,6 @@ const profilData = {
                 <li><strong>1993 - 1996:</strong> SMPN 1 Ruteng</li>
                 <li><strong>1996 - 1999:</strong> SMK Yos Soedarso Ende</li>
             </ul>
-            
             <h5><i class="fas fa-briefcase"></i> Perjalanan Karir</h5>
             <ul>
                 <li><strong>1996 - 2003:</strong> Tenaga sukarela di Museum Bahari Ende (Taman Renungan Bung Karno)</li>
@@ -108,10 +101,8 @@ const profilData = {
                 <li><strong>2016:</strong> Mendapat SK Bupati Ende sebagai Pengelola Museum Bahari (Dinas Pariwisata)</li>
                 <li><strong>2017 - 2023:</strong> SK Kepala Dinas Pendidikan dan Kebudayaan Kabupaten Ende sebagai Staf Kebersihan Taman Renungan Bung Karno</li>
             </ul>
-            
             <h5><i class="fas fa-book"></i> Karya Tulis</h5>
             <p>Buku yang pernah ditulis: <em>"DIALOG BERSAMA GAIB BUNG KARNO DIBAWAH POHON SUKUN"</em>, diterbitkan oleh Yayasan Tana Nua Ende, dicetak oleh Opu Printing pada <strong>Mei 2023</strong>.</p>
-            
             <h5><i class="fas fa-lightbulb"></i> Inisiator Museum Virtual</h5>
             <p>Karena vakum dalam kurun waktu yang tidak menentu serta ketiadaan lahan dan biaya, muncul ide untuk merancang Museum secara Daring. Setelah berdiskusi dengan Bapak Markus Paru, sejak <strong>15 Juni 2026</strong> perancangan aplikasi khusus untuk Museum Bahari Ende "Ngera Shells" dimulai.</p>
         `
@@ -165,8 +156,6 @@ const videoData = [
 // ============ NARASI KONTEN ============
 const narasi = {
     profil: {
-        judul: "Profil Museum",
-        subjudul: "Mengenal lebih dekat Ngera Shells",
         konten: `
             <div class="section-header reveal">
                 <span class="section-label">Profil Museum</span>
@@ -175,7 +164,6 @@ const narasi = {
                 <strong>"Ngera Shells"</strong> diambil dari nama <strong>Ngera</strong>, seorang leluhur dalam tradisi masyarakat Lio yang dihormati dan diyakini memiliki kekuatan supranatural. Secara etimologis, <strong>Ngera</strong> berasal dari ungkapan <strong>Nge Leka Ra</strong>, yang berarti <strong>"berasal dari darah yang sama"</strong>, melambangkan persaudaraan, kebersamaan, dan ikatan kekerabatan dalam satu garis keturunan.
                 </p>
             </div>
-
             <div class="profil-card reveal">
                 <div class="profil-card-inner">
                     <div class="profil-photo">
@@ -196,7 +184,6 @@ const narasi = {
                     </div>
                 </div>
             </div>
-
             <div class="profil-card reveal profil-card-reverse">
                 <div class="profil-card-inner">
                     <div class="profil-photo">
@@ -216,7 +203,6 @@ const narasi = {
                     </div>
                 </div>
             </div>
-
             <div class="quote-section" style="margin-top: 4rem; border-radius: 20px;">
                 <div class="quote-content">
                     <p class="quote-text">"Museum Bahari Ende 'Ngera Shells' adalah museum virtual yang melestarikan warisan fosil dan kehidupan laut Nusantara untuk generasi mendatang."</p>
@@ -305,8 +291,6 @@ let currentSubmenu = null;
 let currentGaleriKategori = "semua";
 let currentLightboxIndex = 0;
 let currentLightboxItems = [];
-
-// Chat state
 let chatListener = null;
 let chatUserName = localStorage.getItem('chatUserName') || '';
 let unreadMessages = 0;
@@ -326,8 +310,6 @@ const lightboxPrev = document.getElementById("lightboxPrev");
 const lightboxNext = document.getElementById("lightboxNext");
 const lightboxImg = document.getElementById("lightboxImg");
 const lightboxCaption = document.getElementById("lightboxCaption");
-
-// Chat elements
 const chatFab = document.getElementById("chatFab");
 const chatWindow = document.getElementById("chatWindow");
 const chatMessages = document.getElementById("chatMessages");
@@ -351,7 +333,7 @@ function render() {
     else if (currentPage === "galeri") renderGaleri();
     else if (currentPage === "youtube") renderYoutube();
     else if (currentPage === "chat") renderChat();
-    else if (currentPage === "whatsapp") renderWhatsapp(); // TAMBAHKAN INI
+    else if (currentPage === "whatsapp") renderWhatsapp();
     else if (currentPage === "koleksi" && currentSubmenu) renderKoleksiSubmenu(currentSubmenu);
     
     updateActiveNav();
@@ -359,6 +341,9 @@ function render() {
     navMenu.classList.remove('active');
 }
 
+// ==========================================
+// RENDER HOME - DENGAN TEKS BARU DARI KALIANUS
+// ==========================================
 function renderHome() {
     mainContainer.innerHTML = `
         <section class="hero">
@@ -369,7 +354,29 @@ function renderHome() {
                 </div>
                 <h1>Selamat Datang di <span class="accent">Ngera Shells</span></h1>
                 <p class="hero-subtitle">Museum Bahari Ende — "Rumah Kita"</p>
-                <p class="hero-desc">Menjaga dan melestarikan warisan alam serta kehidupan laut Nusantara. Menghadirkan pengetahuan, dokumentasi, dan kisah-kisah bahari Indonesia sebagai sarana edukasi, penelitian, dan pelestarian lingkungan demi membangun generasi yang mencintai laut dan alam.</p>
+                
+                <!-- TEKS BARU DARI BAPAK KALIANUS NUSA NIPA -->
+                <div class="hero-desc-long">
+                    <p>Salah satu indikator pendukung sebuah peradaban dalam suatu wilayah dinilai maju dan berkembang adalah keberadaan Museum. Museum tidak saja menyimpan benda-benda kuno atau artefak dari berbagai aspek kehidupan, namun keberadaan museum menjadi sarana informasi dan objek wisata khususnya wisata bahari.</p>
+                    
+                    <p>Kehadiran Museum dalam satu wilayah/kota dapat menyelamatkan benda atau barang, artefak dari kepunahan dan kerusakan secara alami, maka sejalan dengan tujuan dan latar belakang museum adalah mengumpulkan, mendokumentasikan dan menarasikannya untuk tujuan edukasi tentang perlindungan dan pelestarian alam kepada masyarakat luas, khususnya pelajar dan mahasiswa hingga berupaya melestarikan kembali warisan budaya yang hampir dan akan punah dalam berbagai bidang kehidupan terkhususnya siput dan kerang serta biota laut lainnya.</p>
+                    
+                    <p>Maka keberadaan Museum Bahari yang pernah ada dibangun tahun 1996 menjadi salah satu indikator penting pembangunan kebudayaan Daerah dalam mendukung Kebudayaan Nasional, namun sayang keberadaan Museum Bahari yang terletak di dalam kawasan Taman Renungan telah dibongkar pada Januari 2013 oleh Yayasan Ende Flores, ketika revitalisasi Taman Renungan Bung Karno.</p>
+                    
+                    <p>Karena vakum dalam kurun waktu yang tidak menentu serta ketiadaan lahan dan biaya maka munculah ide untuk merancang Museum secara Daring agar dapat dipublikasikan kembali kepada masyarakat luas.</p>
+                    
+                    <p>Dalam upaya tersebut saya menyampaikan niat yang selama ini saya pendam untuk merancang Museum secara Daring. Banyaknya kendala yang saya hadapi khususnya dari sisi biaya dan lahan, maka saya berinisiatif untuk berdiskusi dengan <strong>Bapak Markus Paru</strong>, sahabat dan rekan kerja yang sangat profesional di bidangnya untuk mewujudkan ide dan pemikiran saya selama ini. Setelah menyampaikan pandangan saya dan beliau mengatakan bisa, maka sejak <strong>tgl 15 Juni 2026</strong> beliau langsung memulai merancang aplikasi khusus untuk Museum Bahari Ende "Ngera Shells".</p>
+                    
+                    <p>Besar harapan dan niat baik kami ini membawa manfaat bagi masyarakat luas khususnya pelajar dan mahasiswa yang haus akan seni dan pengetahuan baru, sehingga melalui aplikasi Daring ini kami dapat mengumpulkan <strong>DONASI</strong> dari dukungan Masyarakat luas dalam mewujudkan niat kami yakni pembangunan Museum secara fisik nyata di Kabupaten Ende - Nusa Tenggara Timur - Indonesia.</p>
+                    
+                    <div class="hero-signature">
+                        <p><em>Ende, 15 Juni 2026</em></p>
+                        <p><strong>Pemilik dan Pengelola</strong></p>
+                        <p><strong>Museum Bahari Ende "Ngera Shells"</strong></p>
+                        <p class="signature-name">Kalianus Nusa Nipa</p>
+                    </div>
+                </div>
+                
                 <div class="hero-buttons">
                     <a href="#" class="btn btn-primary" data-submenu="bifalfia">
                         <i class="fas fa-compass"></i> Jelajahi Koleksi
@@ -433,30 +440,30 @@ function renderHome() {
         </section>
 
         <section class="section" style="text-align:center;">
-    <div class="reveal">
-        <h2 class="section-title">Hubungi <span class="accent">Kami</span></h2>
-        <p class="section-desc" style="max-width:700px; margin:1rem auto 2rem;">
-            Butuh informasi lebih lanjut? Ingin berdonasi atau berkunjung? Hubungi kami langsung via WhatsApp!
-        </p>
-        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-            <a href="https://wa.me/6281353810065?text=Halo%20Museum%20Bahari%20Ngera%20Shells..." 
-               target="_blank" 
-               class="btn" 
-               style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;">
-                <i class="fab fa-whatsapp"></i> Admin Utama
-            </a>
-            <a href="https://wa.me/6281338607300?text=Halo%20Museum%20Bahari%20Ngera%20Shells..." 
-               target="_blank" 
-               class="btn" 
-               style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;">
-                <i class="fab fa-whatsapp"></i> Pengelola
-            </a>
-            <a href="#" class="btn btn-outline" data-page="whatsapp" style="color:var(--ocean-dark); border-color:var(--ocean-primary);">
-                <i class="fas fa-address-book"></i> Semua Kontak
-            </a>
-        </div>
-    </div>
-</section>
+            <div class="reveal">
+                <h2 class="section-title">Hubungi <span class="accent">Kami</span></h2>
+                <p class="section-desc" style="max-width:700px; margin:1rem auto 2rem;">
+                    Butuh informasi lebih lanjut? Ingin berdonasi atau berkunjung? Hubungi kami langsung via WhatsApp!
+                </p>
+                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://wa.me/6281353810065?text=Halo%20Museum%20Bahari%20Ngera%20Shells..." 
+                       target="_blank" 
+                       class="btn" 
+                       style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;">
+                        <i class="fab fa-whatsapp"></i> Admin Utama
+                    </a>
+                    <a href="https://wa.me/6281338607300?text=Halo%20Museum%20Bahari%20Ngera%20Shells..." 
+                       target="_blank" 
+                       class="btn" 
+                       style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;">
+                        <i class="fab fa-whatsapp"></i> Pengelola
+                    </a>
+                    <a href="#" class="btn btn-outline" data-page="whatsapp" style="color:var(--ocean-dark); border-color:var(--ocean-primary);">
+                        <i class="fas fa-address-book"></i> Semua Kontak
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <section class="quote-section">
             <div class="quote-content">
@@ -521,25 +528,13 @@ function renderGaleri() {
                 <h2 class="section-title">Galeri <span class="accent">Kegiatan Museum</span></h2>
                 <p class="section-desc">Momen-momen berharga dari berbagai kegiatan Museum Bahari Ngera Shells. Klik foto untuk melihat lebih detail.</p>
             </div>
-            
             <div class="galeri-tabs reveal">
-                <button class="galeri-tab ${currentGaleriKategori === 'semua' ? 'active' : ''}" data-kategori="semua">
-                    <i class="fas fa-th"></i> Semua Kegiatan
-                </button>
-                <button class="galeri-tab ${currentGaleriKategori === 'ekspedisi' ? 'active' : ''}" data-kategori="ekspedisi">
-                    <i class="fas fa-compass"></i> Ekspedisi
-                </button>
-                <button class="galeri-tab ${currentGaleriKategori === 'edukasi' ? 'active' : ''}" data-kategori="edukasi">
-                    <i class="fas fa-graduation-cap"></i> Edukasi
-                </button>
-                <button class="galeri-tab ${currentGaleriKategori === 'penelitian' ? 'active' : ''}" data-kategori="penelitian">
-                    <i class="fas fa-microscope"></i> Penelitian
-                </button>
-                <button class="galeri-tab ${currentGaleriKategori === 'pelestarian' ? 'active' : ''}" data-kategori="pelestarian">
-                    <i class="fas fa-leaf"></i> Pelestarian
-                </button>
+                <button class="galeri-tab ${currentGaleriKategori === 'semua' ? 'active' : ''}" data-kategori="semua"><i class="fas fa-th"></i> Semua Kegiatan</button>
+                <button class="galeri-tab ${currentGaleriKategori === 'ekspedisi' ? 'active' : ''}" data-kategori="ekspedisi"><i class="fas fa-compass"></i> Ekspedisi</button>
+                <button class="galeri-tab ${currentGaleriKategori === 'edukasi' ? 'active' : ''}" data-kategori="edukasi"><i class="fas fa-graduation-cap"></i> Edukasi</button>
+                <button class="galeri-tab ${currentGaleriKategori === 'penelitian' ? 'active' : ''}" data-kategori="penelitian"><i class="fas fa-microscope"></i> Penelitian</button>
+                <button class="galeri-tab ${currentGaleriKategori === 'pelestarian' ? 'active' : ''}" data-kategori="pelestarian"><i class="fas fa-leaf"></i> Pelestarian</button>
             </div>
-            
             <div class="galeri-container">
                 <div class="galeri-grid reveal" id="galeriGrid">
                     ${renderGaleriItems(currentGaleriKategori)}
@@ -547,7 +542,6 @@ function renderGaleri() {
             </div>
         </section>
     `;
-    
     attachGaleriEvents();
     attachLightboxEvents();
     initRevealAnimations();
@@ -561,9 +555,7 @@ function renderGaleriItems(kategori) {
     return items.map(item => `
         <div class="galeri-item" data-id="${item.id}" data-kategori="${item.kategori}">
             <img src="${item.img}" alt="${item.judul}" loading="lazy">
-            <div class="galeri-icon">
-                <i class="fas fa-search-plus"></i>
-            </div>
+            <div class="galeri-icon"><i class="fas fa-search-plus"></i></div>
             <div class="galeri-overlay">
                 <div class="galeri-title">${item.judul}</div>
                 <div class="galeri-date"><i class="fas fa-calendar"></i> ${item.tanggal}</div>
@@ -594,7 +586,6 @@ function renderYoutube() {
                 <h2 class="section-title">Channel <span class="accent">Youtube Resmi</span></h2>
                 <p class="section-desc">Tonton video dokumentasi kegiatan, edukasi fosil, dan profil Museum Bahari Ngera Shells.</p>
             </div>
-            
             <div class="youtube-intro reveal">
                 <h3><i class="fab fa-youtube"></i> Subscribe Channel Kami</h3>
                 <p>Dapatkan update video terbaru seputar dunia fosil, paleontologi, dan kehidupan laut Nusantara.</p>
@@ -602,18 +593,12 @@ function renderYoutube() {
                     <i class="fab fa-youtube"></i> Subscribe Sekarang
                 </a>
             </div>
-            
             <div class="youtube-container">
                 <div class="video-grid">
                     ${videoData.map(video => `
                         <div class="video-item reveal">
                             <div class="video-wrapper">
-                                <iframe 
-                                    src="https://www.youtube.com/embed/${video.youtubeId}" 
-                                    title="${video.judul}"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
-                                </iframe>
+                                <iframe src="https://www.youtube.com/embed/${video.youtubeId}" title="${video.judul}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <div class="video-info">
                                 <h4><i class="fab fa-youtube"></i> ${video.judul}</h4>
@@ -630,7 +615,6 @@ function renderYoutube() {
             </div>
         </section>
     `;
-    
     initRevealAnimations();
 }
 
@@ -644,10 +628,7 @@ function renderChat() {
                     <p>Diskusi santai seputar fosil, museum, dan kehidupan laut Nusantara</p>
                 </div>
                 <div class="chat-page-messages" id="chatPageMessages">
-                    <div class="chat-empty">
-                        <i class="fas fa-comments"></i>
-                        <p>Memuat pesan...</p>
-                    </div>
+                    <div class="chat-empty"><i class="fas fa-comments"></i><p>Memuat pesan...</p></div>
                 </div>
                 <div class="chat-page-input-area">
                     <form class="chat-page-form" id="chatPageForm">
@@ -670,7 +651,6 @@ function renderChat() {
         const nama = chatPageName.value.trim();
         const pesan = chatPageInput.value.trim();
         if (!nama || !pesan) return;
-        
         sendMessage(nama, pesan);
         chatPageInput.value = '';
         chatUserName = nama;
@@ -682,7 +662,6 @@ function renderChat() {
 
 // ============ FIREBASE CHAT FUNCTIONS ============
 function sendMessage(nama, pesan) {
-    // Filter kata kasar
     const kataKasar = ['anjing', 'bajingan', 'kontol', 'memek', 'bangsat', 'goblok', 'tolol', 'asu'];
     const pesanLower = pesan.toLowerCase();
     let filteredPesan = pesan;
@@ -698,7 +677,6 @@ function sendMessage(nama, pesan) {
         timestamp: firebase.database.ServerValue.TIMESTAMP
     };
     
-    // Tampilkan loading
     chatSend.disabled = true;
     chatSend.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     
@@ -713,11 +691,7 @@ function sendMessage(nama, pesan) {
             console.error('❌ Error Firebase:', error);
             chatSend.disabled = false;
             chatSend.innerHTML = '<i class="fas fa-paper-plane"></i>';
-            
-            // Fallback: simpan di localStorage jika Firebase gagal
             saveMessageLocally(newMessage);
-            
-            // Tampilkan pesan error yang lebih informatif
             let errorMsg = 'Gagal mengirim pesan. ';
             if (error.code === 'PERMISSION_DENIED') {
                 errorMsg += 'Permission ditolak. Cek Rules di Firebase Console.';
@@ -726,34 +700,23 @@ function sendMessage(nama, pesan) {
             } else {
                 errorMsg += 'Pesan disimpan lokal sementara.';
             }
-            
             alert(errorMsg + '\n\nPesan Anda tetap tersimpan di browser ini.');
         });
 }
 
-// Fallback: simpan pesan di localStorage
 function saveMessageLocally(message) {
     const localMessages = JSON.parse(localStorage.getItem('chat_local') || '[]');
     message.timestamp = Date.now();
     message.id = 'local_' + Date.now();
     localMessages.push(message);
-    
-    // Simpan max 100 pesan
-    if (localMessages.length > 100) {
-        localMessages.shift();
-    }
-    
+    if (localMessages.length > 100) localMessages.shift();
     localStorage.setItem('chat_local', JSON.stringify(localMessages));
-    
-    // Update tampilan
     displayLocalMessages();
 }
 
-// Tampilkan pesan dari localStorage
 function displayLocalMessages() {
     const localMessages = JSON.parse(localStorage.getItem('chat_local') || '[]');
     if (localMessages.length === 0) return;
-    
     const messagesHTML = localMessages.map(msg => createMessageHTML(msg)).join('');
     chatMessages.innerHTML = messagesHTML;
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -764,7 +727,6 @@ function createMessageHTML(msg) {
     const time = new Date(msg.timestamp).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
     const initial = msg.nama.charAt(0).toUpperCase();
     const escapedPesan = escapeHTML(msg.pesan);
-    
     return `
         <div class="chat-message ${isMine ? 'mine' : ''}">
             <div class="chat-avatar">${initial}</div>
@@ -784,36 +746,22 @@ function escapeHTML(str) {
 }
 
 function initChatWidget() {
-    // Tampilkan pesan lokal dulu (fallback)
     displayLocalMessages();
-    
-    // Coba connect ke Firebase
     try {
         const widgetListener = chatRef.orderByChild('timestamp').limitToLast(20);
-        
         widgetListener.on('value', (snapshot) => {
             const data = snapshot.val();
             console.log('✅ Firebase connected, messages:', data);
-            
             if (!data) {
-                // Jika Firebase kosong, tampilkan pesan lokal
                 displayLocalMessages();
                 if (!localStorage.getItem('chat_local')) {
-                    chatMessages.innerHTML = `
-                        <div class="chat-empty">
-                            <i class="fas fa-comments"></i>
-                            <p>Belum ada pesan.<br>Jadilah yang pertama memulai percakapan!</p>
-                        </div>
-                    `;
+                    chatMessages.innerHTML = `<div class="chat-empty"><i class="fas fa-comments"></i><p>Belum ada pesan.<br>Jadilah yang pertama memulai percakapan!</p></div>`;
                 }
                 return;
             }
-            
             const messages = Object.values(data).sort((a, b) => a.timestamp - b.timestamp);
             chatMessages.innerHTML = messages.map(msg => createMessageHTML(msg)).join('');
             chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            // Update badge
             if (!isChatOpen) {
                 const lastMsg = messages[messages.length - 1];
                 if (lastMsg && lastMsg.nama !== chatUserName) {
@@ -836,21 +784,17 @@ function toggleChat() {
     isChatOpen = !isChatOpen;
     chatWindow.classList.toggle('active', isChatOpen);
     chatFab.classList.toggle('active', isChatOpen);
-    
     if (isChatOpen) {
         unreadMessages = 0;
         chatBadge.classList.add('hidden');
         chatInput.focus();
-        setTimeout(() => {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, 300);
+        setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 300);
     }
 }
 
 // ============ LIGHTBOX FUNCTIONS ============
 function attachLightboxEvents() {
     currentLightboxItems = currentGaleriKategori === 'semua' ? galeriData.semua : galeriData[currentGaleriKategori] || [];
-    
     document.querySelectorAll('.galeri-item').forEach((item, index) => {
         item.onclick = () => {
             currentLightboxIndex = index;
@@ -874,12 +818,10 @@ function closeLightbox() {
 
 lightboxClose.onclick = closeLightbox;
 lightbox.onclick = (e) => { if (e.target === lightbox) closeLightbox(); };
-
 lightboxPrev.onclick = () => {
     currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxItems.length) % currentLightboxItems.length;
     openLightbox();
 };
-
 lightboxNext.onclick = () => {
     currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxItems.length;
     openLightbox();
@@ -889,7 +831,6 @@ lightboxNext.onclick = () => {
 function renderKoleksiSubmenu(submenu) {
     const items = koleksiData[submenu];
     if (!items) return;
-    
     const judulMap = { bifalfia: "Bifalfia", gastropoda: "Gastropoda", sepalopoda: "Sepalopoda", astropoda: "Astropoda" };
     const descMap = { bifalfia: "Kerang purba dengan dua katup simetris", gastropoda: "Siput laut purba dengan cangkang spiral", sepalopoda: "Nenek moyang cumi-cumi dan nautilus", astropoda: "Bintang laut dan bulu babi dari era purba" };
     
@@ -928,15 +869,87 @@ function renderKoleksiSubmenu(submenu) {
             </div>
         </section>
     `;
-    
     attachCollectionEvents(submenu);
+}
+
+// ============ RENDER WHATSAPP PAGE ============
+function renderWhatsapp() {
+    mainContainer.innerHTML = `
+        <section class="section" style="padding-top: 8rem;">
+            <div class="wa-page-container">
+                <div class="wa-hero-card reveal">
+                    <div class="wa-hero-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h2>Hubungi Kami via WhatsApp</h2>
+                    <p>Tim Museum Bahari Ngera Shells siap membantu Anda. Pilih kontak di bawah untuk memulai percakapan.</p>
+                </div>
+                <div class="wa-cards-grid">
+                    <div class="wa-contact-card reveal">
+                        <div class="wa-contact-header">
+                            <div class="wa-contact-avatar"><i class="fas fa-user-tie"></i></div>
+                            <div class="wa-contact-info">
+                                <h3>Admin Utama</h3>
+                                <div class="wa-contact-role">Informasi Umum & Donasi</div>
+                                <div class="wa-contact-number">+62 813-5381-0065</div>
+                            </div>
+                        </div>
+                        <ul class="wa-contact-features">
+                            <li><i class="fas fa-check-circle"></i> Informasi Museum</li>
+                            <li><i class="fas fa-check-circle"></i> Donasi & Kerjasama</li>
+                            <li><i class="fas fa-check-circle"></i> Kunjungan Grup</li>
+                            <li><i class="fas fa-check-circle"></i> Respon Cepat</li>
+                        </ul>
+                        <a href="https://wa.me/6281353810065?text=Halo%20Admin%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya%20tentang..." target="_blank" class="wa-contact-btn">
+                            <i class="fab fa-whatsapp"></i> Chat Sekarang
+                        </a>
+                    </div>
+                    <div class="wa-contact-card reveal">
+                        <div class="wa-contact-header">
+                            <div class="wa-contact-avatar"><i class="fas fa-user-graduate"></i></div>
+                            <div class="wa-contact-info">
+                                <h3>Pengelola Museum</h3>
+                                <div class="wa-contact-role">Koleksi & Edukasi</div>
+                                <div class="wa-contact-number">+62 813-3860-7300</div>
+                            </div>
+                        </div>
+                        <ul class="wa-contact-features">
+                            <li><i class="fas fa-check-circle"></i> Detail Koleksi Fosil</li>
+                            <li><i class="fas fa-check-circle"></i> Program Edukasi</li>
+                            <li><i class="fas fa-check-circle"></i> Riset & Penelitian</li>
+                            <li><i class="fas fa-check-circle"></i> Konsultasi Akademik</li>
+                        </ul>
+                        <a href="https://wa.me/6281338607300?text=Halo%20Pengelola%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya%20tentang%20koleksi..." target="_blank" class="wa-contact-btn">
+                            <i class="fab fa-whatsapp"></i> Chat Sekarang
+                        </a>
+                    </div>
+                </div>
+                <div class="wa-topic-section reveal">
+                    <h3><i class="fas fa-lightbulb" style="color: var(--coral);"></i> Pilih Topik Pertanyaan</h3>
+                    <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">Klik topik di bawah untuk langsung chat dengan pesan yang sudah terisi</p>
+                    <div class="wa-topics-grid">
+                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20ingin%20mengetahui%20informasi%20tentang%20Museum%20Bahari%20Ngera%20Shells." target="_blank" class="wa-topic-btn"><i class="fas fa-info-circle"></i>Info Museum</a>
+                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20tertarik%20untuk%20berdonasi%20guna%20pembangunan%20kembali%20Museum%20Bahari%20fisik." target="_blank" class="wa-topic-btn"><i class="fas fa-hand-holding-heart"></i>Donasi</a>
+                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20ingin%20mengetahui%20lebih%20detail%20tentang%20koleksi%20fosil%20di%20Museum%20Bahari." target="_blank" class="wa-topic-btn"><i class="fas fa-bone"></i>Koleksi Fosil</a>
+                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20dari%20sekolah%2Finstansi%2C%20ingin%20mengadakan%20kunjungan%20edukasi%20ke%20Museum%20Bahari." target="_blank" class="wa-topic-btn"><i class="fas fa-school"></i>Kunjungan Sekolah</a>
+                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20ingin%20berkerjasama%20dengan%20Museum%20Bahari%20Ngera%20Shells." target="_blank" class="wa-topic-btn"><i class="fas fa-handshake"></i>Kerjasama</a>
+                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20peneliti%2Fmahasiswa%2C%20ingin%20bertanya%20tentang%20riset%20paleontologi%20di%20Museum%20Bahari." target="_blank" class="wa-topic-btn"><i class="fas fa-microscope"></i>Riset</a>
+                    </div>
+                </div>
+                <div class="quote-section reveal" style="margin-top: 2rem; border-radius: 20px;">
+                    <div class="quote-content">
+                        <p class="quote-text">"Kami siap melayani Anda dengan sepenuh hati. Setiap pertanyaan dan dukungan Anda sangat berarti bagi pelestarian warisan bahari Nusantara."</p>
+                        <p class="quote-author">— Tim Museum Bahari Ngera Shells</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `;
+    initRevealAnimations();
 }
 
 // ============ MODAL FUNCTIONS ============
 function showDetail(submenu, id) {
     const item = koleksiData[submenu].find(i => i.id === id);
     if (!item) return;
-    
     modalBody.innerHTML = `
         <div class="modal-hero">${item.icon}</div>
         <div class="modal-body">
@@ -997,7 +1010,6 @@ function attachCollectionEvents(submenu) {
 
 function updateActiveNav() {
     document.querySelectorAll('.nav-menu > li > a').forEach(link => link.classList.remove('active'));
-    
     let selector = '';
     if (currentPage === "home") selector = '.nav-menu a[data-page="home"]';
     else if (currentPage === "profil") selector = '.nav-menu a[data-page="profil"]';
@@ -1007,16 +1019,14 @@ function updateActiveNav() {
     else if (currentPage === "galeri") selector = '.nav-menu a[data-page="galeri"]';
     else if (currentPage === "youtube") selector = '.nav-menu a[data-page="youtube"]';
     else if (currentPage === "chat") selector = '.nav-menu a[data-page="chat"]';
-    else if (currentPage === "whatsapp") selector = '.nav-menu a[data-page="whatsapp"]'; // TAMBAHKAN
+    else if (currentPage === "whatsapp") selector = '.nav-menu a[data-page="whatsapp"]';
     else if (currentPage === "koleksi") selector = '.nav-menu .dropbtn';
-    
     if (selector) {
         const el = document.querySelector(selector);
         if (el) el.classList.add('active');
     }
 }
 
-// Navigation events
 document.querySelectorAll('nav a[data-page]').forEach(link => {
     link.onclick = (e) => {
         e.preventDefault();
@@ -1070,7 +1080,6 @@ document.querySelector('.dropbtn').onclick = (e) => {
 modalClose.onclick = closeModal;
 modal.onclick = (e) => { if (e.target === modal) closeModal(); };
 
-// Chat events
 chatFab.onclick = toggleChat;
 chatCloseBtn.onclick = toggleChat;
 
@@ -1102,7 +1111,6 @@ chatName.addEventListener('input', () => {
     localStorage.setItem('chatUserName', chatUserName);
 });
 
-// Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         if (modal.classList.contains('active')) closeModal();
@@ -1114,7 +1122,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Scroll effects
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
     backToTop.classList.toggle('visible', window.scrollY > 500);
@@ -1122,7 +1129,6 @@ window.addEventListener('scroll', () => {
 
 backToTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-// Animations
 function initRevealAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1173,130 +1179,12 @@ function copyToClipboard(text, btn) {
     });
 }
 
-// Preloader
 window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('preloader').classList.add('hidden');
     }, 800);
     initChatWidget();
 });
-// ============ RENDER WHATSAPP PAGE ============
-function renderWhatsapp() {
-    mainContainer.innerHTML = `
-        <section class="section" style="padding-top: 8rem;">
-            <div class="wa-page-container">
-                <!-- Hero Card -->
-                <div class="wa-hero-card reveal">
-                    <div class="wa-hero-icon"><i class="fab fa-whatsapp"></i></div>
-                    <h2>Hubungi Kami via WhatsApp</h2>
-                    <p>Tim Museum Bahari Ngera Shells siap membantu Anda. Pilih kontak di bawah untuk memulai percakapan.</p>
-                </div>
-                
-                <!-- Contact Cards -->
-                <div class="wa-cards-grid">
-                    <!-- Contact 1 -->
-                    <div class="wa-contact-card reveal">
-                        <div class="wa-contact-header">
-                            <div class="wa-contact-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="wa-contact-info">
-                                <h3>Admin Utama</h3>
-                                <div class="wa-contact-role">Informasi Umum & Donasi</div>
-                                <div class="wa-contact-number">+62 813-5381-0065</div>
-                            </div>
-                        </div>
-                        <ul class="wa-contact-features">
-                            <li><i class="fas fa-check-circle"></i> Informasi Museum</li>
-                            <li><i class="fas fa-check-circle"></i> Donasi & Kerjasama</li>
-                            <li><i class="fas fa-check-circle"></i> Kunjungan Grup</li>
-                            <li><i class="fas fa-check-circle"></i> Respon Cepat</li>
-                        </ul>
-                        <a href="https://wa.me/6281353810065?text=Halo%20Admin%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya%20tentang..." 
-                           target="_blank" 
-                           class="wa-contact-btn">
-                            <i class="fab fa-whatsapp"></i> Chat Sekarang
-                        </a>
-                    </div>
-                    
-                    <!-- Contact 2 -->
-                    <div class="wa-contact-card reveal">
-                        <div class="wa-contact-header">
-                            <div class="wa-contact-avatar">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <div class="wa-contact-info">
-                                <h3>Pengelola Museum</h3>
-                                <div class="wa-contact-role">Koleksi & Edukasi</div>
-                                <div class="wa-contact-number">+62 813-3860-7300</div>
-                            </div>
-                        </div>
-                        <ul class="wa-contact-features">
-                            <li><i class="fas fa-check-circle"></i> Detail Koleksi Fosil</li>
-                            <li><i class="fas fa-check-circle"></i> Program Edukasi</li>
-                            <li><i class="fas fa-check-circle"></i> Riset & Penelitian</li>
-                            <li><i class="fas fa-check-circle"></i> Konsultasi Akademik</li>
-                        </ul>
-                        <a href="https://wa.me/6281338607300?text=Halo%20Pengelola%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya%20tentang%20koleksi..." 
-                           target="_blank" 
-                           class="wa-contact-btn">
-                            <i class="fab fa-whatsapp"></i> Chat Sekarang
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Topic Selection -->
-                <div class="wa-topic-section reveal">
-                    <h3><i class="fas fa-lightbulb" style="color: var(--coral);"></i> Pilih Topik Pertanyaan</h3>
-                    <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">
-                        Klik topik di bawah untuk langsung chat dengan pesan yang sudah terisi
-                    </p>
-                    <div class="wa-topics-grid">
-                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20ingin%20mengetahui%20informasi%20tentang%20Museum%20Bahari%20Ngera%20Shells." 
-                           target="_blank" class="wa-topic-btn">
-                            <i class="fas fa-info-circle"></i>
-                            Info Museum
-                        </a>
-                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20tertarik%20untuk%20berdonasi%20guna%20pembangunan%20kembali%20Museum%20Bahari%20fisik." 
-                           target="_blank" class="wa-topic-btn">
-                            <i class="fas fa-hand-holding-heart"></i>
-                            Donasi
-                        </a>
-                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20ingin%20mengetahui%20lebih%20detail%20tentang%20koleksi%20fosil%20di%20Museum%20Bahari." 
-                           target="_blank" class="wa-topic-btn">
-                            <i class="fas fa-bone"></i>
-                            Koleksi Fosil
-                        </a>
-                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20dari%20sekolah%2Finstansi%2C%20ingin%20mengadakan%20kunjungan%20edukasi%20ke%20Museum%20Bahari." 
-                           target="_blank" class="wa-topic-btn">
-                            <i class="fas fa-school"></i>
-                            Kunjungan Sekolah
-                        </a>
-                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20ingin%20berkerjasama%20dengan%20Museum%20Bahari%20Ngera%20Shells." 
-                           target="_blank" class="wa-topic-btn">
-                            <i class="fas fa-handshake"></i>
-                            Kerjasama
-                        </a>
-                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20peneliti%2Fmahasiswa%2C%20ingin%20bertanya%20tentang%20riset%20paleontologi%20di%20Museum%20Bahari." 
-                           target="_blank" class="wa-topic-btn">
-                            <i class="fas fa-microscope"></i>
-                            Riset
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Info Box -->
-                <div class="quote-section reveal" style="margin-top: 2rem; border-radius: 20px;">
-                    <div class="quote-content">
-                        <p class="quote-text">"Kami siap melayani Anda dengan sepenuh hati. Setiap pertanyaan dan dukungan Anda sangat berarti bagi pelestarian warisan bahari Nusantara."</p>
-                        <p class="quote-author">— Tim Museum Bahari Ngera Shells</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    `;
-    
-    initRevealAnimations();
-}
+
 // Initial render
 render();

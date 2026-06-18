@@ -75,7 +75,7 @@ const profilData = {
             <p>Selepas dari kegiatan membantu orang kecil, Pater Gabriel kembali memusatkan perhatian untuk membangun sebuah Museum. Gagasan ini mendapat respon positif dari Pemerintah Kabupaten Ende, dan akhirnya <strong>Museum Bahari berhasil dibangun dan diresmikan oleh Bupati Ende, Bapak Frans Gedowolo, pada tanggal 14 Agustus 1996</strong> dan terbuka untuk umum.</p>
             
             <h5><i class="fas fa-heart"></i> Masa Akhir Hayat</h5>
-            <p>Pasca terserang penyakit stroke, ruang gerak Pater Gabriel terbatas di kamar dan tempat tidur hingga dipindahkan ke Biara Jompo Simeon Ledalero - Maumere. Pada tanggal <strong>11 November 2012</strong>, Pater Gabriel meminta bertemu dan menyerahkan Surat Kuasa kepada saya untuk melanjutkan segala usaha yang telah dirintisnya.</p>
+            <p>Pasca terserang penyakit stroke, ruang gerak Pater Gabriel terbatas di kamar dan tempat tidur hingga dipindahkan ke Biara Jompo Simeon Ledalero - Maumere. Pada tanggal <strong>11 November 2012</strong>, Pater Gabriel meminta bertemu dan menyerahkan Surat Kuasa kepada Kalianus Nusa Nipa untuk melanjutkan segala usaha yang telah dirintisnya.</p>
         `
     },
     kalianus: {

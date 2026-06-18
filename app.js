@@ -206,7 +206,9 @@ const narasi = {
             <div class="section-header reveal">
                 <span class="section-label">Profil Museum</span>
                 <h2 class="section-title">Mengenal Lebih Dekat <span class="accent">Ngera Shells</span></h2>
-                <p class="section-desc"><strong>"Ngera Shells"</strong> dalam bahasa daerah berarti <strong>"Rumah Kita"</strong>. Nama ini dipilih karena museum ini adalah milik bersama — tempat di mana kita semua bisa belajar, menjaga, dan membanggakan kekayaan alam dan budaya Indonesia.</p>
+                <p class="section-desc">
+                <strong>"Ngera Shells"</strong> diambil dari nama <strong>Ngera</strong>, seorang leluhur dalam tradisi masyarakat Lio yang dihormati dan diyakini memiliki kekuatan supranatural. Secara etimologis, <strong>Ngera</strong> berasal dari ungkapan <strong>Nge Leka Ra</strong>, yang berarti <strong>"berasal dari darah yang sama"</strong>, melambangkan persaudaraan, kebersamaan, dan ikatan kekerabatan dalam satu garis keturunan. Filosofi ini menjadi landasan <strong>Museum Bahari Ende</strong> sebagai ruang bersama untuk belajar, melestarikan, dan mewariskan pengetahuan tentang biota laut, sejarah maritim, serta budaya pesisir kepada generasi masa kini dan masa depan.
+                </p>
             </div>
 
             <!-- Profil Pendiri -->

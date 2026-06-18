@@ -351,6 +351,7 @@ function render() {
     else if (currentPage === "galeri") renderGaleri();
     else if (currentPage === "youtube") renderYoutube();
     else if (currentPage === "chat") renderChat();
+    else if (currentPage === "whatsapp") renderWhatsapp(); // TAMBAHKAN INI
     else if (currentPage === "koleksi" && currentSubmenu) renderKoleksiSubmenu(currentSubmenu);
     
     updateActiveNav();
@@ -432,22 +433,30 @@ function renderHome() {
         </section>
 
         <section class="section" style="text-align:center;">
-            <div class="reveal">
-                <h2 class="section-title">Jelajahi <span class="accent">Media Kami</span></h2>
-                <p class="section-desc" style="max-width:700px; margin:1rem auto 2rem;">Saksikan dokumentasi kegiatan dan video edukasi melalui galeri foto dan channel YouTube resmi Museum Bahari Ngera Shells.</p>
-                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-                    <a href="#" class="btn btn-primary" data-page="galeri">
-                        <i class="fas fa-images"></i> Galeri Foto
-                    </a>
-                    <a href="#" class="btn btn-outline" data-page="youtube" style="color:var(--ocean-dark); border-color:var(--ocean-primary);">
-                        <i class="fab fa-youtube" style="color:#ff0000;"></i> Video Youtube
-                    </a>
-                    <a href="#" class="btn btn-outline" data-page="chat" style="color:var(--ocean-dark); border-color:var(--ocean-primary);">
-                        <i class="fas fa-comments"></i> Chat Publik
-                    </a>
-                </div>
-            </div>
-        </section>
+    <div class="reveal">
+        <h2 class="section-title">Hubungi <span class="accent">Kami</span></h2>
+        <p class="section-desc" style="max-width:700px; margin:1rem auto 2rem;">
+            Butuh informasi lebih lanjut? Ingin berdonasi atau berkunjung? Hubungi kami langsung via WhatsApp!
+        </p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="https://wa.me/6281353810065?text=Halo%20Museum%20Bahari%20Ngera%20Shells..." 
+               target="_blank" 
+               class="btn" 
+               style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;">
+                <i class="fab fa-whatsapp"></i> Admin Utama
+            </a>
+            <a href="https://wa.me/6281338607300?text=Halo%20Museum%20Bahari%20Ngera%20Shells..." 
+               target="_blank" 
+               class="btn" 
+               style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;">
+                <i class="fab fa-whatsapp"></i> Pengelola
+            </a>
+            <a href="#" class="btn btn-outline" data-page="whatsapp" style="color:var(--ocean-dark); border-color:var(--ocean-primary);">
+                <i class="fas fa-address-book"></i> Semua Kontak
+            </a>
+        </div>
+    </div>
+</section>
 
         <section class="quote-section">
             <div class="quote-content">
@@ -998,6 +1007,7 @@ function updateActiveNav() {
     else if (currentPage === "galeri") selector = '.nav-menu a[data-page="galeri"]';
     else if (currentPage === "youtube") selector = '.nav-menu a[data-page="youtube"]';
     else if (currentPage === "chat") selector = '.nav-menu a[data-page="chat"]';
+    else if (currentPage === "whatsapp") selector = '.nav-menu a[data-page="whatsapp"]'; // TAMBAHKAN
     else if (currentPage === "koleksi") selector = '.nav-menu .dropbtn';
     
     if (selector) {
@@ -1170,6 +1180,123 @@ window.addEventListener('load', () => {
     }, 800);
     initChatWidget();
 });
-
+// ============ RENDER WHATSAPP PAGE ============
+function renderWhatsapp() {
+    mainContainer.innerHTML = `
+        <section class="section" style="padding-top: 8rem;">
+            <div class="wa-page-container">
+                <!-- Hero Card -->
+                <div class="wa-hero-card reveal">
+                    <div class="wa-hero-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h2>Hubungi Kami via WhatsApp</h2>
+                    <p>Tim Museum Bahari Ngera Shells siap membantu Anda. Pilih kontak di bawah untuk memulai percakapan.</p>
+                </div>
+                
+                <!-- Contact Cards -->
+                <div class="wa-cards-grid">
+                    <!-- Contact 1 -->
+                    <div class="wa-contact-card reveal">
+                        <div class="wa-contact-header">
+                            <div class="wa-contact-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="wa-contact-info">
+                                <h3>Admin Utama</h3>
+                                <div class="wa-contact-role">Informasi Umum & Donasi</div>
+                                <div class="wa-contact-number">+62 813-5381-0065</div>
+                            </div>
+                        </div>
+                        <ul class="wa-contact-features">
+                            <li><i class="fas fa-check-circle"></i> Informasi Museum</li>
+                            <li><i class="fas fa-check-circle"></i> Donasi & Kerjasama</li>
+                            <li><i class="fas fa-check-circle"></i> Kunjungan Grup</li>
+                            <li><i class="fas fa-check-circle"></i> Respon Cepat</li>
+                        </ul>
+                        <a href="https://wa.me/6281353810065?text=Halo%20Admin%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya%20tentang..." 
+                           target="_blank" 
+                           class="wa-contact-btn">
+                            <i class="fab fa-whatsapp"></i> Chat Sekarang
+                        </a>
+                    </div>
+                    
+                    <!-- Contact 2 -->
+                    <div class="wa-contact-card reveal">
+                        <div class="wa-contact-header">
+                            <div class="wa-contact-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="wa-contact-info">
+                                <h3>Pengelola Museum</h3>
+                                <div class="wa-contact-role">Koleksi & Edukasi</div>
+                                <div class="wa-contact-number">+62 813-3860-7300</div>
+                            </div>
+                        </div>
+                        <ul class="wa-contact-features">
+                            <li><i class="fas fa-check-circle"></i> Detail Koleksi Fosil</li>
+                            <li><i class="fas fa-check-circle"></i> Program Edukasi</li>
+                            <li><i class="fas fa-check-circle"></i> Riset & Penelitian</li>
+                            <li><i class="fas fa-check-circle"></i> Konsultasi Akademik</li>
+                        </ul>
+                        <a href="https://wa.me/6281338607300?text=Halo%20Pengelola%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya%20tentang%20koleksi..." 
+                           target="_blank" 
+                           class="wa-contact-btn">
+                            <i class="fab fa-whatsapp"></i> Chat Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Topic Selection -->
+                <div class="wa-topic-section reveal">
+                    <h3><i class="fas fa-lightbulb" style="color: var(--coral);"></i> Pilih Topik Pertanyaan</h3>
+                    <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">
+                        Klik topik di bawah untuk langsung chat dengan pesan yang sudah terisi
+                    </p>
+                    <div class="wa-topics-grid">
+                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20ingin%20mengetahui%20informasi%20tentang%20Museum%20Bahari%20Ngera%20Shells." 
+                           target="_blank" class="wa-topic-btn">
+                            <i class="fas fa-info-circle"></i>
+                            Info Museum
+                        </a>
+                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20tertarik%20untuk%20berdonasi%20guna%20pembangunan%20kembali%20Museum%20Bahari%20fisik." 
+                           target="_blank" class="wa-topic-btn">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            Donasi
+                        </a>
+                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20ingin%20mengetahui%20lebih%20detail%20tentang%20koleksi%20fosil%20di%20Museum%20Bahari." 
+                           target="_blank" class="wa-topic-btn">
+                            <i class="fas fa-bone"></i>
+                            Koleksi Fosil
+                        </a>
+                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20dari%20sekolah%2Finstansi%2C%20ingin%20mengadakan%20kunjungan%20edukasi%20ke%20Museum%20Bahari." 
+                           target="_blank" class="wa-topic-btn">
+                            <i class="fas fa-school"></i>
+                            Kunjungan Sekolah
+                        </a>
+                        <a href="https://wa.me/6281353810065?text=Halo%2C%20saya%20ingin%20berkerjasama%20dengan%20Museum%20Bahari%20Ngera%20Shells." 
+                           target="_blank" class="wa-topic-btn">
+                            <i class="fas fa-handshake"></i>
+                            Kerjasama
+                        </a>
+                        <a href="https://wa.me/6281338607300?text=Halo%2C%20saya%20peneliti%2Fmahasiswa%2C%20ingin%20bertanya%20tentang%20riset%20paleontologi%20di%20Museum%20Bahari." 
+                           target="_blank" class="wa-topic-btn">
+                            <i class="fas fa-microscope"></i>
+                            Riset
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Info Box -->
+                <div class="quote-section reveal" style="margin-top: 2rem; border-radius: 20px;">
+                    <div class="quote-content">
+                        <p class="quote-text">"Kami siap melayani Anda dengan sepenuh hati. Setiap pertanyaan dan dukungan Anda sangat berarti bagi pelestarian warisan bahari Nusantara."</p>
+                        <p class="quote-author">— Tim Museum Bahari Ngera Shells</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `;
+    
+    initRevealAnimations();
+}
 // Initial render
 render();

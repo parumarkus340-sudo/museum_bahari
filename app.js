@@ -355,25 +355,35 @@ function renderHome() {
                 <h1>Selamat Datang di <span class="accent">Ngera Shells</span></h1>
                 <p class="hero-subtitle">Museum Bahari Ende — "Rumah Kita"</p>
                 
-                <!-- TEKS BARU DARI BAPAK KALIANUS NUSA NIPA -->
-                <div class="hero-desc-long">
-                    <p>Salah satu indikator pendukung sebuah peradaban dalam suatu wilayah dinilai maju dan berkembang adalah keberadaan Museum. Museum tidak saja menyimpan benda-benda kuno atau artefak dari berbagai aspek kehidupan, namun keberadaan museum menjadi sarana informasi dan objek wisata khususnya wisata bahari.</p>
+                <!-- SAMBUTAN DARI BAPAK KALIANUS NUSA NIPA -->
+                <div class="hero-welcome-box">
+                    <div class="welcome-header">
+                        <i class="fas fa-feather-alt"></i>
+                        <span>Kata Pengantar</span>
+                    </div>
                     
-                    <p>Kehadiran Museum dalam satu wilayah/kota dapat menyelamatkan benda atau barang, artefak dari kepunahan dan kerusakan secara alami, maka sejalan dengan tujuan dan latar belakang museum adalah mengumpulkan, mendokumentasikan dan menarasikannya untuk tujuan edukasi tentang perlindungan dan pelestarian alam kepada masyarakat luas, khususnya pelajar dan mahasiswa hingga berupaya melestarikan kembali warisan budaya yang hampir dan akan punah dalam berbagai bidang kehidupan terkhususnya siput dan kerang serta biota laut lainnya.</p>
-                    
-                    <p>Maka keberadaan Museum Bahari yang pernah ada dibangun tahun 1996 menjadi salah satu indikator penting pembangunan kebudayaan Daerah dalam mendukung Kebudayaan Nasional, namun sayang keberadaan Museum Bahari yang terletak di dalam kawasan Taman Renungan telah dibongkar pada Januari 2013 oleh Yayasan Ende Flores, ketika revitalisasi Taman Renungan Bung Karno.</p>
-                    
-                    <p>Karena vakum dalam kurun waktu yang tidak menentu serta ketiadaan lahan dan biaya maka munculah ide untuk merancang Museum secara Daring agar dapat dipublikasikan kembali kepada masyarakat luas.</p>
-                    
-                    <p>Dalam upaya tersebut saya menyampaikan niat yang selama ini saya pendam untuk merancang Museum secara Daring. Banyaknya kendala yang saya hadapi khususnya dari sisi biaya dan lahan, maka saya berinisiatif untuk berdiskusi dengan <strong>Bapak Markus Paru</strong>, sahabat dan rekan kerja yang sangat profesional di bidangnya untuk mewujudkan ide dan pemikiran saya selama ini. Setelah menyampaikan pandangan saya dan beliau mengatakan bisa, maka sejak <strong>tgl 15 Juni 2026</strong> beliau langsung memulai merancang aplikasi khusus untuk Museum Bahari Ende "Ngera Shells".</p>
-                    
-                    <p>Besar harapan dan niat baik kami ini membawa manfaat bagi masyarakat luas khususnya pelajar dan mahasiswa yang haus akan seni dan pengetahuan baru, sehingga melalui aplikasi Daring ini kami dapat mengumpulkan <strong>DONASI</strong> dari dukungan Masyarakat luas dalam mewujudkan niat kami yakni pembangunan Museum secara fisik nyata di Kabupaten Ende - Nusa Tenggara Timur - Indonesia.</p>
-                    
-                    <div class="hero-signature">
-                        <p><em>Ende, 15 Juni 2026</em></p>
-                        <p><strong>Pemilik dan Pengelola</strong></p>
-                        <p><strong>Museum Bahari Ende "Ngera Shells"</strong></p>
-                        <p class="signature-name">Kalianus Nusa Nipa</p>
+                    <div class="welcome-content">
+                        <p class="first-paragraph">Salah satu indikator peradaban maju dan berkembang di suatu wilayah adalah keberadaan museum. Museum tidak hanya menyimpan benda-benda kuno atau artefak dari berbagai aspek kehidupan, tetapi juga menjadi sarana informasi dan objek wisata, khususnya wisata bahari.</p>
+                        
+                        <p>Kehadiran museum di suatu wilayah dapat menyelamatkan benda dan artefak dari kepunahan serta kerusakan alami. Sesuai dengan tujuan dan latar belakangnya, museum berfungsi untuk mengumpulkan, mendokumentasikan, dan menarasikan koleksi guna edukasi tentang perlindungan dan pelestarian alam kepada masyarakat luas, khususnya pelajar dan mahasiswa.</p>
+                        
+                        <p>Museum ini berupaya melestarikan kembali warisan budaya yang hampir dan akan punah di berbagai bidang kehidupan, terkhususnya siput, kerang, serta biota laut lainnya. Keberadaan Museum Bahari yang dibangun tahun 1996 menjadi salah satu indikator penting pembangunan kebudayaan daerah dalam mendukung Kebudayaan Nasional.</p>
+                        
+                        <p class="highlight-paragraph">Namun sayang, Museum Bahari yang terletak di dalam kawasan Taman Renungan telah dibongkar pada Januari 2013 oleh Yayasan Ende Flores, seiring revitalisasi Taman Renungan Bung Karno.</p>
+                        
+                        <p>Karena vakum dalam kurun waktu yang tidak menentu, serta ketiadaan lahan dan biaya, muncullah ide untuk merancang Museum secara Daring agar dapat dipublikasikan kembali kepada masyarakat luas. Dalam upaya tersebut, saya menyampaikan niat yang selama ini saya pendam untuk mewujudkan museum virtual.</p>
+                        
+                        <p>Mengingat banyaknya kendala yang saya hadapi, khususnya dari sisi biaya dan lahan, saya berinisiatif berdiskusi dengan <strong>Bapak Markus Paru</strong>—sahabat dan rekan kerja yang sangat profesional di bidangnya—untuk mewujudkan ide dan pemikiran saya. Setelah menyampaikan pandangan saya dan beliau menyatakan siap membantu, maka sejak tanggal <strong>15 Juni 2026</strong> beliau langsung memulai merancang aplikasi khusus untuk Museum Bahari Ende "Ngera Shells".</p>
+                        
+                        <p>Besar harapan dan niat baik kami agar kehadiran museum ini membawa manfaat bagi masyarakat luas, khususnya pelajar dan mahasiswa yang haus akan seni dan pengetahuan baru. Melalui aplikasi daring ini, kami juga berharap dapat mengumpulkan <strong>DONASI</strong> dari dukungan masyarakat luas dalam mewujudkan niat kami, yakni pembangunan Museum secara fisik nyata di Kabupaten Ende, Nusa Tenggara Timur, Indonesia.</p>
+                        
+                        <div class="welcome-signature">
+                            <div class="signature-line"></div>
+                            <p class="signature-place"><em>Ende, 15 Juni 2026</em></p>
+                            <p class="signature-position">Pemilik dan Pengelola</p>
+                            <p class="signature-museum">Museum Bahari Ende "Ngera Shells"</p>
+                            <p class="signature-name">Kalianus Nusa Nipa</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -486,7 +496,6 @@ function renderHome() {
     attachHomeEvents();
     animateStats();
 }
-
 function renderProfil() {
     mainContainer.innerHTML = `
         <section class="section" style="padding-top: 8rem;">

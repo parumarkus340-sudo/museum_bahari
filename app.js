@@ -1,3 +1,20 @@
+// ==========================================
+// KONFIGURASI FIREBASE
+// ==========================================
+const firebaseConfig = {
+  apiKey: "AIzaSyCzzUqEgP_xSFO1Kht1PPPSuF7v2k0r8DI",
+  authDomain: "museumbahari-10de3.firebaseapp.com",
+  databaseURL: "https://museumbahari-10de3-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "museumbahari-10de3",
+  storageBucket: "museumbahari-10de3.firebasestorage.app",
+  messagingSenderId: "1094004459031",
+  appId: "1:1094004459031:web:82f4fe8875b247294cbe52",
+  measurementId: "G-B1XZBF2YS2"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+
 // ============ DATA KOLEKSI ============
 const koleksiData = {
     bifalfia: [

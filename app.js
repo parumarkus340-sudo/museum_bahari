@@ -673,6 +673,7 @@ function renderChat() {
 
 // ============ FIREBASE CHAT FUNCTIONS ============
 function sendMessage(nama, pesan) {
+    // Filter kata kasar
     const kataKasar = ['anjing', 'bajingan', 'kontol', 'memek', 'bangsat', 'goblok', 'tolol', 'asu'];
     const pesanLower = pesan.toLowerCase();
     let filteredPesan = pesan;
@@ -688,35 +689,65 @@ function sendMessage(nama, pesan) {
         timestamp: firebase.database.ServerValue.TIMESTAMP
     };
     
+    // Tampilkan loading
+    chatSend.disabled = true;
+    chatSend.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    
     chatRef.push(newMessage)
-        .then(() => console.log('Pesan terkirim'))
+        .then(() => {
+            console.log('✅ Pesan terkirim ke Firebase');
+            chatInput.value = '';
+            chatSend.disabled = false;
+            chatSend.innerHTML = '<i class="fas fa-paper-plane"></i>';
+        })
         .catch((error) => {
-            console.error('Error mengirim pesan:', error);
-            alert('Gagal mengirim pesan. Silakan coba lagi.');
+            console.error('❌ Error Firebase:', error);
+            chatSend.disabled = false;
+            chatSend.innerHTML = '<i class="fas fa-paper-plane"></i>';
+            
+            // Fallback: simpan di localStorage jika Firebase gagal
+            saveMessageLocally(newMessage);
+            
+            // Tampilkan pesan error yang lebih informatif
+            let errorMsg = 'Gagal mengirim pesan. ';
+            if (error.code === 'PERMISSION_DENIED') {
+                errorMsg += 'Permission ditolak. Cek Rules di Firebase Console.';
+            } else if (error.code === 'NETWORK_ERROR') {
+                errorMsg += 'Koneksi internet bermasalah.';
+            } else {
+                errorMsg += 'Pesan disimpan lokal sementara.';
+            }
+            
+            alert(errorMsg + '\n\nPesan Anda tetap tersimpan di browser ini.');
         });
 }
 
-function loadChatMessages(container) {
-    if (chatListener) chatListener.off();
+// Fallback: simpan pesan di localStorage
+function saveMessageLocally(message) {
+    const localMessages = JSON.parse(localStorage.getItem('chat_local') || '[]');
+    message.timestamp = Date.now();
+    message.id = 'local_' + Date.now();
+    localMessages.push(message);
     
-    chatListener = chatRef.orderByChild('timestamp').limitToLast(50);
+    // Simpan max 100 pesan
+    if (localMessages.length > 100) {
+        localMessages.shift();
+    }
     
-    chatListener.on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (!data) {
-            container.innerHTML = `
-                <div class="chat-empty">
-                    <i class="fas fa-comments"></i>
-                    <p>Belum ada pesan.<br>Jadilah yang pertama memulai percakapan!</p>
-                </div>
-            `;
-            return;
-        }
-        
-        const messages = Object.values(data).sort((a, b) => a.timestamp - b.timestamp);
-        container.innerHTML = messages.map(msg => createMessageHTML(msg)).join('');
-        container.scrollTop = container.scrollHeight;
-    });
+    localStorage.setItem('chat_local', JSON.stringify(localMessages));
+    
+    // Update tampilan
+    displayLocalMessages();
+}
+
+// Tampilkan pesan dari localStorage
+function displayLocalMessages() {
+    const localMessages = JSON.parse(localStorage.getItem('chat_local') || '[]');
+    if (localMessages.length === 0) return;
+    
+    const messagesHTML = localMessages.map(msg => createMessageHTML(msg)).join('');
+    chatMessages.innerHTML = messagesHTML;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 function createMessageHTML(msg) {
@@ -744,33 +775,52 @@ function escapeHTML(str) {
 }
 
 function initChatWidget() {
-    const widgetListener = chatRef.orderByChild('timestamp').limitToLast(20);
+    // Tampilkan pesan lokal dulu (fallback)
+    displayLocalMessages();
     
-    widgetListener.on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (!data) {
-            chatMessages.innerHTML = `
-                <div class="chat-empty">
-                    <i class="fas fa-comments"></i>
-                    <p>Belum ada pesan.<br>Jadilah yang pertama memulai percakapan!</p>
-                </div>
-            `;
-            return;
-        }
+    // Coba connect ke Firebase
+    try {
+        const widgetListener = chatRef.orderByChild('timestamp').limitToLast(20);
         
-        const messages = Object.values(data).sort((a, b) => a.timestamp - b.timestamp);
-        chatMessages.innerHTML = messages.map(msg => createMessageHTML(msg)).join('');
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        
-        if (!isChatOpen) {
-            const lastMsg = messages[messages.length - 1];
-            if (lastMsg && lastMsg.nama !== chatUserName) {
-                unreadMessages++;
-                chatBadge.textContent = unreadMessages > 99 ? '99+' : unreadMessages;
-                chatBadge.classList.remove('hidden');
+        widgetListener.on('value', (snapshot) => {
+            const data = snapshot.val();
+            console.log('✅ Firebase connected, messages:', data);
+            
+            if (!data) {
+                // Jika Firebase kosong, tampilkan pesan lokal
+                displayLocalMessages();
+                if (!localStorage.getItem('chat_local')) {
+                    chatMessages.innerHTML = `
+                        <div class="chat-empty">
+                            <i class="fas fa-comments"></i>
+                            <p>Belum ada pesan.<br>Jadilah yang pertama memulai percakapan!</p>
+                        </div>
+                    `;
+                }
+                return;
             }
-        }
-    });
+            
+            const messages = Object.values(data).sort((a, b) => a.timestamp - b.timestamp);
+            chatMessages.innerHTML = messages.map(msg => createMessageHTML(msg)).join('');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Update badge
+            if (!isChatOpen) {
+                const lastMsg = messages[messages.length - 1];
+                if (lastMsg && lastMsg.nama !== chatUserName) {
+                    unreadMessages++;
+                    chatBadge.textContent = unreadMessages > 99 ? '99+' : unreadMessages;
+                    chatBadge.classList.remove('hidden');
+                }
+            }
+        }, (error) => {
+            console.error('❌ Firebase listener error:', error);
+            displayLocalMessages();
+        });
+    } catch (error) {
+        console.error('❌ Firebase init error:', error);
+        displayLocalMessages();
+    }
 }
 
 function toggleChat() {

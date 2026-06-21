@@ -1,0 +1,367 @@
+/* =====================================================
+   RESPONSIVE.CSS
+   Semua media queries untuk mobile, tablet, & print
+   ===================================================== */
+
+/* ============ TABLET (max-width: 968px) ============ */
+@media (max-width: 968px) {
+    /* Grid Layouts */
+    .donate-container,
+    .wa-cards-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .footer-container { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    
+    /* Timeline */
+    .timeline::before { left: 20px; }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 50px;
+        padding-right: 1rem;
+    }
+    
+    .timeline-item::before {
+        left: 12px !important;
+        right: auto !important;
+    }
+    
+    /* Profil Cards */
+    .profil-card { padding: 2rem 1.5rem; }
+    
+    .profil-card-inner,
+    .profil-card-reverse .profil-card-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .profil-card-reverse .profil-photo { order: 0; }
+    
+    .profil-photo-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .profil-info h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .profil-jabatan,
+    .profil-meta { 
+        justify-content: center; 
+    }
+    
+    /* Chat Page */
+    .chat-page-form { grid-template-columns: 1fr; }
+}
+
+/* ============ MOBILE (max-width: 768px) ============ */
+@media (max-width: 768px) {
+    /* Navigation Mobile */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: var(--transition);
+        gap: 0.5rem;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active { transform: translateY(0); }
+    
+    .nav-menu a {
+        color: var(--text-dark) !important;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .nav-toggle { display: block; }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        background: #e3f2fd;
+        margin-top: 0.5rem;
+    }
+    
+    .dropdown.active .dropdown-content { display: block; }
+    .dropdown-content::before { display: none; }
+    
+    /* Sections */
+    .section { padding: 4rem 1.5rem; }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn { justify-content: center; }
+    
+    /* Welcome Box */
+    .hero-welcome-box { margin: 1.5rem 1rem; }
+    
+    .welcome-header {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .welcome-content {
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        max-height: 400px;
+        line-height: 1.8;
+    }
+    
+    .welcome-content .first-paragraph::first-letter { 
+        font-size: 2.8rem; 
+    }
+    
+    .welcome-content .highlight-paragraph {
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .welcome-signature { text-align: center; }
+    
+    .signature-line { margin: 0 auto 1rem; }
+    
+    .signature-name { font-size: 1.5rem !important; }
+    
+    /* Components */
+    .galeri-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .video-grid { grid-template-columns: 1fr; }
+    
+    .lightbox-nav { display: none; }
+    
+    /* Chat Widget */
+    .chat-window {
+        width: calc(100% - 2rem);
+        right: 1rem;
+        left: 1rem;
+        bottom: 6rem;
+        height: 70vh;
+    }
+    
+    .chat-fab {
+        right: 1rem;
+        bottom: 1rem;
+    }
+    
+    .back-to-top {
+        bottom: 5rem;
+        right: 1rem;
+    }
+    
+    /* WhatsApp */
+    .wa-float {
+        left: 1rem;
+        bottom: 1rem;
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+    }
+    
+    .wa-hero-card { padding: 2rem 1.5rem; }
+    
+    .wa-hero-card h2 { font-size: 1.5rem; }
+    
+    /* Stats */
+    .stat-number { font-size: 2.5rem; }
+    
+    /* Quote */
+    .quote-section { padding: 4rem 1.5rem; }
+    
+    .quote-section::before { font-size: 12rem; }
+}
+
+/* ============ SMALL MOBILE (max-width: 480px) ============ */
+@media (max-width: 480px) {
+    .welcome-content {
+        padding: 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .welcome-content .first-paragraph::first-letter { 
+        font-size: 2.3rem; 
+    }
+    
+    .hero h1 { font-size: 2.2rem; }
+    
+    .hero-subtitle { font-size: 1rem; }
+    
+    .section-title { font-size: 1.8rem; }
+    
+    .profil-photo-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .wa-topic-btn {
+        font-size: 0.85rem;
+        padding: 0.8rem;
+    }
+    
+    .wa-topic-btn i {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============ LARGE DESKTOP (min-width: 1600px) ============ */
+@media (min-width: 1600px) {
+    .nav-container,
+    .section,
+    .footer-container {
+        max-width: 1600px;
+    }
+    
+    .hero-content {
+        max-width: 1100px;
+    }
+}
+
+/* ============ PRINT STYLES ============ */
+@media print {
+    .navbar,
+    .chat-fab,
+    .chat-window,
+    .wa-float,
+    .back-to-top,
+    .preloader,
+    footer {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .hero {
+        min-height: auto;
+        background: white !important;
+        color: black !important;
+        padding: 2rem;
+    }
+    
+    .hero-welcome-box {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+}
+/* ============ MOBILE (max-width: 768px) ============ */
+@media (max-width: 768px) {
+    /* ... kode yang sudah ada (navigation, sections, dll) ... */
+    
+    /* ==========================================
+       TAMBAHAN UNTUK DOKUMEN & HERO (BARU)
+       ========================================== */
+    
+    /* Dokumen Card Mobile */
+    .dokumen-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .dokumen-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .dokumen-icon {
+        margin: 0 auto;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .dokumen-meta {
+        justify-content: center;
+    }
+    
+    .dokumen-btn {
+        justify-content: center;
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+    }
+    
+    /* Hero Background Image Mobile */
+    .hero[style*="background-image"] {
+        background-attachment: scroll;
+    }
+    
+    /* Audio Player Mobile */
+    .audio-player-floating {
+        width: 95%;
+        bottom: 5rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    .audio-player-header span {
+        font-size: 0.9rem;
+    }
+    
+    .audio-mini-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* ============ SMALL MOBILE (max-width: 480px) ============ */
+@media (max-width: 480px) {
+    /* ... kode yang sudah ada ... */
+    
+    /* Dokumen Small Mobile */
+    .dokumen-card {
+        padding: 1.2rem;
+    }
+    
+    .dokumen-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .dokumen-info p {
+        font-size: 0.85rem;
+    }
+    
+    .dokumen-meta span {
+        font-size: 0.75rem;
+    }
+    
+    .dokumen-btn {
+        font-size: 0.8rem;
+        padding: 0.7rem 1rem;
+    }
+}

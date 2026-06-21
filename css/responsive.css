@@ -1,0 +1,823 @@
+/* =====================================================
+   RESPONSIVE.CSS - CLEAN VERSION
+   Semua media queries untuk mobile, tablet, & print
+   
+   STRUKTUR:
+   1. Tablet (max-width: 968px)
+   2. Mobile (max-width: 768px)
+   3. Small Mobile (max-width: 480px)
+   4. Large Desktop (min-width: 1600px)
+   5. Print Styles
+   
+   CATATAN:
+   - Semua duplikasi sudah dihapus
+   - Semua responsive styles sudah dibungkus @media
+   - Tidak ada style yang bocor ke desktop
+   ===================================================== */
+
+
+/* ==========================================================
+   1. TABLET (max-width: 968px)
+   ========================================================== */
+@media (max-width: 968px) {
+    
+    /* Grid Layouts */
+    .donate-container,
+    .wa-cards-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .footer-container { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    
+    /* Timeline */
+    .timeline::before { left: 20px; }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 50px;
+        padding-right: 1rem;
+    }
+    
+    .timeline-item::before {
+        left: 12px !important;
+        right: auto !important;
+    }
+    
+    /* Profil Cards */
+    .profil-card { padding: 2rem 1.5rem; }
+    
+    .profil-card-inner,
+    .profil-card-reverse .profil-card-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .profil-card-reverse .profil-photo { order: 0; }
+    
+    .profil-photo-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .profil-info h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .profil-jabatan,
+    .profil-meta { 
+        justify-content: center; 
+    }
+    
+    /* Chat Page */
+    .chat-page-form { grid-template-columns: 1fr; }
+    
+    /* Sejarah Section Tablet */
+    .sejarah-section {
+        padding: 2.5rem 2rem;
+    }
+    
+    .sejarah-two-columns {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Timeline Detail Tablet */
+    .timeline-detail {
+        padding-left: 2.5rem;
+    }
+    
+    .timeline-detail-item {
+        padding: 1.8rem;
+    }
+    
+    /* Tujuan Overview Tablet */
+    .tujuan-overview {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Dampak Grid Tablet */
+    .dampak-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Area Grid Tablet */
+    .area-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    /* Penggagas Card Tablet */
+    .penggagas-card {
+        padding: 2rem;
+        gap: 2rem;
+    }
+    
+    .penggagas-photo img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+
+/* ==========================================================
+   2. MOBILE (max-width: 768px)
+   ========================================================== */
+@media (max-width: 768px) {
+    
+    /* ---------- NAVIGATION ---------- */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: var(--transition);
+        gap: 0.5rem;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active { transform: translateY(0); }
+    
+    .nav-menu a {
+        color: var(--text-dark) !important;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .nav-toggle { display: block; }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        background: #e3f2fd;
+        margin-top: 0.5rem;
+    }
+    
+    .dropdown.active .dropdown-content { display: block; }
+    .dropdown-content::before { display: none; }
+    
+    /* ---------- SECTIONS ---------- */
+    .section { padding: 4rem 1.5rem; }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn { justify-content: center; }
+    
+    /* ---------- HERO & WELCOME ---------- */
+    .hero-welcome-box { margin: 1.5rem 1rem; }
+    
+    .welcome-header {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .welcome-content {
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        max-height: 400px;
+        line-height: 1.8;
+    }
+    
+    .welcome-content .first-paragraph::first-letter { 
+        font-size: 2.8rem; 
+    }
+    
+    .welcome-content .highlight-paragraph {
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .welcome-signature { text-align: center; }
+    
+    .signature-line { margin: 0 auto 1rem; }
+    
+    .signature-name { font-size: 1.5rem !important; }
+    
+    /* Hero Background */
+    .hero[style*="background-image"] {
+        background-attachment: scroll;
+    }
+    
+    /* ---------- COMPONENTS ---------- */
+    .galeri-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .video-grid { grid-template-columns: 1fr; }
+    
+    .lightbox-nav { display: none; }
+    
+    .stat-number { font-size: 2.5rem; }
+    
+    .quote-section { 
+        padding: 4rem 1.5rem; 
+    }
+    
+    .quote-section::before { font-size: 12rem; }
+    
+    /* ---------- CHAT WIDGET ---------- */
+    .chat-window {
+        width: calc(100% - 2rem);
+        right: 1rem;
+        left: 1rem;
+        bottom: 6rem;
+        height: 70vh;
+    }
+    
+    .chat-fab {
+        right: 1rem;
+        bottom: 1rem;
+    }
+    
+    .back-to-top {
+        bottom: 5rem;
+        right: 1rem;
+    }
+    
+    /* ---------- WHATSAPP ---------- */
+    .wa-float {
+        left: 1rem;
+        bottom: 1rem;
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+    }
+    
+    .wa-hero-card { padding: 2rem 1.5rem; }
+    .wa-hero-card h2 { font-size: 1.5rem; }
+    
+    /* ---------- AUDIO PLAYER ---------- */
+    .audio-player-floating {
+        width: 95%;
+        bottom: 5rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    .audio-player-header span {
+        font-size: 0.9rem;
+    }
+    
+    .audio-mini-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    /* ---------- DOKUMEN ---------- */
+    .dokumen-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .dokumen-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .dokumen-icon {
+        margin: 0 auto;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .dokumen-meta {
+        justify-content: center;
+    }
+    
+    .dokumen-btn {
+        justify-content: center;
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+    }
+    
+    /* ---------- SEJARAH MOBILE ---------- */
+    .sejarah-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .sejarah-section-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .sejarah-section-title {
+        font-size: 1.4rem;
+    }
+    
+    .sejarah-two-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .sejarah-column-card {
+        padding: 1.5rem;
+    }
+    
+    /* Timeline Detail Mobile */
+    .timeline-detail {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-detail-item {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-detail-item::before {
+        left: -2.35rem;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .timeline-milestone::before {
+        left: -2.45rem;
+    }
+    
+    .timeline-detail-year {
+        font-size: 0.95rem;
+        padding: 0.3rem 1rem;
+    }
+    
+    .timeline-detail-content h4 {
+        font-size: 1.05rem;
+        flex-wrap: wrap;
+    }
+    
+    /* Amount Mobile */
+    .amount-value {
+        font-size: 1.8rem;
+    }
+    
+    .amount-highlight.amount-large .amount-value {
+        font-size: 2.2rem;
+    }
+    
+    /* Milestone Mobile */
+    .milestone-dates {
+        grid-template-columns: 1fr;
+    }
+    
+    .date-day {
+        font-size: 2.5rem;
+    }
+    
+    .milestone-single {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    /* Legal Timeline Mobile */
+    .legal-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .legal-date {
+        min-width: auto;
+    }
+    
+    /* SK List Mobile */
+    .sk-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .sk-year {
+        font-size: 1.5rem;
+    }
+    
+    /* Instansi Grid Mobile */
+    .instansi-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Biota Mobile */
+    .biota-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .biota-card.biota-card-highlight {
+        grid-column: span 1;
+    }
+    
+    .biota-sources {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Penggagas Mobile */
+    .penggagas-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .penggagas-photo img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .penggagas-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    /* Dokumentasi Mobile */
+    .dokumentasi-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* ---------- TUJUAN MOBILE ---------- */
+    .tujuan-overview {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .overview-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .overview-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .overview-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .tujuan-khusus-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .tujuan-khusus-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+        margin: 0 auto;
+    }
+    
+    .tujuan-khusus-content h4 {
+        font-size: 1.3rem;
+    }
+    
+    .tujuan-khusus-highlight {
+        grid-template-columns: 1fr;
+    }
+    
+    .tujuan-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tujuan-item {
+        padding: 1.2rem;
+    }
+    
+    .tujuan-number {
+        font-size: 1.5rem;
+    }
+    
+    .tujuan-content h4 {
+        font-size: 0.95rem;
+    }
+    
+    .tujuan-content p {
+        font-size: 0.85rem;
+    }
+    
+    .tujuan-intro {
+        padding: 1.2rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Dampak Mobile */
+    .dampak-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .dampak-number {
+        font-size: 2.2rem;
+    }
+    
+    .dampak-label {
+        font-size: 0.8rem;
+    }
+    
+    .dampak-card p {
+        font-size: 0.75rem;
+    }
+    
+    .dampak-areas {
+        padding: 1.5rem;
+    }
+    
+    .area-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .area-item {
+        padding: 1rem 0.8rem;
+    }
+    
+    .area-item i {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .area-item h5 {
+        font-size: 0.9rem;
+    }
+    
+    .area-item p {
+        font-size: 0.75rem;
+    }
+    
+    /* Target Mobile */
+    .target-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .target-item {
+        padding: 1.2rem;
+    }
+    
+    .target-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+    }
+    
+    .target-value {
+        font-size: 1.8rem;
+    }
+    
+    .target-label {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* ==========================================================
+   3. SMALL MOBILE (max-width: 480px)
+   ========================================================== */
+@media (max-width: 480px) {
+    
+    /* Hero */
+    .hero h1 { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .section-title { font-size: 1.8rem; }
+    
+    /* Welcome */
+    .welcome-content {
+        padding: 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .welcome-content .first-paragraph::first-letter { 
+        font-size: 2.3rem; 
+    }
+    
+    /* Profil */
+    .profil-photo-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+    
+    /* WhatsApp */
+    .wa-topic-btn {
+        font-size: 0.85rem;
+        padding: 0.8rem;
+    }
+    
+    .wa-topic-btn i {
+        font-size: 1.5rem;
+    }
+    
+    /* Dokumen */
+    .dokumen-card {
+        padding: 1.2rem;
+    }
+    
+    .dokumen-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .dokumen-info p {
+        font-size: 0.85rem;
+    }
+    
+    .dokumen-meta span {
+        font-size: 0.75rem;
+    }
+    
+    .dokumen-btn {
+        font-size: 0.8rem;
+        padding: 0.7rem 1rem;
+    }
+    
+    /* Sejarah */
+    .sejarah-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .sejarah-section-title {
+        font-size: 1.2rem;
+    }
+    
+    .timeline-detail {
+        padding-left: 1rem;
+    }
+    
+    .timeline-detail-item {
+        padding: 1.2rem;
+    }
+    
+    .timeline-detail-year {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.8rem;
+    }
+    
+    .timeline-detail-content h4 {
+        font-size: 0.95rem;
+    }
+    
+    .amount-value {
+        font-size: 1.5rem;
+    }
+    
+    .milestone-dates {
+        gap: 0.8rem;
+    }
+    
+    .date-day {
+        font-size: 2rem;
+    }
+    
+    /* Tujuan */
+    .overview-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .overview-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .tujuan-khusus-content h4 {
+        font-size: 1.2rem;
+    }
+    
+    .tujuan-khusus-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .tujuan-number {
+        font-size: 1.3rem;
+    }
+    
+    /* Dampak */
+    .dampak-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dampak-number {
+        font-size: 2rem;
+    }
+    
+    .area-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .target-value {
+        font-size: 1.5rem;
+    }
+    
+    /* Penggagas */
+    .penggagas-photo img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .penggagas-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Biota */
+    .biota-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .biota-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .biota-card h4 {
+        font-size: 1rem;
+    }
+}
+
+
+/* ==========================================================
+   4. LARGE DESKTOP (min-width: 1600px)
+   ========================================================== */
+@media (min-width: 1600px) {
+    .nav-container,
+    .section,
+    .footer-container {
+        max-width: 1600px;
+    }
+    
+    .hero-content {
+        max-width: 1100px;
+    }
+    
+    .sejarah-section {
+        padding: 4rem;
+    }
+    
+    .timeline-detail-item {
+        padding: 2.5rem;
+    }
+}
+
+
+/* ==========================================================
+   5. PRINT STYLES
+   ========================================================== */
+@media print {
+    .navbar,
+    .chat-fab,
+    .chat-window,
+    .wa-float,
+    .back-to-top,
+    .preloader,
+    footer {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .hero {
+        min-height: auto;
+        background: white !important;
+        color: black !important;
+        padding: 2rem;
+    }
+    
+    .hero-welcome-box {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+    
+    .sejarah-section,
+    .dokumen-card,
+    .tujuan-item {
+        page-break-inside: avoid;
+    }
+}

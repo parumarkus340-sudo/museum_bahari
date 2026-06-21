@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- 🚫 ANTI-CACHE (PENTING! Hapus saat production stabil) -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <!-- SEO Meta Tags -->
     <title>Museum Bahari | Ngera Shells — Museum Fosil & Kehidupan Laut Nusantara</title>
     <meta name="description" content="Museum Virtual Fosil & Budaya Nusantara - Melestarikan Jejak Kehidupan Indonesia untuk Generasi Mendatang. Koleksi Bifalfia, Gastropoda, Sepalopoda, Astropoda dari Ende, NTT.">
@@ -38,12 +43,6 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://www.gstatic.com">
     
-    <!-- Preload Critical Images -->
-    <link rel="preload" as="image" href="assets/images/hero/hero-bg.jpg">
-    <link rel="preload" as="image" href="assets/images/logo/logo-primary.png">
-    <link rel="preload" as="image" href="assets/images/profil/pater-gabriel.jpg">
-    <link rel="preload" as="image" href="assets/images/profil/kalianus-nusa-nipa.jpg">
-    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
@@ -51,16 +50,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- ==========================================
-         CSS FILES - URUTAN PENTING!
+         CSS FILES - DENGAN CACHE-BUSTING!
+         Ganti ?v=3.0.1 setiap kali update CSS
          ========================================== -->
-    <!-- 1. Animations (paling atas - dipakai oleh komponen) -->
-    <link rel="stylesheet" href="css/animations.css">
-    
-    <!-- 2. Style Utama (layout & komponen) -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- 3. Responsive (paling bawah - override untuk mobile) -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css?v=3.0.1">
+    <link rel="stylesheet" href="css/style.css?v=3.0.1">
+    <link rel="stylesheet" href="css/responsive.css?v=3.0.1">
 </head>
 <body>
 
@@ -317,6 +312,62 @@
 
 <!-- 7. App (events, utilities, audio, init) -->
 <script src="js/app.js"></script>
+
+<!-- ==========================================
+     🔍 DEBUG SCRIPT (SEMENTARA)
+     HAPUS script ini setelah masalah selesai!
+     ========================================== -->
+<script>
+window.addEventListener('load', function() {
+    console.log('%c=== MUSEUM BAHARI DEBUG INFO ===', 'color: blue; font-weight: bold; font-size: 14px;');
+    console.log('URL:', window.location.href);
+    console.log('User Agent:', navigator.userAgent);
+    console.log('');
+    
+    // Cek apakah CSS ter-load
+    const stylesheets = document.styleSheets;
+    console.log('%c📄 Total CSS loaded: ' + stylesheets.length, 'color: green; font-weight: bold;');
+    
+    for (let i = 0; i < stylesheets.length; i++) {
+        try {
+            const href = stylesheets[i].href || 'inline';
+            const rules = stylesheets[i].cssRules?.length || 0;
+            console.log(`  CSS ${i}: ${href} (${rules} rules)`);
+        } catch(e) {
+            console.log(`  CSS ${i}: ⚠️ CORS blocked - ${e.message}`);
+        }
+    }
+    console.log('');
+    
+    // Cek elemen-elemen penting
+    const elements = [
+        { name: 'Sejarah Section', selector: '.sejarah-section' },
+        { name: 'Timeline Detail', selector: '.timeline-detail' },
+        { name: 'Timeline Detail Item', selector: '.timeline-detail-item' },
+        { name: 'Tujuan Overview', selector: '.tujuan-overview' },
+        { name: 'Tujuan Grid', selector: '.tujuan-grid' },
+        { name: 'Dampak Grid', selector: '.dampak-grid' },
+        { name: 'Penggagas Card', selector: '.penggagas-card' }
+    ];
+    
+    console.log('%c🔍 Cek Elemen Penting:', 'color: orange; font-weight: bold;');
+    elements.forEach(el => {
+        const found = document.querySelector(el.selector);
+        if (found) {
+            const styles = window.getComputedStyle(found);
+            console.log(`  ✅ ${el.name}: ditemukan`);
+            console.log(`     Padding: ${styles.padding}`);
+            console.log(`     Display: ${styles.display}`);
+        } else {
+            console.log(`  ❌ ${el.name}: TIDAK DITEMUKAN!`);
+        }
+    });
+    console.log('');
+    
+    console.log('%c=== END DEBUG INFO ===', 'color: blue; font-weight: bold; font-size: 14px;');
+    console.log('%c💡 Jika ada elemen yang "TIDAK DITEMUKAN", pastikan file CSS sudah ter-upload dengan benar!', 'color: red;');
+});
+</script>
 
 </body>
 </html>

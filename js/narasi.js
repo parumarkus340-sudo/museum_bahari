@@ -422,8 +422,6 @@ const narasi = {
                         <p>Beliau adalah sosok yang dengan penuh dedikasi mengumpulkan koleksi biota laut sejak tahun 1981, membangun Museum Bahari dengan perjuangan panjang, dan mewakafkan hidupnya untuk pelestarian warisan bahari Nusantara.</p>
                     </div>
                 </div>
-
-                // Di bagian narasi.sejarah, cari bagian dokumentasi-grid dan ganti dengan:
                 <div class="dokumentasi-grid">
                     <div class="dokumentasi-card">
                         <div class="dokumentasi-icon">

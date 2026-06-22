@@ -1,0 +1,304 @@
+/* =====================================================
+   DONASI.CSS - DONASI PAGE STYLES
+   ===================================================== */
+
+.donate-container {
+    max-width: var(--bp-wide);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: stretch;
+}
+
+/* ============ DONATE INFO ============ */
+.donate-info {
+    background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-deep));
+    color: var(--foam);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.donate-info::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(126, 214, 223, 0.2), transparent 50%);
+}
+
+.donate-info > * {
+    position: relative;
+    z-index: var(--z-base);
+}
+
+.donate-info h3 {
+    color: var(--foam);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.donate-info p {
+    opacity: 0.95;
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
+}
+
+/* ============ DONATE LIST ============ */
+.donate-list {
+    list-style: none;
+    margin-bottom: var(--spacing-xl);
+}
+
+.donate-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--text-sm);
+}
+
+.donate-list i {
+    color: var(--coral-light);
+    margin-top: var(--spacing-xs);
+    flex-shrink: 0;
+}
+
+.donate-list strong {
+    display: block;
+    color: var(--foam);
+}
+
+.donate-list p {
+    opacity: 0.8;
+    font-size: var(--text-sm);
+    margin: var(--spacing-xs) 0 0 0;
+}
+
+/* ============ DONATE FORM ============ */
+.donate-form {
+    background: var(--foam);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 105, 148, 0.1);
+}
+
+.donate-form h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-xs);
+}
+
+.donate-form > p {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--text-sm);
+}
+
+/* ============ PAYMENT METHODS ============ */
+.payment-method {
+    background: var(--sand);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(0, 105, 148, 0.2);
+    transition: var(--transition-fast);
+}
+
+.payment-method:hover {
+    border-color: var(--ocean-primary);
+    transform: translateX(5px);
+}
+
+.payment-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.payment-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-light));
+    color: var(--foam);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-base);
+}
+
+.payment-header h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-base);
+    margin-bottom: 2px;
+}
+
+.payment-header small {
+    color: var(--text-light);
+    font-size: var(--text-xs);
+}
+
+.account-number {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+    color: var(--ocean-dark);
+    letter-spacing: 1px;
+    background: var(--foam);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px dashed rgba(0, 105, 148, 0.3);
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-light));
+    color: var(--foam);
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, var(--coral), var(--coral-light));
+    transform: scale(1.05);
+}
+
+/* ============ QRIS ============ */
+.qris-box {
+    background: var(--sand);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 2px dashed rgba(0, 105, 148, 0.3);
+}
+
+.qris-placeholder {
+    width: 180px;
+    height: 180px;
+    margin: var(--spacing-md) auto;
+    background: var(--foam);
+    border: 3px dashed var(--ocean-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-4xl);
+    color: var(--ocean-primary);
+}
+
+/* ============ CONFIRMATION ============ */
+.donate-confirmation {
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(18, 140, 126, 0.1));
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-md);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    text-align: center;
+}
+
+.donate-confirmation p {
+    font-size: var(--text-sm);
+    color: var(--text-dark);
+    margin: 0 0 var(--spacing-sm);
+}
+
+.donate-confirmation small {
+    color: var(--text-light);
+    font-size: var(--text-xs);
+}
+
+.donate-thanks {
+    background: var(--sand);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-md);
+    text-align: center;
+    border: 1px solid rgba(0, 105, 148, 0.1);
+}
+
+.donate-thanks p {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    margin: 0;
+}
+
+.donate-thanks i {
+    color: var(--coral);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+    .donate-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .donate-info,
+    .donate-form {
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-lg);
+    }
+
+    .donate-info h3,
+    .donate-form h3 {
+        font-size: var(--text-xl);
+    }
+
+    .account-number {
+        font-size: var(--text-base);
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    .payment-method:hover {
+        transform: none;
+    }
+
+    .qris-placeholder {
+        width: 140px;
+        height: 140px;
+        font-size: var(--text-3xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .donate-info,
+    .donate-form {
+        padding: var(--spacing-md);
+    }
+
+    .payment-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .payment-method {
+        padding: var(--spacing-md);
+    }
+
+    .qris-placeholder {
+        width: 120px;
+        height: 120px;
+        font-size: var(--text-2xl);
+    }
+}
+
+/* =====================================================
+   END OF FILE
+   ===================================================== */

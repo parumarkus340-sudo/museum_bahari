@@ -1,0 +1,236 @@
+/* =====================================================
+   NAVBAR.CSS
+   Navigation bar styles
+   
+   CARA UPDATE:
+   - Ubah style navbar di sini
+   - Tambah menu item di HTML, bukan di CSS
+   ===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.2rem 0;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-md);
+    padding: 0.8rem 0;
+}
+
+.nav-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.navbar.scrolled .nav-logo { color: var(--ocean-dark); }
+
+.nav-logo-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--ocean-light), var(--ocean-primary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 105, 148, 0.4);
+}
+
+.nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-logo-text small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 0.3rem;
+    list-style: none;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border-radius: 30px;
+    transition: var(--transition-fast);
+    position: relative;
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.navbar.scrolled .nav-menu a { color: var(--text-dark); }
+
+.nav-menu a:hover {
+    background: rgba(126, 214, 223, 0.3);
+    color: var(--ocean-surface);
+}
+
+.nav-menu a.active {
+    background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-light));
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3);
+}
+
+.nav-cta {
+    background: linear-gradient(135deg, var(--coral), var(--coral-light)) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 0.5rem 1.2rem !important;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Dropdown */
+.dropdown { position: relative; }
+
+.dropdown-content {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    min-width: 240px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    padding: 0.5rem;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: white;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-content a {
+    color: var(--text-dark) !important;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem !important;
+    border-radius: 8px !important;
+    font-size: 0.88rem !important;
+}
+
+.dropdown-content a:hover {
+    background: #e3f2fd !important;
+    color: var(--ocean-primary) !important;
+}
+
+.dropdown-content a i {
+    color: var(--ocean-primary);
+    width: 20px;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.navbar.scrolled .nav-toggle { color: var(--ocean-dark); }
+
+/* Mobile Navbar */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: var(--transition);
+        gap: 0.5rem;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active { transform: translateY(0); }
+    
+    .nav-menu a {
+        color: var(--text-dark) !important;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .nav-toggle { display: block; }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        background: #e3f2fd;
+        margin-top: 0.5rem;
+    }
+    
+    .dropdown.active .dropdown-content { display: block; }
+    .dropdown-content::before { display: none; }
+}

@@ -1,0 +1,153 @@
+/* =====================================================
+   HOME.CSS
+   Home page specific styles
+   
+   CARA UPDATE:
+   - Style khusus home page di sini
+   - Stats section di sini
+   ===================================================== */
+
+/* Stats Section */
+.stats {
+    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean-deep));
+    color: white;
+    padding: 4rem 2rem;
+    margin-top: -1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.3;
+}
+
+.stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-item { padding: 1rem; }
+
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--ocean-surface), var(--coral-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+/* Section Common */
+.section {
+    padding: 6rem 2rem;
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ocean-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.section-title .accent {
+    color: var(--ocean-primary);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+}
+
+.section-desc {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Quote Section */
+.quote-section {
+    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean-deep));
+    color: white;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    margin: 3rem auto;
+}
+
+.quote-section::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 20rem;
+    color: rgba(126, 214, 223, 0.1);
+    line-height: 1;
+}
+
+.quote-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.quote-author {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ocean-surface);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .section { padding: 4rem 1.5rem; }
+    .quote-section { padding: 4rem 1.5rem; }
+    .quote-section::before { font-size: 12rem; }
+}

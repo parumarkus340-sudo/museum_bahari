@@ -48,7 +48,7 @@ const narasi = {
                         <div class="profil-photo-wrapper">
                             <img src="${profilData.paterGabriel.foto}" 
                                  alt="${profilData.paterGabriel.nama}"
-                                 onerror="this.src='assets/images/logo/og-image.jpg'">
+                                 onerror="this.src='assets/images/logo/og-image.png'">
                         </div>
                         <div class="profil-badge"><i class="fas fa-crown"></i> Pendiri</div>
                     </div>
@@ -72,7 +72,7 @@ const narasi = {
                         <div class="profil-photo-wrapper">
                             <img src="${profilData.kalianus.foto}" 
                                  alt="${profilData.kalianus.nama}"
-                                 onerror="this.src='assets/images/logo/og-image.jpg'">
+                                 onerror="this.src='assets/images/logo/og-image.png'">
                         </div>
                         <div class="profil-badge"><i class="fas fa-user-tie"></i> Pengelola</div>
                     </div>
@@ -409,9 +409,9 @@ const narasi = {
 
                 <div class="penggagas-card">
                     <div class="penggagas-photo">
-                        <img src="assets/images/profil/pater-gabriel.jpg" 
+                        <img src="assets/images/profil/pater-gabriel.png" 
                              alt="Alm. Pater Gabriel Goran, SVD"
-                             onerror="this.src='assets/images/logo/og-image.jpg'">
+                             onerror="this.src='assets/images/logo/og-image.png'">
                     </div>
                     <div class="penggagas-info">
                         <div class="penggagas-badge">

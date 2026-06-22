@@ -423,6 +423,7 @@ const narasi = {
                     </div>
                 </div>
 
+                // Di bagian narasi.sejarah, cari bagian dokumentasi-grid dan ganti dengan:
                 <div class="dokumentasi-grid">
                     <div class="dokumentasi-card">
                         <div class="dokumentasi-icon">
@@ -430,22 +431,26 @@ const narasi = {
                         </div>
                         <h4>Sertifikat Hak Merek</h4>
                         <p>Dokumen resmi kepemilikan merek Museum Bahari yang telah terdaftar secara hukum.</p>
-                        <div class="dokumentasi-placeholder">
-                            <i class="fas fa-image"></i>
-                            <span>Image: Sertifikat Hak Merek</span>
+                        <div class="dokumentasi-image">
+                            <img src="assets/images/dokumentasi/sertifikat-hak-merek.png" 
+                                alt="Sertifikat Hak Merek Museum Bahari"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f0f5fa\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Arial\' font-size=\'16\' fill=\'%2394a3b8\' text-anchor=\'middle\'%3ESertifikat Hak Merek%3C/text%3E%3C/svg%3E'">
                         </div>
                     </div>
+                    
                     <div class="dokumentasi-card">
                         <div class="dokumentasi-icon">
                             <i class="fas fa-camera"></i>
                         </div>
                         <h4>Dokumentasi Karya Kerajinan</h4>
-                        <p>Foto hasil karya kerajinan siput dan kerang laut.</p>
-                        <div class="dokumentasi-placeholder">
-                            <i class="fas fa-image"></i>
-                            <span>Image: Karya Kerajinan</span>
+                        <p>Foto hasil karya kerajinan siput dan kerang laut yang dibuat oleh tim Museum Bahari.</p>
+                        <div class="dokumentasi-image">
+                            <img src="assets/images/dokumentasi/karya-kerajinan.png" 
+                                alt="Karya Kerajinan dari Kerang"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f0f5fa\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Arial\' font-size=\'16\' fill=\'%2394a3b8\' text-anchor=\'middle\'%3EKarya Kerajinan%3C/text%3E%3C/svg%3E'">
                         </div>
                     </div>
+                    
                     <div class="dokumentasi-card dokumentasi-card-special">
                         <div class="dokumentasi-icon">
                             <i class="fas fa-dove"></i>
@@ -453,13 +458,13 @@ const narasi = {
                         <h4>Lambang Garuda</h4>
                         <p>Lambang Garuda yang terbuat dari limbah cangkang Siput dan Kerang Laut.</p>
                         <p class="karya-credit"><strong>Karya: Kalianus Nusa Nipa</strong></p>
-                        <div class="dokumentasi-placeholder">
-                            <i class="fas fa-image"></i>
-                            <span>Image: Lambang Garuda</span>
+                        <div class="dokumentasi-image">
+                            <img src="assets/images/dokumentasi/lambang-garuda.png" 
+                                alt="Lambang Garuda dari Kerang"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23fff0f5\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Arial\' font-size=\'16\' fill=\'%2394a3b8\' text-anchor=\'middle\'%3ELambang Garuda%3C/text%3E%3C/svg%3E'">
                         </div>
                     </div>
                 </div>
-            </div>
 
             <!-- Quote Penutup -->
             <div class="quote-section reveal" style="margin-top: 4rem; border-radius: 20px;">

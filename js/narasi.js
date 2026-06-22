@@ -99,7 +99,7 @@ const narasi = {
     },
 
     // =====================================================
-    // 2. HALAMAN SEJARAH (LENGKAP - Semua Detail Cerita)
+    // 2. HALAMAN SEJARAH
     // =====================================================
     sejarah: {
         judul: "Sejarah Museum Bahari",

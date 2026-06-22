@@ -1,0 +1,96 @@
+/* =====================================================
+   PRELOADER.CSS
+   Preloader styles
+   
+   CARA UPDATE:
+   - Ubah style preloader di sini
+   ===================================================== */
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean-deep));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader.hidden { opacity: 0; visibility: hidden; }
+
+.preloader-content { text-align: center; color: white; }
+
+.preloader-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
+    color: var(--ocean-surface);
+}
+
+.preloader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.preloader-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(90deg, var(--ocean-light), var(--coral-light));
+    animation: preload 1.2s ease-in-out infinite;
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-light));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 999;
+}
+
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover {
+    background: linear-gradient(135deg, var(--coral), var(--coral-light));
+    transform: translateY(-5px);
+}
+
+/* Nav Logo Image */
+.nav-logo-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 3px;
+    box-shadow: 0 4px 15px rgba(0, 105, 148, 0.4);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .back-to-top { bottom: 5rem; right: 1rem; }
+}

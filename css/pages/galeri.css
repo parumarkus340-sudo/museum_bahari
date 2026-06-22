@@ -1,0 +1,255 @@
+/* =====================================================
+   GALERI.CSS - GALERI PAGE STYLES
+   ===================================================== */
+
+.galeri-container {
+    max-width: var(--bp-wide);
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+/* ============ GALERI TABS ============ */
+.galeri-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
+    flex-wrap: wrap;
+}
+
+.galeri-tab {
+    background: var(--foam);
+    border: 2px solid rgba(0, 105, 148, 0.2);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-sm);
+    color: var(--ocean-dark);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.galeri-tab:hover {
+    border-color: var(--ocean-primary);
+    color: var(--ocean-primary);
+    transform: translateY(-2px);
+}
+
+.galeri-tab.active {
+    background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-light));
+    color: var(--foam);
+    border-color: var(--ocean-primary);
+    box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3);
+}
+
+.galeri-tab .count {
+    background: rgba(0, 105, 148, 0.1);
+    padding: 0 var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    color: var(--text-light);
+}
+
+.galeri-tab.active .count {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--foam);
+}
+
+/* ============ GALERI GRID ============ */
+.galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.galeri-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--sand), var(--ocean-surface));
+    transition: var(--transition);
+}
+
+.galeri-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.galeri-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.galeri-item:hover img {
+    transform: scale(1.1);
+}
+
+/* ============ GALERI OVERLAY ============ */
+.galeri-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0, 31, 63, 0.9) 100%);
+    opacity: 0;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--spacing-lg);
+}
+
+.galeri-item:hover .galeri-overlay {
+    opacity: 1;
+}
+
+.galeri-title {
+    color: var(--foam);
+    font-family: 'Inter', sans-serif;
+    font-weight: var(--weight-bold);
+    font-size: var(--text-base);
+    margin-bottom: var(--spacing-xs);
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.galeri-date {
+    color: var(--ocean-surface);
+    font-size: var(--text-sm);
+    transform: translateY(10px);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.galeri-item:hover .galeri-title,
+.galeri-item:hover .galeri-date {
+    transform: translateY(0);
+}
+
+.galeri-icon {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-circle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ocean-primary);
+    font-size: var(--text-lg);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: var(--transition);
+    z-index: var(--z-base);
+}
+
+.galeri-item:hover .galeri-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============ GALERI COUNTER ============ */
+.galeri-counter {
+    text-align: center;
+    color: var(--text-light);
+    font-size: var(--text-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.galeri-counter strong {
+    color: var(--ocean-dark);
+}
+
+/* ============ EMPTY STATE ============ */
+.galeri-empty {
+    text-align: center;
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    color: var(--text-light);
+}
+
+.galeri-empty i {
+    font-size: var(--text-5xl);
+    color: var(--ocean-light);
+    margin-bottom: var(--spacing-lg);
+    display: block;
+}
+
+.galeri-empty h3 {
+    font-size: var(--text-xl);
+    color: var(--ocean-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    .galeri-container {
+        padding: var(--spacing-md);
+    }
+
+    .galeri-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .galeri-tabs {
+        gap: var(--spacing-xs);
+    }
+
+    .galeri-tab {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--text-xs);
+    }
+
+    .galeri-overlay {
+        padding: var(--spacing-md);
+    }
+
+    .galeri-title {
+        font-size: var(--text-sm);
+    }
+
+    .galeri-date {
+        font-size: var(--text-xs);
+    }
+
+    .galeri-icon {
+        width: 32px;
+        height: 32px;
+        font-size: var(--text-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .galeri-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeri-container {
+        padding: var(--spacing-sm);
+    }
+
+    .galeri-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .galeri-tab {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .galeri-item {
+        aspect-ratio: 4/3;
+    }
+}
+
+/* =====================================================
+   END OF FILE
+   ===================================================== */

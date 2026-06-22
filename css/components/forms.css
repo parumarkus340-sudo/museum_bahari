@@ -1,0 +1,65 @@
+/* =====================================================
+   FORMS.CSS
+   Forms & inputs styles
+   
+   CARA UPDATE:
+   - Tambah style form baru di sini
+   ===================================================== */
+
+/* Form Base */
+input, textarea, select {
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--ocean-primary);
+    box-shadow: 0 0 0 3px rgba(0, 105, 148, 0.1);
+}
+
+/* Form Inputs */
+.form-input {
+    padding: 0.8rem 1.2rem;
+    border: 2px solid rgba(0, 105, 148, 0.15);
+    border-radius: 25px;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.form-textarea {
+    padding: 0.8rem 1.2rem;
+    border: 2px solid rgba(0, 105, 148, 0.15);
+    border-radius: 15px;
+    font-size: 0.95rem;
+    width: 100%;
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Form Labels */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--ocean-dark);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Form Error */
+.form-error {
+    color: var(--coral);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* Form Success */
+.form-success {
+    color: #10b981;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}

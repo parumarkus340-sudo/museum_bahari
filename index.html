@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Museum Bahari | Ngera Shells — Museum Fosil & Kehidupan Laut Nusantara</title>
+    <meta name="description" content="Museum Virtual Fosil & Budaya Nusantara - Melestarikan Jejak Kehidupan Indonesia untuk Generasi Mendatang. Koleksi Bifalfia, Gastropoda, Sepalopoda, Astropoda dari Ende, NTT.">
+    <meta name="keywords" content="museum bahari, ngera shells, fosil, ende, ntt, paleontologi, bifalfia, gastropoda, museum virtual, museum indonesia">
+    <meta name="author" content="Kalianus Nusa Nipa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ngerashells.id/">
+    <meta property="og:title" content="Museum Bahari Ngera Shells - Museum Fosil & Kehidupan Laut Nusantara">
+    <meta property="og:description" content="Museum Virtual Fosil & Budaya Nusantara. Melestarikan jejak kehidupan Indonesia untuk generasi mendatang.">
+    <meta property="og:image" content="assets/images/logo/og-image.png">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="Museum Bahari Ngera Shells">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ngerashells.id/">
+    <meta name="twitter:title" content="Museum Bahari Ngera Shells">
+    <meta name="twitter:description" content="Museum Virtual Fosil & Budaya Nusantara">
+    <meta name="twitter:image" content="assets/images/logo/og-image.png">
+    
+    <!-- JSON-LD untuk SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Museum",
+        "name": "Museum Bahari Ngera Shells",
+        "description": "Museum Virtual Fosil & Budaya Nusantara - Melestarikan Jejak Kehidupan Indonesia untuk Generasi Mendatang",
+        "url": "https://ngerashells.id/",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ende",
+            "addressRegion": "NTT",
+            "addressCountry": "Indonesia"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+62-813-5381-0065",
+            "contactType": "customer service"
+        },
+        "sameAs": [
+            "https://www.instagram.com/ngerashells/",
+            "https://www.facebook.com/ngerashells/",
+            "https://www.youtube.com/@ngerashells"
+        ]
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐚</text></svg>">
+    <meta name="theme-color" content="#006994">
+    
+    <!-- Preconnect untuk Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
+    
+    <!-- Preload Critical Images (dengan fallback) -->
+    <link rel="preload" as="image" href="assets/images/hero/hero-bg.png">
+    <link rel="preload" as="image" href="assets/images/logo/logo-primary.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ==========================================
+         CSS FILES - URUTAN YANG DIPERBAIKI!
+         ========================================== -->
+    <!-- 1. Style Utama (layout & komponen) -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- 2. Animations (dipakai oleh komponen) -->
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- 3. Responsive (override untuk mobile) -->
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* ==========================================
+           CSS DASAR UNTUK PRELOADER, CHAT, DROPDOWN
+           ========================================== */
+        
+        /* PRELOADER */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #006994, #004d73);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .preloader-content {
+            text-align: center;
+            color: white;
+        }
+        .preloader-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        .preloader-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .preloader-bar::after {
+            content: '';
+            display: block;
+            width: 40%;
+            height: 100%;
+            background: white;
+            border-radius: 4px;
+            animation: preloaderProgress 1.2s ease-in-out infinite;
+        }
+        @keyframes preloaderProgress {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(350%); }
+        }
+        
+        /* DROPDOWN */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown .dropbtn {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 8px 0;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .dropdown-content.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dropdown-content a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .dropdown-content a:hover {
+            background: #f0f7fa;
+            color: #006994;
+        }
+        .dropdown-content a i {
+            width: 20px;
+            color: #006994;
+        }
+        
+        /* CHAT FAB */
+        .chat-fab {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #006994, #004d73);
+            color: white;
+            border: none;
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 16px rgba(0,105,148,0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .chat-fab:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 24px rgba(0,105,148,0.5);
+        }
+        .chat-fab .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .chat-fab .badge.hidden {
+            display: none;
+        }
+        
+        /* CHAT WINDOW */
+        .chat-window {
+            position: fixed;
+            bottom: 150px;
+            right: 20px;
+            width: 380px;
+            max-height: 550px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 999;
+            overflow: hidden;
+            flex-direction: column;
+            animation: slideUp 0.3s ease;
+        }
+        .chat-window.active {
+            display: flex;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .chat-header {
+            background: linear-gradient(135deg, #006994, #004d73);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .chat-header-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .chat-header-info {
+            flex: 1;
+        }
+        .chat-header-info h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .chat-header-info small {
+            opacity: 0.8;
+            font-size: 0.75rem;
+        }
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .chat-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            max-height: 250px;
+            background: #f8fafc;
+        }
+        .chat-empty {
+            text-align: center;
+            color: #999;
+            padding: 30px 0;
+        }
+        .chat-empty i {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .chat-input-area {
+            padding: 12px 16px;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+            flex-shrink: 0;
+        }
+        .chat-name-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            transition: border-color 0.2s;
+        }
+        .chat-name-input:focus {
+            outline: none;
+            border-color: #006994;
+        }
+        .chat-input-row {
+            display: flex;
+            gap: 8px;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            resize: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+            min-height: 42px;
+            max-height: 80px;
+        }
+        .chat-input:focus {
+            outline: none;
+            border-color: #006994;
+        }
+        .chat-send {
+            background: linear-gradient(135deg, #006994, #004d73);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 16px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            min-width: 48px;
+        }
+        .chat-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,105,148,0.3);
+        }
+        
+        /* WHATSAPP CONTAINER DI CHAT */
+        .wa-container {
+            background: #f0fdf4;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #dcfce7;
+        }
+        .wa-container-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #166534;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .wa-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #dcfce7;
+            margin-bottom: 6px;
+            transition: all 0.2s;
+        }
+        .wa-btn:last-child {
+            margin-bottom: 0;
+        }
+        .wa-btn:hover {
+            background: #f0fdf4;
+            border-color: #22c55e;
+            transform: translateX(4px);
+        }
+        .wa-btn i:first-child {
+            font-size: 24px;
+            color: #25D366;
+        }
+        .wa-btn-info {
+            flex: 1;
+        }
+        .wa-btn-name {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .wa-btn-role {
+            display: block;
+            font-size: 0.75rem;
+            color: #666;
+        }
+        .wa-btn-arrow {
+            color: #22c55e;
+            font-size: 14px;
+        }
+        
+        /* RESPONSIVE CHAT */
+        @media (max-width: 480px) {
+            .chat-window {
+                width: calc(100% - 32px);
+                right: 16px;
+                bottom: 130px;
+                max-height: 60vh;
+            }
+            .chat-fab {
+                width: 54px;
+                height: 54px;
+                font-size: 22px;
+                bottom: 70px;
+                right: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==========================================
+     PRELOADER
+     ========================================== -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-logo">🐚 NGERA SHELLS</div>
+        <div class="preloader-bar"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <!-- Logo dengan gambar + fallback icon -->
+        <a href="#" class="nav-logo" data-page="home">
+            <img src="assets/images/logo/logo-primary.png" 
+                 alt="Ngera Shells Logo" 
+                 class="nav-logo-img"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="nav-logo-icon" style="display:none;">
+                <i class="fas fa-water"></i>
+            </div>
+            <div class="nav-logo-text">
+                Ngera Shells
+                <small>Museum Bahari</small>
+            </div>
+        </a>
+
+        <!-- Menu Navigasi -->
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#" data-page="home" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="#" data-page="profil"><i class="fas fa-users"></i> Profil</a></li>
+            <li><a href="#" data-page="sejarah"><i class="fas fa-clock"></i> Sejarah</a></li>
+            <li><a href="#" data-page="tujuan"><i class="fas fa-bullseye"></i> Tujuan</a></li>
+            <li class="dropdown" id="dropdownMenu">
+                <a href="#" class="dropbtn" id="dropdownToggle">
+                    <i class="fas fa-archive"></i> Koleksi <i class="fas fa-chevron-down" style="font-size:0.7rem;transition:transform 0.3s;" id="dropdownArrow"></i>
+                </a>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="#" data-submenu="bifalfia"><i class="fas fa-water"></i> Bifalfia</a>
+                    <a href="#" data-submenu="gastropoda"><i class="fas fa-water"></i> Gastropoda</a>
+                    <a href="#" data-submenu="sepalopoda"><i class="fas fa-water"></i> Sepalopoda</a>
+                    <a href="#" data-submenu="astropoda"><i class="fas fa-water"></i> Astropoda</a>
+                </div>
+            </li>
+            <li><a href="#" data-page="galeri"><i class="fas fa-images"></i> Galeri</a></li>
+            <li><a href="#" data-page="youtube"><i class="fab fa-youtube"></i> Video</a></li>
+            <li><a href="#" data-page="dokumen"><i class="fas fa-file-alt"></i> Dokumen</a></li>
+            <li><a href="#" data-page="chat"><i class="fas fa-comments"></i> Chat</a></li>
+            <li><a href="#" data-page="whatsapp" class="nav-cta" style="background: linear-gradient(135deg, #25D366, #128C7E) !important;">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a></li>
+            <li><a href="#" data-page="donasi" class="nav-cta"><i class="fas fa-hand-holding-heart"></i> Donasi</a></li>
+        </ul>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- ==========================================
+     MAIN CONTENT CONTAINER
+     ========================================== -->
+<main id="mainContainer">
+    <!-- Konten akan di-render oleh JavaScript -->
+</main>
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h3>🌊 Ngera Shells</h3>
+            <p>Ngera merupakan nama seorang Leluhur dalam satu Suku di Wilayah Lio dan memiliki kekuatan Supranatural. Makna lain dari kata Ngera: <strong>Nge Leka Ra</strong> berarti Berasal dari darah yang sama.</strong>melambangkan persaudaraan, kebersamaan, dan ikatan kekerabatan dalam satu garis keturunan.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Jelajahi</h4>
+            <ul>
+                <li><a href="#" data-page="home">Beranda</a></li>
+                <li><a href="#" data-page="profil">Profil Museum</a></li>
+                <li><a href="#" data-page="sejarah">Sejarah</a></li>
+                <li><a href="#" data-page="tujuan">Tujuan</a></li>
+                <li><a href="#" data-page="dokumen">Dokumen Resmi</a></li>
+                <li><a href="#" data-page="chat">Chat Publik</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Media</h4>
+            <ul>
+                <li><a href="#" data-page="galeri">Galeri Foto</a></li>
+                <li><a href="#" data-page="youtube">Video Museum</a></li>
+                <li><a href="#" data-submenu="bifalfia">Koleksi Bifalfia</a></li>
+                <li><a href="#" data-submenu="gastropoda">Koleksi Gastropoda</a></li>
+                <li><a href="#" data-submenu="sepalopoda">Koleksi Sepalopoda</a></li>
+                <li><a href="#" data-submenu="astropoda">Koleksi Astropoda</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Hubungi Kami</h4>
+            <p><i class="fab fa-whatsapp"></i> +62 813-5381-0065</p>
+            <p><i class="fab fa-whatsapp"></i> +62 813-3860-7300</p>
+            <p><i class="fas fa-envelope"></i> info@ngerashells.id</p>
+            <p><i class="fas fa-map-marker-alt"></i> Ende, NTT - Indonesia</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Museum Bahari Ngera Shells. Melestarikan Warisan Fosil & Kehidupan Laut Nusantara. Dibuat dengan 💙 di Ende (Markus_Paru).</p>
+    </div>
+</footer>
+
+<!-- ==========================================
+     FLOATING ELEMENTS
+     ========================================== -->
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6281353810065?text=Halo%20Museum%20Bahari%20Ngera%20Shells%2C%20saya%20ingin%20bertanya..." 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="wa-float" 
+   aria-label="Chat via WhatsApp">
+    <span class="wa-float-pulse"></span>
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ==========================================
+     CHAT WIDGET
+     ========================================== -->
+<button class="chat-fab" id="chatFab" aria-label="Buka Chat">
+    <i class="fas fa-comments"></i>
+    <span class="badge hidden" id="chatBadge">0</span>
+</button>
+
+<div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+        <div class="chat-header-icon"><i class="fas fa-water"></i></div>
+        <div class="chat-header-info">
+            <h4>Chat Publik Ngera Shells</h4>
+            <small>Online • Diskusi bersama pengunjung</small>
+        </div>
+        <button class="chat-close" id="chatCloseBtn" aria-label="Tutup chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="chat-empty"><i class="fas fa-comments"></i><p>Memuat pesan...</p></div>
+    </div>
+    <div class="chat-input-area">
+        <div class="wa-container">
+            <div class="wa-container-title"><i class="fab fa-whatsapp"></i> Butuh Respon Cepat?</div>
+            <a href="https://wa.me/6281353810065?text=Halo%20Admin%20Museum%20Bahari" target="_blank" rel="noopener noreferrer" class="wa-btn">
+                <i class="fab fa-whatsapp"></i>
+                <div class="wa-btn-info">
+                    <span class="wa-btn-name">+62 813-5381-0065</span>
+                    <span class="wa-btn-role">Admin Utama</span>
+                </div>
+                <i class="fas fa-arrow-right wa-btn-arrow"></i>
+            </a>
+            <a href="https://wa.me/6281338607300?text=Halo%20Pengelola%20Museum" target="_blank" rel="noopener noreferrer" class="wa-btn">
+                <i class="fab fa-whatsapp"></i>
+                <div class="wa-btn-info">
+                    <span class="wa-btn-name">+62 813-3860-7300</span>
+                    <span class="wa-btn-role">Pengelola Museum</span>
+                </div>
+                <i class="fas fa-arrow-right wa-btn-arrow"></i>
+            </a>
+        </div>
+        <input type="text" class="chat-name-input" id="chatName" placeholder="Nama Anda..." maxlength="30">
+        <div class="chat-input-row">
+            <textarea class="chat-input" id="chatInput" placeholder="Atau tulis pesan di chat publik..." rows="1" maxlength="500"></textarea>
+            <button class="chat-send" id="chatSend" aria-label="Kirim pesan">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     MODAL (Detail Koleksi)
+     ========================================== -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Tutup modal"><i class="fas fa-times"></i></button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     LIGHTBOX (Zoom Foto Galeri)
+     ========================================== -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Tutup lightbox"><i class="fas fa-times"></i></button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Gambar sebelumnya"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Gambar berikutnya"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-content">
+        <img src="" alt="" id="lightboxImg">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     AUDIO GUIDE PLAYER
+     ========================================== -->
+<div class="audio-player-floating" id="audioPlayer" style="display:none;">
+    <div class="audio-player-header">
+        <i class="fas fa-headphones"></i>
+        <span>Museum Tour Guide</span>
+        <button class="audio-close" onclick="toggleAudioGuide()" aria-label="Tutup audio">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <audio id="museumAudio" controls>
+        <source src="assets/audio/museum-tour-guide.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung audio HTML5.
+    </audio>
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT FILES - URUTAN PENTING!
+     ========================================== -->
+
+<!-- 1. Firebase SDK (dari CDN) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<!-- 2. Firebase Config (inisialisasi) -->
+<script src="js/firebase-config.js"></script>
+
+<!-- 3. Data (koleksi, profil, galeri, video, dokumen, audio) -->
+<script src="js/data.js"></script>
+
+<!-- 4. Narasi (template HTML untuk halaman statis) -->
+<script src="js/narasi.js"></script>
+
+<!-- 5. Render (fungsi render halaman) -->
+<script src="js/render.js"></script>
+
+<!-- 6. Chat (fungsi chat Firebase + widget) -->
+<script src="js/chat.js"></script>
+
+<!-- 7. App (events, utilities, audio, init) -->
+<script src="js/app.js"></script>
+
+<!-- ==========================================
+     INLINE JAVASCRIPT UNTUK DROPDOWN TOGGLE
+     ========================================== -->
+<script>
+    // Dropdown toggle untuk mobile & desktop
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        const dropdownContent = document.getElementById('dropdownContent');
+        const dropdownArrow = document.getElementById('dropdownArrow');
+        
+        if (dropdownToggle && dropdownContent) {
+            // Click handler untuk toggle
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdownContent.classList.toggle('show');
+                if (dropdownArrow) {
+                    dropdownArrow.style.transform = dropdownContent.classList.contains('show') 
+                        ? 'rotate(180deg)' 
+                        : 'rotate(0deg)';
+                }
+            });
+            
+            // Tutup dropdown jika klik di luar
+            document.addEventListener('click', function(e) {
+                if (!dropdownToggle.contains(e.target) && !dropdownContent.contains(e.target)) {
+                    dropdownContent.classList.remove('show');
+                    if (dropdownArrow) {
+                        dropdownArrow.style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+            
+            // Tutup dropdown jika pilih salah satu item
+            dropdownContent.querySelectorAll('a').forEach(function(item) {
+                item.addEventListener('click', function() {
+                    dropdownContent.classList.remove('show');
+                    if (dropdownArrow) {
+                        dropdownArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        }
+    });
+</script>
+
+<!-- Paywall Overlay -->
+<div id="paywallOverlay"></div>
+<!-- Anti-Copy Script -->
+<script src="js/components/anti-copy.js"></script>
+<script src="js/components/paywall.js"></script>
+<!-- Other scripts -->
+<script src="js/firebase-config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/narasi.js"></script>
+<script src="js/render.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

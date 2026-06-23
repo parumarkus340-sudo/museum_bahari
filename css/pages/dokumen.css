@@ -1,0 +1,223 @@
+/* =====================================================
+   DOKUMEN.CSS - DOKUMEN PAGE STYLES
+   ===================================================== */
+
+.dokumen-container {
+    max-width: var(--bp-wide);
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+/* ============ DOKUMEN GRID ============ */
+.dokumen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.dokumen-card {
+    background: var(--foam);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 105, 148, 0.08);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+.dokumen-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--ocean-primary), var(--coral));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+}
+
+.dokumen-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.dokumen-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* ============ DOKUMEN ICON ============ */
+.dokumen-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-light));
+    color: var(--foam);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-2xl);
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(0, 105, 148, 0.3);
+}
+
+.dokumen-info {
+    flex: 1;
+}
+
+.dokumen-kategori {
+    display: inline-block;
+    background: var(--sand);
+    color: var(--ocean-primary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+}
+
+.dokumen-info h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--ocean-dark);
+}
+
+.dokumen-info p {
+    color: var(--text-light);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ============ DOKUMEN META ============ */
+.dokumen-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.dokumen-meta span {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.dokumen-meta i {
+    color: var(--ocean-primary);
+}
+
+/* ============ DOKUMEN BUTTON ============ */
+.dokumen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--ocean-primary), var(--ocean-light));
+    color: var(--foam);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-sm);
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3);
+}
+
+.dokumen-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 105, 148, 0.5);
+    color: var(--foam);
+}
+
+.dokumen-btn i {
+    font-size: var(--text-base);
+}
+
+/* ============ EMPTY STATE ============ */
+.dokumen-empty {
+    text-align: center;
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    color: var(--text-light);
+}
+
+.dokumen-empty i {
+    font-size: var(--text-5xl);
+    color: var(--ocean-light);
+    opacity: 0.3;
+    margin-bottom: var(--spacing-lg);
+    display: block;
+}
+
+.dokumen-empty h3 {
+    font-size: var(--text-xl);
+    color: var(--ocean-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+    .dokumen-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .dokumen-container {
+        padding: var(--spacing-md);
+    }
+
+    .dokumen-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .dokumen-card {
+        padding: var(--spacing-lg);
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dokumen-icon {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-xl);
+    }
+
+    .dokumen-meta {
+        justify-content: center;
+    }
+
+    .dokumen-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .dokumen-container {
+        padding: var(--spacing-sm);
+    }
+
+    .dokumen-card {
+        padding: var(--spacing-md);
+    }
+
+    .dokumen-info h3 {
+        font-size: var(--text-base);
+    }
+}
+
+/* =====================================================
+   END OF FILE
+   ===================================================== */

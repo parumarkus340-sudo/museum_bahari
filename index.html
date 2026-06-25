@@ -122,6 +122,11 @@
             <div class="nav-logo-text">
                 Ngera Shells
                 <small>Museum Bahari</small>
+                <!-- 🆕 SUBTITLE USER - Akan diisi oleh visitor.js -->
+                <div class="nav-user-subtitle" id="navUserSubtitle" style="display: none;">
+                    <span class="sub-name" id="navUserName"></span>
+                    <span class="sub-role" id="navUserRole"></span>
+                </div>
             </div>
         </a>
 
@@ -152,8 +157,11 @@
             <li><a href="#" data-page="donasi" class="nav-cta"><i class="fas fa-hand-holding-heart"></i> Donasi</a></li>
         </ul>
 
-        <!-- ✅ USER BADGE (untuk visitor system) -->
-        <div id="userBadgeContainer"></div>
+        <!-- 🆕 USER BADGE MOBILE (Hanya muncul di HP) -->
+        <div id="userBadgeMobile" class="user-badge-mobile" onclick="resetVisitorName()" title="Klik untuk reset nama">
+            <i class="fas fa-user-circle"></i>
+            <span id="userBadgeMobileName">User</span>
+        </div>
 
         <!-- Mobile Menu Toggle -->
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">

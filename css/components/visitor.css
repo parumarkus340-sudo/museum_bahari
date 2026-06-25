@@ -1,55 +1,327 @@
 /* =====================================================
-   VISITOR.CSS - USER BADGE ONLY
-   Tanpa welcome modal & welcome banner
+   VISITOR.CSS - WELCOME MODAL & USER SUBTITLE
    ===================================================== */
 
-/* User Badge di Navbar */
-.user-badge {
-    display: none;
+/* ==========================================
+   SUBTITLE USER DI BAWAH LOGO (DESKTOP)
+   Posisi absolute agar tidak menggeser navbar
+   ========================================== */
+.nav-logo-text {
+    position: relative;
+    padding-bottom: 16px; /* Beri ruang untuk subtitle */
+}
+
+.nav-user-subtitle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none; /* Default hidden, akan di-show oleh JS */
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.4rem 1rem 0.4rem 0.4rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50px;
+    gap: 4px;
+    font-size: 0.65rem;
+    line-height: 1;
+    white-space: nowrap;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: opacity 0.3s;
+    animation: fadeInSubtitle 0.5s ease;
+}
+
+@keyframes fadeInSubtitle {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-user-subtitle:hover {
+    opacity: 0.8;
+}
+
+.nav-user-subtitle .sub-name {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-user-subtitle .sub-role {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: 0.6rem;
+}
+
+/* Warna saat navbar scrolled (teks gelap) */
+.navbar.scrolled .nav-user-subtitle .sub-name {
+    color: var(--ocean-dark);
+}
+
+.navbar.scrolled .nav-user-subtitle .sub-role {
+    color: var(--text-light);
+}
+
+/* ==========================================
+   USER BADGE MOBILE
+   ========================================== */
+.user-badge-mobile {
+    display: none; /* Default hidden */
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
 }
 
-.user-badge.active {
-    display: flex;
-}
-
-.user-badge:hover {
+.user-badge-mobile:hover {
     background: rgba(255, 255, 255, 0.25);
 }
 
-.user-badge-avatar {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #ff6b6b, #ffa502);
+.navbar.scrolled .user-badge-mobile {
+    background: #f0f7fa;
+    color: var(--ocean-dark);
+    border-color: #dceef5;
+}
+
+/* ==========================================
+   WELCOME MODAL
+   ========================================== */
+.welcome-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 31, 63, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 99999; /* Pastikan di atas semua elemen */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.welcome-modal.active {
+    display: flex;
+}
+
+.welcome-modal-container {
+    background: white;
+    border-radius: 25px;
+    max-width: 550px;
+    width: 100%;
+    padding: 3rem;
+    text-align: center;
+    animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.welcome-modal-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #006994, #004d73);
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: white;
+    font-size: 3rem;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 105, 148, 0.3);
 }
 
-.user-badge-name {
-    color: white;
+.welcome-modal h2 {
+    color: #001f3f;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.welcome-subtitle {
+    color: #006994;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.welcome-description {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Form Styles */
+.welcome-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group label i {
+    color: #006994;
+    margin-right: 0.5rem;
+}
+
+.welcome-form input[type="text"] {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+}
+
+.welcome-form input[type="text"]:focus {
+    outline: none;
+    border-color: #006994;
+    box-shadow: 0 0 0 3px rgba(0, 105, 148, 0.1);
+}
+
+/* Category Options */
+.category-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.category-option {
+    cursor: pointer;
+    position: relative;
+}
+
+.category-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.category-card {
+    background: #f8f9fa;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.category-card i {
+    font-size: 1.8rem;
+    color: #006994;
+    transition: all 0.3s;
+}
+
+.category-card span {
     font-size: 0.85rem;
     font-weight: 600;
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    color: #2c3e50;
+    transition: all 0.3s;
 }
 
-/* Mobile Responsive */
+.category-option input[type="radio"]:checked + .category-card {
+    background: linear-gradient(135deg, #006994, #004d73);
+    border-color: #006994;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 105, 148, 0.3);
+}
+
+.category-option input[type="radio"]:checked + .category-card i,
+.category-option input[type="radio"]:checked + .category-card span {
+    color: white;
+}
+
+.category-card:hover {
+    border-color: #006994;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 105, 148, 0.2);
+}
+
+/* Submit Button */
+.welcome-submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #006994, #004d73);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.welcome-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 105, 148, 0.4);
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+   ========================================== */
 @media (max-width: 768px) {
-    .user-badge-name {
-        display: none;
+    /* Sembunyikan subtitle di mobile */
+    .nav-user-subtitle {
+        display: none !important;
+    }
+    
+    /* Tampilkan badge mobile */
+    .user-badge-mobile {
+        display: flex !important;
+    }
+    
+    /* Modal responsive */
+    .welcome-modal-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .category-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .welcome-modal h2 {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1rem;
     }
 }

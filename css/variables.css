@@ -1,58 +1,366 @@
 /* =====================================================
    VARIABLES.CSS
-   Semua CSS variables & root configuration
+   CSS Custom Properties (Variables)
    
-   CARA UPDATE:
-   - Ubah warna tema di sini
-   - Tambah variable baru di sini
+   FUNGSI:
+   - Menyimpan semua nilai yang sering digunakan
+   - Memudahkan perubahan tema secara global
+   - Konsistensi design di seluruh website
+   
+   CARA PAKAI:
+   - Di CSS: color: var(--ocean-primary);
+   - Di JS: getComputedStyle(document.body).getPropertyValue('--ocean-primary')
+   
+   CARA UBAH TEMA:
+   - Cukup ubah nilai di file ini
+   - Seluruh website akan otomatis berubah
    ===================================================== */
 
 :root {
-    /* ============ THEME COLORS ============ */
-    /* Ocean Theme (Primary) */
-    --ocean-dark: #001f3f;
-    --ocean-deep: #003366;
-    --ocean-primary: #006994;
-    --ocean-light: #4099c7;
-    --ocean-surface: #7ed6df;
+    /* ==========================================
+       1. WARNA TEMA UTAMA (OCEAN THEME)
+       ========================================== */
+    --ocean-darkest: #000d1a;      /* Sangat gelap - untuk background gelap */
+    --ocean-dark: #001f3f;         /* Gelap - navbar scrolled, footer */
+    --ocean-deep: #003366;         /* Dalam - gradient */
+    --ocean-primary: #006994;      /* Utama - tombol, link, aksen */
+    --ocean-light: #4099c7;        /* Terang - hover, aksen */
+    --ocean-surface: #7ed6df;      /* Permukaan - highlight, badge */
+    --ocean-lightest: #b8e6ee;     /* Paling terang - background */
     
-    /* Accent Colors */
-    --coral: #ff6b6b;
-    --coral-light: #ffa502;
-    --accent-orange: #ffa502;
+    /* ==========================================
+       2. WARNA AKSEN
+       ========================================== */
+    --coral: #ff6b6b;              /* Merah coral - CTA, warning */
+    --coral-light: #ffa502;        /* Oranye - gradient, highlight */
+    --coral-dark: #ee5a5a;         /* Merah gelap - hover */
     
-    /* Neutral Colors */
-    --sand: #f5f6fa;
-    --foam: #ffffff;
-    --text-dark: #2c3e50;
-    --text-light: #7f8c8d;
+    /* Warna tambahan */
+    --accent-gold: #ffd700;        /* Emas - premium, VIP */
+    --accent-purple: #9b59b6;      /* Ungu - special */
+    --accent-pink: #ff69b4;        /* Pink - love, heart */
     
-    /* Brand Colors */
+    /* ==========================================
+       3. WARNA NETRAL
+       ========================================== */
+    --white: #ffffff;
+    --foam: #ffffff;               /* Alias untuk white */
+    --sand: #f5f6fa;               /* Background terang */
+    --cloud: #ecf0f1;              /* Background card */
+    --silver: #bdc3c7;             /* Border, divider */
+    --gray-light: #95a5a6;         /* Text light */
+    --gray: #7f8c8d;               /* Text medium */
+    --gray-dark: #34495e;          /* Text dark */
+    --charcoal: #2c3e50;           /* Text darkest */
+    --black: #000000;
+    
+    /* Alias untuk text */
+    --text-dark: #2c3e50;          /* Text utama */
+    --text-medium: #7f8c8d;        /* Text secondary */
+    --text-light: #95a5a6;         /* Text tertiary */
+    --text-white: #ffffff;         /* Text di background gelap */
+    
+    /* ==========================================
+       4. WARNA STATUS
+       ========================================== */
+    --success: #10b981;            /* Hijau - sukses */
+    --success-light: #d1fae5;      /* Hijau terang */
+    --success-dark: #059669;       /* Hijau gelap */
+    
+    --warning: #f59e0b;            /* Kuning - warning */
+    --warning-light: #fef3c7;      /* Kuning terang */
+    --warning-dark: #d97706;       /* Kuning gelap */
+    
+    --error: #ef4444;              /* Merah - error */
+    --error-light: #fee2e2;        /* Merah terang */
+    --error-dark: #dc2626;         /* Merah gelap */
+    
+    --info: #3b82f6;               /* Biru - info */
+    --info-light: #dbeafe;         /* Biru terang */
+    --info-dark: #2563eb;          /* Biru gelap */
+    
+    /* ==========================================
+       5. WARNA BRAND
+       ========================================== */
+    /* WhatsApp */
     --wa-primary: #25D366;
     --wa-dark: #128C7E;
+    --wa-light: #DCF8C6;
+    
+    /* YouTube */
     --yt-red: #ff0000;
     --yt-dark: #cc0000;
+    --yt-light: #ff4444;
     
-    /* ============ SHADOWS ============ */
+    /* Facebook */
+    --fb-primary: #1877f2;
+    --fb-dark: #0d65d9;
+    
+    /* Instagram */
+    --ig-primary: #e4405f;
+    --ig-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    
+    /* Twitter/X */
+    --twitter-primary: #1da1f2;
+    --twitter-dark: #0d8ecf;
+    
+    /* ==========================================
+       6. BACKGROUND GRADIENTS
+       ========================================== */
+    --gradient-ocean: linear-gradient(135deg, var(--ocean-dark), var(--ocean-deep));
+    --gradient-ocean-light: linear-gradient(135deg, var(--ocean-primary), var(--ocean-light));
+    --gradient-coral: linear-gradient(135deg, var(--coral), var(--coral-light));
+    --gradient-success: linear-gradient(135deg, var(--success), var(--success-dark));
+    --gradient-whatsapp: linear-gradient(135deg, var(--wa-primary), var(--wa-dark));
+    
+    /* Background page */
+    --bg-page: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 50%, #81d4fa 100%);
+    --bg-card: #ffffff;
+    --bg-section: #f8fbff;
+    
+    /* ==========================================
+       7. SHADOWS
+       ========================================== */
+    --shadow-xs: 0 1px 2px rgba(0, 31, 63, 0.05);
     --shadow-sm: 0 2px 8px rgba(0, 31, 63, 0.1);
     --shadow-md: 0 8px 24px rgba(0, 31, 63, 0.15);
     --shadow-lg: 0 20px 60px rgba(0, 31, 63, 0.25);
+    --shadow-xl: 0 30px 80px rgba(0, 31, 63, 0.35);
     
-    /* ============ TRANSITIONS ============ */
-    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Shadow berwarna */
+    --shadow-ocean: 0 8px 24px rgba(0, 105, 148, 0.3);
+    --shadow-coral: 0 8px 24px rgba(255, 107, 107, 0.3);
+    --shadow-whatsapp: 0 8px 24px rgba(37, 211, 102, 0.3);
+    
+    /* Shadow hover */
+    --shadow-hover-sm: 0 4px 12px rgba(0, 31, 63, 0.15);
+    --shadow-hover-md: 0 12px 32px rgba(0, 31, 63, 0.2);
+    --shadow-hover-lg: 0 20px 50px rgba(0, 31, 63, 0.3);
+    
+    /* ==========================================
+       8. TRANSITIONS
+       ========================================== */
+    --transition-fastest: all 0.15s ease;
     --transition-fast: all 0.25s ease;
+    --transition-normal: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     
-    /* ============ SIZES ============ */
+    /* Transition khusus */
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* ==========================================
+       9. BORDER RADIUS
+       ========================================== */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 25px;
+    --radius-2xl: 30px;
+    --radius-full: 50px;
+    --radius-circle: 50%;
+    
+    /* ==========================================
+       10. SPACING
+       ========================================== */
+    --spacing-xxs: 0.25rem;   /* 4px */
+    --spacing-xs: 0.5rem;     /* 8px */
+    --spacing-sm: 1rem;       /* 16px */
+    --spacing-md: 1.5rem;     /* 24px */
+    --spacing-lg: 2rem;       /* 32px */
+    --spacing-xl: 3rem;       /* 48px */
+    --spacing-2xl: 4rem;      /* 64px */
+    --spacing-3xl: 6rem;      /* 96px */
+    
+    /* Padding section */
+    --section-padding-y: 6rem;
+    --section-padding-x: 2rem;
+    
+    /* ==========================================
+       11. FONT SIZES
+       ========================================== */
+    --text-xs: 0.7rem;        /* 11.2px */
+    --text-sm: 0.85rem;       /* 13.6px */
+    --text-base: 0.95rem;     /* 15.2px */
+    --text-md: 1rem;          /* 16px */
+    --text-lg: 1.1rem;        /* 17.6px */
+    --text-xl: 1.3rem;        /* 20.8px */
+    --text-2xl: 1.5rem;       /* 24px */
+    --text-3xl: 1.8rem;       /* 28.8px */
+    --text-4xl: 2rem;         /* 32px */
+    --text-5xl: 2.5rem;       /* 40px */
+    --text-6xl: 3rem;         /* 48px */
+    --text-7xl: 3.5rem;       /* 56px */
+    --text-8xl: 4rem;         /* 64px */
+    --text-9xl: 5rem;         /* 80px */
+    
+    /* ==========================================
+       12. FONT WEIGHTS
+       ========================================== */
+    --font-thin: 100;
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    --font-black: 900;
+    
+    /* ==========================================
+       13. LINE HEIGHTS
+       ========================================== */
+    --leading-none: 1;
+    --leading-tight: 1.2;
+    --leading-snug: 1.4;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.7;
+    --leading-loose: 1.9;
+    --leading-xl: 2.2;
+    
+    /* ==========================================
+       14. FONT FAMILIES
+       ========================================== */
+    --font-primary: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    --font-accent: 'Cormorant Garamond', serif;
+    --font-mono: 'Courier New', monospace;
+    
+    /* ==========================================
+       15. Z-INDEX
+       ========================================== */
+    --z-negative: -1;
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-navbar: 1000;
+    --z-modal-backdrop: 1500;
+    --z-modal: 2000;
+    --z-popover: 2500;
+    --z-tooltip: 3000;
+    --z-chat: 997;
+    --z-fab: 998;
+    --z-preloader: 9999;
+    --z-welcome-modal: 99999;
+    
+    /* ==========================================
+       16. SIZES
+       ========================================== */
     --container-max: 1400px;
-    --nav-height: 70px;
-    --border-radius-sm: 8px;
-    --border-radius-md: 15px;
-    --border-radius-lg: 25px;
+    --container-sm: 900px;
+    --container-md: 1100px;
+    --container-lg: 1400px;
     
-    /* ============ SPACING ============ */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 3rem;
-    --spacing-xl: 4rem;
+    /* Navbar */
+    --navbar-height: 70px;
+    --navbar-height-scrolled: 60px;
+    
+    /* Sidebar */
+    --sidebar-width: 280px;
+    
+    /* Chat */
+    --chat-width: 380px;
+    --chat-height: 550px;
+    
+    /* FAB */
+    --fab-size: 60px;
+    --fab-size-sm: 50px;
+    
+    /* ==========================================
+       17. OPACITY
+       ========================================== */
+    --opacity-0: 0;
+    --opacity-10: 0.1;
+    --opacity-20: 0.2;
+    --opacity-30: 0.3;
+    --opacity-40: 0.4;
+    --opacity-50: 0.5;
+    --opacity-60: 0.6;
+    --opacity-70: 0.7;
+    --opacity-80: 0.8;
+    --opacity-90: 0.9;
+    --opacity-100: 1;
+    
+    /* ==========================================
+       18. BREAKPOINTS (untuk referensi)
+       ========================================== */
+    /* 
+       Gunakan di media queries:
+       @media (max-width: 480px) { ... }   - Small mobile
+       @media (max-width: 768px) { ... }   - Mobile
+       @media (max-width: 968px) { ... }   - Tablet
+       @media (max-width: 1200px) { ... }  - Small desktop
+       @media (min-width: 1600px) { ... }  - Large desktop
+    */
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 968px;
+    --breakpoint-lg: 1200px;
+    --breakpoint-xl: 1600px;
+    
+    /* ==========================================
+       19. BORDERS
+       ========================================== */
+    --border-thin: 1px solid rgba(0, 105, 148, 0.1);
+    --border-normal: 2px solid rgba(0, 105, 148, 0.2);
+    --border-thick: 3px solid rgba(0, 105, 148, 0.3);
+    
+    /* Border dashed */
+    --border-dashed: 2px dashed rgba(0, 105, 148, 0.3);
+    
+    /* ==========================================
+       20. BACKDROP FILTERS
+       ========================================== */
+    --blur-sm: blur(5px);
+    --blur-md: blur(10px);
+    --blur-lg: blur(15px);
+    --blur-xl: blur(20px);
+    
+    /* Glass effect */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-blur: blur(15px);
+}
+
+/* ==========================================
+   DARK MODE (Opsional - untuk masa depan)
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Override variabel untuk dark mode */
+        --text-dark: #e0e0e0;
+        --text-medium: #b0b0b0;
+        --text-light: #808080;
+        
+        --bg-page: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        --bg-card: #1e1e2e;
+        --bg-section: #16162a;
+        
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* ==========================================
+   HIGH CONTRAST MODE (Accessibility)
+   ========================================== */
+@media (prefers-contrast: high) {
+    :root {
+        --text-dark: #000000;
+        --text-light: #333333;
+        --border-thin: 2px solid #000000;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION (Accessibility)
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-fastest: all 0.05s ease;
+        --transition-fast: all 0.1s ease;
+        --transition-normal: all 0.2s ease;
+        --transition-slow: all 0.3s ease;
+    }
 }

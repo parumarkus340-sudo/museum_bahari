@@ -47,9 +47,12 @@
     max-width: 900px;
     text-align: center;
     padding: 2rem;
+    padding-top: 120px;  /* 🆕 Beri ruang di bawah navbar */
     position: relative;
     z-index: 2;
     animation: fadeInUp 1.2s ease;
+    margin-top: auto;    /* 🆕 Dorong konten ke bawah */
+    margin-bottom: auto; /* 🆕 Seimbangkan vertikal */
 }
 
 .hero-badge {
